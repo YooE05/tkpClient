@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 490ae180ebbcd124ea6d6fe314407da9, type: 3}
+  m_Name: SpritesSettings3
+  m_EditorClassIdentifier: 
+  floorCells:
+  - {fileID: 4796399692909254405, guid: 14c8455ada2558143ae4c71f961651eb, type: 3}
+  - {fileID: 8164560598207365, guid: 14c8455ada2558143ae4c71f961651eb, type: 3}
+  horizontalUpWalls:
+  - {fileID: 8392704183135386137, guid: c9d8146dd571f834e8a0df384ef81a48, type: 3}
+  - {fileID: 5511975369865542963, guid: c9d8146dd571f834e8a0df384ef81a48, type: 3}
+  horizontalDownWalls:
+  - {fileID: -6728942436077597839, guid: c9d8146dd571f834e8a0df384ef81a48, type: 3}
+  verticalLeftWalls:
+  - {fileID: 7654402259458781362, guid: a7e784c4d9f2fab43b1561534e2054fa, type: 3}
+  verticalRightWalls:
+  - {fileID: 8196876528128505885, guid: a7e784c4d9f2fab43b1561534e2054fa, type: 3}
+  leftUpCorner:
+  - {fileID: -2672179036991658626, guid: c9d8146dd571f834e8a0df384ef81a48, type: 3}
+  rightUpCorner:
+  - {fileID: -6746089847577113100, guid: c9d8146dd571f834e8a0df384ef81a48, type: 3}
+  leftDownCorner:
+  - {fileID: 2115584041093394304, guid: c9d8146dd571f834e8a0df384ef81a48, type: 3}
+  rightDownCorner:
+  - {fileID: 3618697547593979270, guid: c9d8146dd571f834e8a0df384ef81a48, type: 3}
