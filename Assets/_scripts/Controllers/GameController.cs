@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Proyecto26;
+
 public enum GameResult
 {
     WIN,
@@ -16,13 +18,13 @@ public class GameController : MonoBehaviour
     [Header("Main Links")]
     bool isDemo;
     Grid grid;
-    [SerializeField] ViewController viewController;
-    DataController dataController;
+    [SerializeField] ViewController _viewController;
+    DataController _dataController;
     PlayerMovement playerMovement;
     PlayerHealth playerHealth;
 
-    [SerializeField] List<Task> levelTasks = new List<Task>();
-    List<Task> DemolevelTasks = new List<Task>();
+    [SerializeField] List<ArticleTask> levelTasks = new List<ArticleTask>();
+    List<ArticleTask> DemolevelTasks = new List<ArticleTask>();
 
     [SerializeField] List<LevelTrapSettings> trapSettings;
     [SerializeField] List<SpritesSettings> spriteSettings;
@@ -77,13 +79,14 @@ public class GameController : MonoBehaviour
     [HideInInspector] public int correctAnswers = 0;
     [SerializeField] float countOfAllPhrases = 0;
 
-    [Header("Onboarding")]
-    InstructionController instructionController;
+    private RestManager _restManager;
 
-    #region Mono behaviour
+
+
+
     private void Awake()
     {
-        instructionController = FindObjectOfType<InstructionController>();
+        _restManager = new RestManager();
 
         DemolevelTasks.AddRange(levelTasks);
         if (FindObjectOfType<DataController>())
@@ -91,13 +94,14 @@ public class GameController : MonoBehaviour
         else { isDemo = true; }
 
         if (!isDemo)
-        { dataController = FindObjectOfType<DataController>(); }
+        { _dataController = FindObjectOfType<DataController>(); }
 
         playerHealth = FindObjectOfType<PlayerHealth>();
         playerMovement = FindObjectOfType<PlayerMovement>();
     }
     private void Start()
     {
+        _viewController.ShowLoadingView();
         GetNewLevelData();
 
         GameEvents.current.OnExitTriggerEnter += ChangeRoomByExit;
@@ -116,51 +120,54 @@ public class GameController : MonoBehaviour
 
     public void GetNewLevelData()
     {
-
+        _viewController.HideEndLoadingView();
         if (!isDemo)
         {
-            int crntLevel = dataController.GetUserData().ProgressData.Level;
+            int crntLevel = _dataController.GetUserLevel();
             if (crntLevel < 1)
             {
                 crntLevel = 1;
             }
             countOfRoom = (crntLevel >= 11) ? 11 : crntLevel + 1;
 
-
-            dataController.GetLevelTasks(crntLevel, maxCountRoomTasks, () =>
-            {
-                StartCoroutine("CheckForOnboarding");
-            });
+            LoadLevelTasks(maxCountRoomTasks, "level");
         }
         else
         {
             countOfRoom = 2;
-            GenerateLevelStruct();
         }
 
     }
-    private IEnumerator CheckForOnboarding()
-    {
-        instructionController.InitData(dataController.instructionData, dataController.GetUserId());
 
-        if (!instructionController.InstructionPassed)
+
+    private void LoadLevelTasks(int maxTasksInRoom, string rootAddition)
+    {
+        var bodyStr = $"{{\"maxTasksInRoom\": {maxTasksInRoom} }}";
+   
+        _restManager.currentRequest = new RequestHelper
         {
-            yield return new WaitForSeconds(instructionController.onboardingDelay);
-            viewController.HideGameView();
-            instructionController.ShowInstructionPanel();
+            Uri = _restManager._root + rootAddition,
+            Headers = new Dictionary<string, string> {
+            { "Authorization", "Bearer "+ _dataController.GetJwtToken() }  },
+            BodyString = bodyStr,
+            EnableDebug = true
+        };
 
-            StartCoroutine(WatingForLoadingInstructions());
-            yield return new WaitUntil(() => instructionController.InstructionPassed);
-
-            viewController.ShowGameView();
-        }
-        GenerateLevelStruct();
+        RestClient.GetArray<ArticleTask>(_restManager.currentRequest)
+        .Then(res =>
+        {
+            //передать данные в дата контроллер
+            _dataController._tasksArr = res;
+            GenerateLevelStruct();
+        })
+        .Catch(err =>
+        {
+            var error = err as RequestException;
+            Debug.Log(error.Message);
+            SceneManager.LoadScene("MenuScreen");
+        });
     }
-    private IEnumerator WatingForLoadingInstructions()
-    {
-        yield return new WaitUntil(() => instructionController.InstructionPassed);
 
-    }
 
     public void GenerateLevelStruct()
     {
@@ -168,7 +175,7 @@ public class GameController : MonoBehaviour
         playerMovement.canMove = false;
         countOfAllPhrases = 0;
         needChangeRoom = false;
-        viewController.RestartGameView(playerHealth.startHealth);
+        _viewController.RestartGameView(playerHealth.startHealth);
 
         playerHealth.currentHealth = playerHealth.startHealth;
         ClearRooms();
@@ -176,7 +183,7 @@ public class GameController : MonoBehaviour
         {
             allArticles.Clear();
             levelTasks.Clear();
-            levelTasks.AddRange(dataController.CurrentTasksData.tasks);
+            levelTasks.AddRange(_dataController._tasksArr);
         }
         else
         {
@@ -265,9 +272,9 @@ public class GameController : MonoBehaviour
         currentRoomIndex = roomsCoordinateDictionary[currentRoomCoordinate];
         roomsList[currentRoomIndex].gameObject.SetActive(true);
         playerMovement.grid = roomsList[currentRoomIndex].gridGO.GetComponent<Grid>();
-        viewController.HideLoadingScreen();
 
 
+        _viewController.HideLoadingView();
         playerMovement.gameObject.SetActive(true);
         Invoke("WaitAfterRespawn", 1);
     }
@@ -276,7 +283,6 @@ public class GameController : MonoBehaviour
     public void WaitAfterRespawn()
     {
         playerMovement.canMove = true;
-
     }
 
     Neighbours CheckNeighbours(int crntX, int crntY)
@@ -357,7 +363,7 @@ public class GameController : MonoBehaviour
             }*/
 
             //цикл по общему блоков фраз в задании
-            for (int j = 0; j < levelTasks[0].countOfArticles; j++)
+            for (int j = 0; j < levelTasks[0].articlesCount; j++)
             {
                 countOfAllPhrases++;
                 articlesCount++;
@@ -770,43 +776,71 @@ public class GameController : MonoBehaviour
     void IncreasePoints()
     {
         //если больше 70 процентов артиклей верны - показать кнопку дл€ перехода на след уровень
-        Debug.Log(Convert.ToInt32(viewController.pointsText.text));
+        Debug.Log(Convert.ToInt32(_viewController.pointsText.text));
         Debug.Log(countOfAllPhrases * 0.7f);
-        if (Convert.ToInt32(viewController.pointsText.text) >= countOfAllPhrases * 0.7f)
+        if (Convert.ToInt32(_viewController.pointsText.text) >= countOfAllPhrases * 0.7f)
         {
-            viewController.ShowExitButton();
+            _viewController.ShowExitButton();
         }
 
     }
-
+    private bool _isDataUpdating;
     public void EndGame()
     {
-        viewController.ShowGameEndPanel(playerHealth.startHealth, (int)countOfAllPhrases);
+        _isDataUpdating = true;
+
+        _viewController.ShowGameEndPanel(playerHealth.startHealth, (int)countOfAllPhrases);
         playerMovement.canMove = false;
 
-        dataController.GetUserData().ProgressData.Level++;
-        int points = Convert.ToInt32(viewController.pointsText.text);
+        _dataController.IncreaseLevel();
 
-        dataController.UpdateProgress(dataController.GetUserData().ProgressData.Level, points, () =>
-        {
-            viewController.ShowGameEndPanel(playerHealth.startHealth, (int)countOfAllPhrases);
-        }
-        );
+        int points = Convert.ToInt32(_viewController.pointsText.text);
 
+        Debug.Log(DateTime.UtcNow.ToString("yyyy-MM-ddTHH:mm:ss"));
+        UpdateUserProgress(new UserProgress(points, _dataController.GetUserLevel(), DateTime.UtcNow.ToString("yyyy-MM-ddTHH:mm:ss")), "users/update/progress");
     }
+    private void UpdateUserProgress(UserProgress bodyObject, string rootAddition)
+    {
 
-    #endregion
+        _restManager.currentRequest = new RequestHelper
+        {
+            Uri = _restManager._root + rootAddition,
+            Headers = new Dictionary<string, string> {
+            { "Authorization", "Bearer "+ _dataController.GetJwtToken() }  },
+            Body = bodyObject,
+            EnableDebug = true
+        };
 
+        RestClient.Post(_restManager.currentRequest)
+        .Then(res =>
+        {
+            _isDataUpdating = false;
+        })
+        .Catch(err =>
+        {
+            _isDataUpdating = false;
 
-    #region Ќе мои методы
+            var error = err as RequestException;
+            Debug.Log(error.Message);
+
+        });
+    }
     public void OnReturnToMainMenu()
     {
+        StopAllCoroutines();
+        StartCoroutine(TryBackToMenu());
+    }
+    IEnumerator TryBackToMenu()
+    {
+        _viewController.ShowEndLoadingView();
+
+        while (_isDataUpdating)
+        {
+            yield return null;
+        }
+
+        _viewController.HideEndLoadingView();
         SceneManager.LoadScene("MenuScreen");
     }
-    private IEnumerator OnRoundTimeExpired()
-    {
-        yield return null;
-    }
 
-    #endregion
 }

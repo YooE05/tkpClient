@@ -7,159 +7,75 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public enum AuthErrors
-{
-    //edit
-}
 public class AuthorithationView : MonoBehaviour
 {
-    [SerializeField] private string NextSceneToLoad = null;
-    [SerializeField] private string PlatformRefgistrationScene = "PlatformRegistration";
-    [SerializeField] private GameObject banner;
+    [SerializeField] private GameObject _loadingView;
+    [SerializeField] Button[] _menuButtons;
 
-    [Header("UI panels")]
-    public GameObject AuthPanel;
+    public GameObject _authPanel;
+
+    public InputField _logUsername;
+    public InputField _logPasswordInput;
+
 
     internal UserCreditionals GetLoginData()
     {
-        return new UserCreditionals(logUsername.text, logPasswordInput.text);
+        return new UserCreditionals(_logUsername.text, _logPasswordInput.text);
+    }
+    internal void ShowPanel()
+    {
+        ResetView();
+        _authPanel.SetActive(true);
+    }
+    internal void HidePanel()
+    {
+        _authPanel.SetActive(false);
     }
 
-    internal UserRegistrationData GetRegistrationData()
+    public void InitView(UserCreditionals initCreds)
     {
-        return new UserRegistrationData(logUsername.text, logPasswordInput.text, "kkk","111");
-    }
+       // _logUsername.text = "";
+     //   _logPasswordInput.text = "";
 
-    public GameObject RegistrationPanel;
-
-    [Header("Auth")]
-    public InputField logUsername;
-    public InputField logPasswordInput;
-
-    [Header("Reg")]
-    public InputField regUsername;
-    public InputField regPasswordInput;
-
-    private void Start()
-    {
-        PlayerPrefs.DeleteAll();
-
-        //If Firebase Emulator is acitve, do nothing, because this object authentificates in system
-        if (FirebaseProjectConfigurations.PROJECT_BUILD == ProjectBuildType.Emulator)
-            return;
-
-        if (FirebaseProjectConfigurations.PROJECT_BUILD == ProjectBuildType.Release)
+        if (initCreds.username != null && initCreds.password != null)
         {
-            InitView();
-        }
-            
-        DataController dataController = FindObjectOfType<DataController>();
-        if (dataController != null)
-            Destroy(dataController.gameObject);
-
-
-        if (FirebaseManager.Instance.Auth.HasActiveSession())
-        {
-            string refreshToken = FirebaseManager.Instance.Auth.GetRefreshToken();
-            FirebaseManager.Instance.Auth.RefreshToken(refreshToken, ()=>
-            {
-
-                GoToNextScene();
-            }, ()=>
-            {
-                HideBanner();
-            });
-        }
-        else
-        {
-            HideBanner();
-        }
-    }
-
-    private void InitView()
-    {
-        ShowBanner();
-        EnableAndClearAuthUI();
-
-        AuthPanel.SetActive(true);
-        RegistrationPanel.SetActive(false);
-    }
-    
-    //UI Handlers
-    public void OnSignInClicked()
-    {
-        if (string.IsNullOrEmpty(logUsername.text) || string.IsNullOrEmpty(logPasswordInput.text))
-            return;
-
-        DisableMenuButtons(AuthPanel);
-
-        FirebaseManager.Instance.Auth.SignInEmailPassword(logUsername.text, logPasswordInput.text, (response)=>
-        {
-            FirebaseManager.Instance.Auth.SetIdToken(response.idToken);
-            FirebaseManager.Instance.Auth.SetLocalId(response.localId);
-            FirebaseManager.Instance.Auth.SetRefreshToken(response.refreshToken);
-
-            GoToNextScene();
-        }, (exception)=>
-        {
-            Debug.Log($"Failed to sign in. Message: {exception.Message}");
-
-            AuthPanel.transform.FindDeepChild("ErrorMessage").GetComponent<Text>().text = "";
-            EnableMenuButtons(AuthPanel);
-        });
-    }
-    public void OnSignUpClicked()
-    {
-        GoToPlatformRegisterScene();
-    }
-
-    private void GoToNextScene()
-    {
-        if(string.IsNullOrEmpty(NextSceneToLoad))
-        {
-            Debug.Log("Cannot load next scene. NextSceneToLoad is null or empty");
-            return;
+            _logUsername.text = initCreds.username;
+            _logPasswordInput.text = initCreds.password;
         }
 
-        SceneManager.LoadScene(NextSceneToLoad);
-    }
-    private void GoToPlatformRegisterScene()
-    {
-        SceneManager.LoadScene(PlatformRefgistrationScene);
+        _authPanel.SetActive(true);
+        _loadingView.SetActive(false);
+        EnableMenuButtons();
     }
 
-    //UI
-    private void EnableAndClearAuthUI()
+    private void ResetView()
     {
-        Debug.Log("Enabling auth ui...");
-        AuthPanel.transform.FindDeepChild("ErrorMessage").GetComponent<Text>().text = "";
+       // _logUsername.text = "";
+     //   _logPasswordInput.text = "";
 
-        AuthPanel.SetActive(true);
-        banner.SetActive(false);
+    }
 
-        logUsername.text = "";
-        logPasswordInput.text = "";
-    }
-    private void ShowBanner()
+    public void ShowLoadingView()
     {
-        banner.SetActive(true);
+        _loadingView.SetActive(true);
+        DisableMenuButtons();
     }
-    private void HideBanner()
+    public void HideLoadingView()
     {
-        banner.SetActive(false);
+        _loadingView.SetActive(false);
+        EnableMenuButtons();
     }
-    private void EnableMenuButtons(GameObject panel)
+   
+    private void EnableMenuButtons()
     {
-        Button[] btns = panel.transform.FindDeepChild("Menu").GetComponentsInChildren<Button>();
-        foreach (var btn in btns)
+        foreach (var btn in _menuButtons)
         {
             btn.interactable = true;
         }
     }
-    private void DisableMenuButtons(GameObject panel)
+    private void DisableMenuButtons()
     {
-        Button[] btns = panel.transform.FindDeepChild("Menu").GetComponentsInChildren<Button>();
-        foreach (var btn in btns)
+        foreach (var btn in _menuButtons)
         {
             btn.interactable = false;
         }

@@ -9,7 +9,7 @@ using UnityEngine.Networking;
 using UnityEditor;
 
 
-public class RestManager<T1, T2>
+public class RestManager
 {
     public string _root = "http://localhost:3000/";
 
@@ -139,16 +139,16 @@ public class ArticleTask
     public string difficulty;
     public string firstPhrase;
     public string[] phrases;
-    public string articlesCount;
+    public int articlesCount;
     public string[] articles;
 
 
-    public ArticleTask(string difficulty, string firstPhrase, string[] phrases, string articlesCount, string[] articles)
+/*    public ArticleTask(string difficulty, string firstPhrase, string[] phrases, int articlesCount, string[] articles)
     {
         this.difficulty = difficulty;
         this.firstPhrase = firstPhrase;
         this.phrases = phrases;
         this.articlesCount = articlesCount;
         this.articles = articles;
-    }
+    }*/
 }

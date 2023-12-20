@@ -73,8 +73,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d7094718bdac022428dd29244922d06b, type: 3}
-  m_Color: {r: 1, g: 0.013207495, b: 0.013207495, a: 1}
+  m_Sprite: {fileID: -6532173680489147480, guid: c9d8146dd571f834e8a0df384ef81a48, type: 3}
+  m_Color: {r: 1, g: 0.42480037, b: 0.3254717, a: 1}
   m_FlipX: 0
   m_FlipY: 1
   m_DrawMode: 0
@@ -101,7 +101,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.32, y: 0.33}
+    oldSize: {x: 0.45454547, y: 1}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -125,5 +125,5 @@ MonoBehaviour:
   delay: 2
   speed: 3
   cannonballPrefab: {fileID: 6687936080208434834, guid: 499623b2c7eddbb448427b0cc239307f, type: 3}
-  laserSparkPrefab: {fileID: 1304680456404916858, guid: cba2da717ce21a340892547f1de93513, type: 3}
+  laserSpark: {fileID: 0}
   isShoot: 0

@@ -15,12 +15,13 @@ public class ViewController : MonoBehaviour
     public GameObject gameEndPanel;
     public GameObject gameView;
 
-    public GameObject loadingScreen;
+    public GameObject _loadingScreen;
+    public GameObject _loadingEndScreen;
 
 
     void Start()
     {
-        loadingScreen.SetActive(true);
+        _loadingScreen.SetActive(true);
         gameEndPanel.SetActive(false);        
         ShowGameView();
 
@@ -75,9 +76,22 @@ public class ViewController : MonoBehaviour
         exitButton.SetActive(false);
     }
 
-    public void HideLoadingScreen()
+    internal void ShowLoadingView()
     {
-        loadingScreen.SetActive(false);
+        _loadingScreen.SetActive(true);
+    }
+    public void HideLoadingView()
+    {
+        _loadingScreen.SetActive(false);
+    }
+
+    internal void ShowEndLoadingView()
+    {
+       _loadingEndScreen.SetActive(true);
+    }
+    public void HideEndLoadingView()
+    {
+        _loadingEndScreen.SetActive(false);
     }
 
     public void ShowGameEndPanel(int startHp, int maxPoints)
@@ -99,4 +113,5 @@ public class ViewController : MonoBehaviour
         GameEvents.current.OnIncreasePoints -= IncreasePoints;
         GameEvents.current.OnDamagedPlayer -= ReduceHealth;
     }
+
 }
