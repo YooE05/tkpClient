@@ -101,9 +101,7 @@ public class EntryController : MonoBehaviour
     public void OnConfirmRegistrationClick()
     {
         UserRegistrationData _userRegData = _regView.GetRegistrationData();
-
-        //проверить не пустые ли данные и не имеет ли логин пробелов
-
+        
         //включить экран загрузки
         _regView.ShowLoadingView();
         Register(_userRegData, "users/create");
@@ -135,11 +133,7 @@ public class EntryController : MonoBehaviour
             var error = err as RequestException;
             if (error.StatusCode == 400)
             {
-                _errorMessageTxt.text = "incorrect enter data";
-            }
-            else if (error.StatusCode == 404)
-            {
-                _errorMessageTxt.text = "user already exist";
+                _errorMessageTxt.text = _restManager._errorOututDic[JsonUtility.FromJson<ErrorResponse>(error.Response).code];
             }
 
         });

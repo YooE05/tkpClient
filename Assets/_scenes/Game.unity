@@ -5367,7 +5367,7 @@ MonoBehaviour:
     phrases:
     - bread? Or not
     - bread?
-    articlesCount: 0
+    articlesCount: 2
     articles:
     - the
     - the
@@ -5375,63 +5375,63 @@ MonoBehaviour:
     firstPhrase: 
     phrases:
     - cat
-    articlesCount: 0
+    articlesCount: 1
     articles:
     - the
   - difficulty: 
-    firstPhrase: 
+    firstPhrase: I have
     phrases:
     - cat
-    articlesCount: 0
+    articlesCount: 1
     articles:
     - the
   - difficulty: 
-    firstPhrase: 
+    firstPhrase: ' Cairo is'
     phrases:
-    - cat
-    articlesCount: 0
+    - capital of Egypt.
+    articlesCount: 1
     articles:
     - the
   - difficulty: 
-    firstPhrase: 
+    firstPhrase: ' Cairo is'
     phrases:
-    - cat
-    articlesCount: 0
+    - capital of Egypt.
+    articlesCount: 1
     articles:
     - the
   - difficulty: 
-    firstPhrase: 
+    firstPhrase: ' Cairo is'
     phrases:
-    - cat
-    articlesCount: 0
+    - capital of Egypt.
+    articlesCount: 1
     articles:
     - the
   - difficulty: 
-    firstPhrase: 
+    firstPhrase: ' Cairo is'
     phrases:
-    - cat
-    articlesCount: 0
+    - capital of Egypt.
+    articlesCount: 1
     articles:
     - the
   - difficulty: 
-    firstPhrase: 
+    firstPhrase: ' Cairo is'
     phrases:
-    - cat
-    articlesCount: 0
+    - capital of Egypt.
+    articlesCount: 1
     articles:
     - the
   - difficulty: 
-    firstPhrase: 
+    firstPhrase: ' Cairo is'
     phrases:
-    - cat
-    articlesCount: 0
+    - capital of Egypt.
+    articlesCount: 1
     articles:
     - the
   - difficulty: 
-    firstPhrase: 
+    firstPhrase: ' Cairo is'
     phrases:
-    - cat
-    articlesCount: 0
+    - capital of Egypt.
+    articlesCount: 1
     articles:
     - the
   trapSettings:

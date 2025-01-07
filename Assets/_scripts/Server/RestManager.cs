@@ -17,6 +17,11 @@ public class RestManager
 
     public RequestHelper currentRequest;
 
+    public Dictionary<string, string> _errorOututDic =  new Dictionary<string, string>{ { "EmptyFields", "Fill all input fields" },
+                                                                                         { "IncorrectSymbol", "Name or Surname must have alphabet characters only" },
+                                                                                         { "ShortPassword", "Password must have longer then 6 character" }};
+
+
     public void LogMessage(string title, string message)
     {
 #if UNITY_EDITOR
@@ -45,7 +50,12 @@ public class RestManager
     }*/
 
 }
-
+[System.Serializable]
+public class ErrorResponse
+{
+    public string code;
+    public string message;
+}
 
 [System.Serializable]
 public class UserRegistrationData

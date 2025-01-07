@@ -40,15 +40,15 @@ public class Phrase : MonoBehaviour
         playerHealth = FindObjectOfType<PlayerHealth>();
         firstPart.SetActive(false);
         secondPart.SetActive(false);
-       // GameEvents.current.OnExitTriggerEnter += CheckPhraseÑorrectness;
+       // GameEvents.current.OnExitTriggerEnter += CheckPhraseĞ¡orrectness;
     }
 
     private void OnDestroy()
     {
-       // GameEvents.current.OnExitTriggerEnter -= CheckPhraseÑorrectness;
+       // GameEvents.current.OnExitTriggerEnter -= CheckPhraseĞ¡orrectness;
     }
 
-    //ĞÅÔÀÊÒÎĞ - ñîåäèíèòü äâà ìåòîäà â îäèí
+    //Ğ Ğ•Ğ¤ĞĞšĞ¢ĞĞ  - ÑĞ¾ĞµĞ´Ğ¸Ğ½Ğ¸Ñ‚ÑŒ Ğ´Ğ²Ğ° Ğ¼ĞµÑ‚Ğ¾Ğ´Ğ° Ğ² Ğ¾Ğ´Ğ¸Ğ½
     public void setUpFirstPart(int partSize, string partText)
     {
         firstPartSize = partSize;
@@ -177,8 +177,8 @@ public class Phrase : MonoBehaviour
         #endregion
     }
 
-    //âûçûâàòü èç GameController
-    public void CheckPhraseÑorrectness()
+    //Ğ²Ñ‹Ğ·Ñ‹Ğ²Ğ°Ñ‚ÑŒ Ğ¸Ğ· GameController
+    public void CheckPhraseCorrectness()
     {
         if(haveArticle)
         {

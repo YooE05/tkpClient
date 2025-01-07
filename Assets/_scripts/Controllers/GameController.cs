@@ -134,7 +134,8 @@ public class GameController : MonoBehaviour
         }
         else
         {
-            countOfRoom = 2;
+            countOfRoom = 5;
+            GenerateLevelStruct();
         }
 
     }
@@ -156,7 +157,7 @@ public class GameController : MonoBehaviour
         RestClient.GetArray<ArticleTask>(_restManager.currentRequest)
         .Then(res =>
         {
-            //передать данные в дата контроллер
+            //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             _dataController._tasksArr = res;
             GenerateLevelStruct();
         })
@@ -207,7 +208,7 @@ public class GameController : MonoBehaviour
 
         int roomReady = 0;
 
-        //Генерируем матрицу для сетки уровня
+        //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
         while (roomReady < countOfRoom)
         {
             if (levelGrid[lastX, lastY] == 0)
@@ -229,22 +230,18 @@ public class GameController : MonoBehaviour
                     {
                         if (lastX < x - 1)
                         { lastX++; }
-
-
                     }
                     break;
                 case 2:
                     {
                         if (lastY > 0)
                         { lastY--; }
-
                     }
                     break;
                 case 3:
                     {
                         if (lastX > 0)
                         { lastX--; }
-
                     }
                     break;
                 default:
@@ -254,7 +251,7 @@ public class GameController : MonoBehaviour
         }
 
 
-        //Генерируем комнаты исходя от полученной сетки
+        //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
         for (int i = 0; i < x; i++)
         {
             for (int j = 0; j < y; j++)
@@ -279,7 +276,7 @@ public class GameController : MonoBehaviour
         Invoke("WaitAfterRespawn", 1);
     }
 
-    //костыль, без задержки коротины в playerMovment двигают игрока после респавна
+    //пїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ playerMovment пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
     public void WaitAfterRespawn()
     {
         playerMovement.canMove = true;
@@ -340,7 +337,7 @@ public class GameController : MonoBehaviour
         if (isDemo)
         { randCountTasks = UnityEngine.Random.Range(1, 3); }
 
-        //цикл по общему количеству заданий 
+        //пїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ 
         for (int i = 0; i < randCountTasks; i++)
         {
 
@@ -350,9 +347,9 @@ public class GameController : MonoBehaviour
             minGridY += 3;
 
 
-            //old для варианта с разным количеством артиклей на пропуск
+            //old пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             /*bool hasRepeateArticles = false;
-            //Проверяем есть ли повторяющиеся артикли
+            //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             for (int j = 0; j < levelTasks[0].countOfArticles - 1; j++)
             {
                 if (levelTasks[0].articles[j] == levelTasks[0].articles[j + 1])
@@ -362,14 +359,14 @@ public class GameController : MonoBehaviour
                 }
             }*/
 
-            //цикл по общему блоков фраз в задании
+            //пїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             for (int j = 0; j < levelTasks[0].articlesCount; j++)
             {
                 countOfAllPhrases++;
                 articlesCount++;
                 // k = j;
 
-                //определяем длину части фразы, чтобы понять сколько отводить на неё блоков
+                //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
                 if (j == 0 && levelTasks[0].firstPhrase != "")
                 {
                     lenthOfWordPart = 1 + levelTasks[0].firstPhrase.Length / letterInBlock;
@@ -378,10 +375,10 @@ public class GameController : MonoBehaviour
                 int phraseY = minGridY / randCountTasks / 2 + minGridY / randCountTasks * i + 1;
                 int phraseX = minGridX / 4 + phrasesPrefabOffset;
 
-                //спавним префаб фразы
+                //пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
                 Phrase crntPhrase = GetInstanceGO(phrasePrefab, phraseX, phraseY, newRoom.phrasesContainer.transform).GetComponent<Phrase>();
 
-                //настраиваем части фразы
+                //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
                 if (j == 0 && levelTasks[0].firstPhrase != "")
                 {
                     crntPhrase.setUpFirstPart(lenthOfWordPart, levelTasks[0].firstPhrase);
@@ -392,12 +389,12 @@ public class GameController : MonoBehaviour
                 crntPhrase.setUpSecondPart(lenthOfWordPart, levelTasks[0].phrases[j]);
                 AddPhraseCoordinates(lenthOfWordPart, phraseY, crntPhrase, "second");
 
-                //Сделать так, чтобы фраза спавнилась за комнатой и перемещалась в нужное место только после настройки(Модификация под вопросом)
+                //пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ(пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ)
 
                 crntPhrase.correctArticle = levelTasks[0].articles[j];
-                //создаём и настраиваем артикль
+                //пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
                 Article crntArticle;
-                //спавн четырёх артиклей
+                //пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
                 for (int k = 0; k < 4; k++)
                 {
 
@@ -408,7 +405,7 @@ public class GameController : MonoBehaviour
                 #region Old Article Spawn
                 /* if (j == 0)
                  {
-                     //спавн четырёх артиклей
+                     //пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
                      for (int k = 0; k < 4; k++)
                      {
 
@@ -433,14 +430,14 @@ public class GameController : MonoBehaviour
 
 
                      allArticles.Add(crntArticle);
-                     //спавн нужного
-                     //спавно случайного из оставшихся
+                     //пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+                     //пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
                  }
                  else
                  {
                      if (i % 4 == 0 && i != 0)
                      {
-                         //спавн четырёх артиклей
+                         //пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
                          for (int k = 0; k < 4; k++)
                          {
                              crntArticle = GetInstanceGO(articlePrefab, -100, -100, newRoom.articlesContainer.transform).GetComponent<Article>();
@@ -459,12 +456,12 @@ public class GameController : MonoBehaviour
             if (phrasesPrefabOffset + 5 > minGridX)
             { minGridX = phrasesPrefabOffset + 5; }
 
-            //костыль - код должен выполняться в клауд функциии !!refactor
+            //пїЅпїЅпїЅпїЅпїЅпїЅпїЅ - пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ !!refactor
 
             levelTasks.Remove(levelTasks[0]);
 
         }
-        //вариант для квадратного поля
+        //пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ
         //grid.gridSide = Mathf.Max(minGridY, minGridX);
         grid.gridSideX = minGridX;
         grid.gridSideY = minGridY;
@@ -476,7 +473,7 @@ public class GameController : MonoBehaviour
         MoveArticles(newRoom);
         ClearSpaceBetweenPhraseParts();
 
-        //выбор случайного набора настроек из scriptable object
+        //пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ scriptable object
         int num = UnityEngine.Random.Range(0, trapSettings.Count);
 
         if (trapSettings[num].needRandomCount)
@@ -487,11 +484,11 @@ public class GameController : MonoBehaviour
         }
         else
         {
-            //герерация артиклей
+            //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             PutTheTraps(newRoom, trapSettings[num].trapCount);
-            //герерация лазеров
+            //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             PutTheLasers(newRoom, trapSettings[num].lasersCount);
-            //герерация пушек
+            //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
             PutTheCannons(newRoom, trapSettings[num].cannonsCount);
         }
 
@@ -726,26 +723,26 @@ public class GameController : MonoBehaviour
         needChangeRoom = true;
         foreach (Phrase phrase in roomsList[currentRoomIndex].gameObject.GetComponentsInChildren<Phrase>())
         {
-            phrase.CheckPhraseСorrectness();
+            phrase.CheckPhraseCorrectness();
         }
 
         if (needChangeRoom)
         {
             playerMovement.grid.StopCannonsShooting();
-            //отключить текущую комнату
+            //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             roomsList[currentRoomIndex].gameObject.SetActive(false);
 
-            //включить следующую по направлению
+            //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             Vector2 nextRoomCoordinate = currentRoomCoordinate + nextRoomDirection;
             int nextRoomIndex = roomsCoordinateDictionary[nextRoomCoordinate];
             roomsList[nextRoomIndex].gameObject.SetActive(true);
             currentRoomIndex = nextRoomIndex;
             currentRoomCoordinate = nextRoomCoordinate;
 
-            //поменять сетку передвижения игрока на текущую комнату
+            //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             playerMovement.grid = roomsList[currentRoomIndex].gridGO.GetComponent<Grid>();
 
-            //переместить игрока в крайнюю точку противоположной стороны
+            //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             playerMovement.gameObject.transform.position = GetPlayerCoordinateInNextRoom(nextRoomDirection);
             playerMovement.grid.StartCannonsShooting();
         }
@@ -775,7 +772,7 @@ public class GameController : MonoBehaviour
 
     void IncreasePoints()
     {
-        //если больше 70 процентов артиклей верны - показать кнопку для перехода на след уровень
+        //пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ 70 пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ - пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         Debug.Log(Convert.ToInt32(_viewController.pointsText.text));
         Debug.Log(countOfAllPhrases * 0.7f);
         if (Convert.ToInt32(_viewController.pointsText.text) >= countOfAllPhrases * 0.7f)
