@@ -68,10 +68,11 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
-  isReadable: 0
+  isReadable: 1
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -137,6 +138,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -496,6 +509,23 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      Atlas_sprite_floor1_original_size_0: 7394432885510672893
+      Atlas_sprite_floor1_original_size_1: -7424099282570006355
+      Atlas_sprite_floor1_original_size_2: 8393922601235644630
+      Atlas_sprite_floor1_original_size_7: 4796399692909254405
+      Atlas_sprite_floor1_original_size_8: 2705774343948697365
+      Atlas_sprite_floor1_original_size_6: -4401138331371672538
+      Atlas_sprite_floor1_original_size_9: 4376397010537191937
+      Atlas_sprite_floor1_original_size_10: -8721878903996263620
+      Atlas_sprite_floor1_original_size_12: -6284066351087809951
+      Atlas_sprite_floor1_original_size_14: -2426964466179451374
+      Atlas_sprite_floor1_original_size_11: 4492469238772268182
+      Atlas_sprite_floor1_original_size_3: 464574990355502771
+      Atlas_sprite_floor1_original_size_4: 8164560598207365
+      Atlas_sprite_floor1_original_size_15: -7996486519440286699
+      Atlas_sprite_floor1_original_size_5: -2552552118675957766
+      Atlas_sprite_floor1_original_size_13: 1412598577665705435
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

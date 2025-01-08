@@ -1,8 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
+using Mirror;
 using UnityEngine;
 
-public class Cell : MonoBehaviour
+public class Cell : NetworkBehaviour
 {
     public GameObject currentObject;
 
@@ -20,11 +19,7 @@ public class Cell : MonoBehaviour
                 currentObject = null;
             }
         }
-
-
     }
-
-
 
     public Vector2Int GetGridPos()
     {
@@ -32,6 +27,4 @@ public class Cell : MonoBehaviour
             Mathf.RoundToInt(transform.position.x),
             Mathf.RoundToInt(transform.position.y));
     }
-
-
 }

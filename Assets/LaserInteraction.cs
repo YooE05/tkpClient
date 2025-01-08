@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using Mirror;
 using UnityEngine;
 
-public class LaserInteraction : MonoBehaviour
+public class LaserInteraction : NetworkBehaviour
 {
     ViewController viewController;
     bool canDisableLaser = false;
@@ -16,8 +17,6 @@ public class LaserInteraction : MonoBehaviour
 
     [SerializeField] GameObject EnabledSpriteObj;
     [SerializeField] GameObject DisabledSpriteObj;
-
-
 
     private void Awake()
     {

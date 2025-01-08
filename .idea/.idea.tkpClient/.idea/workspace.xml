@@ -1,18 +1,96 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="42c626ed-59ab-4b2e-af77-3a0769a1da96" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/_scripts/Multiplayer/GridClone.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_scripts/Multiplayer/GridClone.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.tkpClient/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.tkpClient/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.tkpClient/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.tkpClient/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.tkpClient/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.tkpClient/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LaserInteraction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LaserInteraction.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LaserLine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LaserLine.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Luchador Asset Pack by TikiTed/Sprites/luchador-attack-right.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Luchador Asset Pack by TikiTed/Sprites/luchador-attack-right.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Luchador Asset Pack by TikiTed/Sprites/luchador-attack-right2.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Luchador Asset Pack by TikiTed/Sprites/luchador-attack-right2.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Luchador Asset Pack by TikiTed/Sprites/luchador-attack-right3.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Luchador Asset Pack by TikiTed/Sprites/luchador-attack-right3.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Luchador Asset Pack by TikiTed/Sprites/luchador-death-right.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Luchador Asset Pack by TikiTed/Sprites/luchador-death-right.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Luchador Asset Pack by TikiTed/Sprites/luchador-hurt-right.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Luchador Asset Pack by TikiTed/Sprites/luchador-hurt-right.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Luchador Asset Pack by TikiTed/Sprites/luchador-idle-right.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Luchador Asset Pack by TikiTed/Sprites/luchador-idle-right.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Luchador Asset Pack by TikiTed/Sprites/luchador-look-right.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Luchador Asset Pack by TikiTed/Sprites/luchador-look-right.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Luchador Asset Pack by TikiTed/Sprites/luchador-walk-down-left.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Luchador Asset Pack by TikiTed/Sprites/luchador-walk-down-left.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Luchador Asset Pack by TikiTed/Sprites/luchador-walk-down-right.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Luchador Asset Pack by TikiTed/Sprites/luchador-walk-down-right.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Luchador Asset Pack by TikiTed/Sprites/luchador-walk-down.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Luchador Asset Pack by TikiTed/Sprites/luchador-walk-down.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Luchador Asset Pack by TikiTed/Sprites/luchador-walk-left.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Luchador Asset Pack by TikiTed/Sprites/luchador-walk-left.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Luchador Asset Pack by TikiTed/Sprites/luchador-walk-right.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Luchador Asset Pack by TikiTed/Sprites/luchador-walk-right.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Luchador Asset Pack by TikiTed/Sprites/luchador-walk-up-left.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Luchador Asset Pack by TikiTed/Sprites/luchador-walk-up-left.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Luchador Asset Pack by TikiTed/Sprites/luchador-walk-up-right.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Luchador Asset Pack by TikiTed/Sprites/luchador-walk-up-right.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Luchador Asset Pack by TikiTed/Sprites/luchador-walk-up.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Luchador Asset Pack by TikiTed/Sprites/luchador-walk-up.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mirror/Components/PredictedRigidbody/PredictedRigidbody.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Mirror/Components/PredictedRigidbody/PredictedRigidbody.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/OArielG/2DSimpleUIPack/Examples/Graphics/ui-large-buttons-horizontal.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/OArielG/2DSimpleUIPack/Examples/Graphics/ui-large-buttons-horizontal.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/OArielG/2DSimpleUIPack/Examples/Graphics/ui-large-buttons-vertical.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/OArielG/2DSimpleUIPack/Examples/Graphics/ui-large-buttons-vertical.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/OArielG/2DSimpleUIPack/Examples/Graphics/ui-panels.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/OArielG/2DSimpleUIPack/Examples/Graphics/ui-panels.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/OArielG/2DSimpleUIPack/Examples/Graphics/ui-small-buttons.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/OArielG/2DSimpleUIPack/Examples/Graphics/ui-small-buttons.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/OArielG/2DSimpleUIPack/Examples/Graphics/ui-small-icons.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/OArielG/2DSimpleUIPack/Examples/Graphics/ui-small-icons.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_prefabs/GameScene/Article.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_prefabs/GameScene/Article.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_prefabs/GameScene/Cannon.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_prefabs/GameScene/Cannon.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_prefabs/GameScene/CannonBall.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_prefabs/GameScene/CannonBall.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_prefabs/GameScene/Cell.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_prefabs/GameScene/Cell.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_prefabs/GameScene/Grid.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_prefabs/GameScene/Grid.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_prefabs/GameScene/HorizontalPhrase.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_prefabs/GameScene/HorizontalPhrase.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_prefabs/GameScene/Laser.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_prefabs/GameScene/Laser.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_prefabs/GameScene/LaserBlast.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_prefabs/GameScene/LaserBlast.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_prefabs/GameScene/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_prefabs/GameScene/Player.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_prefabs/GameScene/Room.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_prefabs/GameScene/Room.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_prefabs/GameScene/UpDoor.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_prefabs/GameScene/UpDoor.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_prefabs/GameScene/VerticalPhrase.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_prefabs/GameScene/VerticalPhrase.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_prefabs/GameScene/Wall.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_prefabs/GameScene/Wall.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_prefabs/GameScene/laserSparks.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_prefabs/GameScene/laserSparks.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_prefabs/GameScene/newLaserBlast.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_prefabs/GameScene/newLaserBlast.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_prefabs/GameScene/trap.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_prefabs/GameScene/trap.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_res/Sprites/LevelEnviroment/Atlas-sprite-3.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_res/Sprites/LevelEnviroment/Atlas-sprite-3.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_res/Sprites/LevelEnviroment/Atlas_sprite_floor1_original_size.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_res/Sprites/LevelEnviroment/Atlas_sprite_floor1_original_size.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_res/Sprites/LevelEnviroment/Atlas_sprite_walls1_original_size1.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_res/Sprites/LevelEnviroment/Atlas_sprite_walls1_original_size1.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_res/Sprites/LevelEnviroment/laser.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_res/Sprites/LevelEnviroment/laser.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_res/Sprites/LevelEnviroment/yellowWalls.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_res/Sprites/LevelEnviroment/yellowWalls.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_scenes/GameTest.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scenes/GameTest.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_scripts/Cannon.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/Cannon.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_scripts/CannonBall.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/CannonBall.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_scripts/Cell.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/Cell.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_scripts/Controllers/GameController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/Controllers/GameController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_scripts/Controllers/GameEvents.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/Controllers/GameEvents.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_scripts/Controllers/Grid.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/Controllers/Grid.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_scripts/Firebase/AuthManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/Firebase/AuthManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_scripts/Core.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_scripts/Core/MultiplayerGameInstaller.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_scripts/Core/MultiplayerGameInstaller.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_scripts/LaserBlast.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/LaserBlast.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_scripts/PlayerHealth.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/PlayerHealth.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_scripts/PlayerMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/PlayerMovement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_scripts/Room.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/Room.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_scripts/ViewController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/ViewController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,13 +100,36 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/_scripts/Multiplayer/GameControllerMultiplayer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_scripts/Multiplayer/NetworkHandler.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/0CBF2453-FFE3-48B8-BFF5-9F7F22A27D4B/98/7c12c0c1/SerializedObject.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/C7B1C0E4-00A6-4326-84F6-1DF6FFB461D6/6b/c2f444a3/EventDispatcher.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/AB74FE8C-3DE7-4FEE-AFAC-966C034DF8AA/67/b7b3edf6/Object.cs" root0="SKIP_HIGHLIGHTING" />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/Assets/_scripts/Phrase.cs" />
-        <option value="$PROJECT_DIR$/Assets/_scripts/PlayerMovement.cs" />
         <option value="$PROJECT_DIR$/Assets/_scripts/Firebase/AuthManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Mirror/Components/PredictedRigidbody/PredictedRigidbody.cs" />
+        <option value="$PROJECT_DIR$/Assets/_scripts/PlayerHealth.cs" />
+        <option value="$PROJECT_DIR$/Assets/_scripts/Controllers/GameControllerMultiplayer.cs" />
+        <option value="$PROJECT_DIR$/Assets/_scripts/Controllers/GameEvents.cs" />
+        <option value="$PROJECT_DIR$/Assets/_scripts/CannonBall.cs" />
+        <option value="$PROJECT_DIR$/Assets/_scripts/Cannon.cs" />
+        <option value="$PROJECT_DIR$/Assets/_scripts/LaserBlast.cs" />
+        <option value="$PROJECT_DIR$/Assets/LaserLine.cs" />
+        <option value="$PROJECT_DIR$/Assets/LaserInteraction.cs" />
+        <option value="$PROJECT_DIR$/Assets/_scripts/ViewController.cs" />
+        <option value="$PROJECT_DIR$/Assets/_scripts/Multiplayer/NetworkHandler.cs" />
+        <option value="$PROJECT_DIR$/Assets/_scripts/Cell.cs" />
+        <option value="$PROJECT_DIR$/Assets/_scripts/Controllers/Grid.cs" />
+        <option value="$PROJECT_DIR$/Assets/_scripts/PlayerMovement.cs" />
+        <option value="$PROJECT_DIR$/Assets/_scripts/Room.cs" />
+        <option value="$PROJECT_DIR$/Assets/_scripts/Multiplayer/GameControllerMultiplayer.cs" />
         <option value="$PROJECT_DIR$/Assets/_scripts/Controllers/GameController.cs" />
+        <option value="$PROJECT_DIR$/Assets/_scripts/Multiplayer/WorldInitializer.cs" />
       </list>
     </option>
   </component>
@@ -38,8 +139,8 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.3502052" />
-    <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.3002736" />
+    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.3503801" />
+    <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.2999309" />
     <property name="Discover.Launch.Via.Unity" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -63,10 +164,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="4984">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="16868">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="4984" />
+      <option name="pid" value="16868" />
       <option name="selectedOptions">
         <set />
       </option>
@@ -84,6 +185,7 @@
       <workItem from="1734098940836" duration="169000" />
       <workItem from="1734099748879" duration="4009000" />
       <workItem from="1736261846916" duration="1771000" />
+      <workItem from="1736327786924" duration="30484000" />
     </task>
     <servers />
   </component>
@@ -92,94 +194,118 @@
   </component>
   <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="EditMode" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="425" height="464" key="DebuggerActiveHint" timestamp="1734100347468">
-      <screen x="0" y="0" width="2560" height="1400" />
+    <state width="482" height="274" key="DebuggerActiveHint" timestamp="1736362576741">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
+    <state width="482" height="274" key="DebuggerActiveHint/0.0.1536.824@0.0.1536.824" timestamp="1736362576741" />
     <state width="425" height="464" key="DebuggerActiveHint/0.0.2560.1400/-1920.0.1536.824@0.0.2560.1400" timestamp="1734100347468" />
-    <state width="1493" height="104" key="GridCell.Tab.0.bottom" timestamp="1736264893019">
+    <state width="1478" height="101" key="GridCell.Tab.0.bottom" timestamp="1736362767759">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="104" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1736264893019" />
+    <state width="1478" height="101" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1736362767759" />
     <state width="2517" height="39" key="GridCell.Tab.0.bottom/0.0.2560.1400/-1920.0.1536.824@0.0.2560.1400" timestamp="1734122201967" />
-    <state width="1493" height="104" key="GridCell.Tab.0.center" timestamp="1736264893019">
+    <state width="1478" height="101" key="GridCell.Tab.0.center" timestamp="1736362767759">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="104" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1736264893019" />
+    <state width="1478" height="101" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1736362767759" />
     <state width="2517" height="39" key="GridCell.Tab.0.center/0.0.2560.1400/-1920.0.1536.824@0.0.2560.1400" timestamp="1734122201967" />
-    <state width="1493" height="104" key="GridCell.Tab.0.left" timestamp="1736264893019">
+    <state width="1478" height="101" key="GridCell.Tab.0.left" timestamp="1736362767759">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="104" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1736264893019" />
+    <state width="1478" height="101" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1736362767759" />
     <state width="2517" height="39" key="GridCell.Tab.0.left/0.0.2560.1400/-1920.0.1536.824@0.0.2560.1400" timestamp="1734122201967" />
-    <state width="1493" height="104" key="GridCell.Tab.0.right" timestamp="1736264893019">
+    <state width="1478" height="101" key="GridCell.Tab.0.right" timestamp="1736362767759">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="104" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1736264893019" />
+    <state width="1478" height="101" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1736362767759" />
     <state width="2517" height="39" key="GridCell.Tab.0.right/0.0.2560.1400/-1920.0.1536.824@0.0.2560.1400" timestamp="1734122201967" />
-    <state width="1493" height="104" key="GridCell.Tab.1.bottom" timestamp="1736264893019">
+    <state width="1478" height="101" key="GridCell.Tab.1.bottom" timestamp="1736362767760">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="104" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1736264893019" />
+    <state width="1478" height="101" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1736362767760" />
     <state width="2517" height="39" key="GridCell.Tab.1.bottom/0.0.2560.1400/-1920.0.1536.824@0.0.2560.1400" timestamp="1734122201967" />
-    <state width="1493" height="104" key="GridCell.Tab.1.center" timestamp="1736264893019">
+    <state width="1478" height="101" key="GridCell.Tab.1.center" timestamp="1736362767759">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="104" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1736264893019" />
+    <state width="1478" height="101" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1736362767759" />
     <state width="2517" height="39" key="GridCell.Tab.1.center/0.0.2560.1400/-1920.0.1536.824@0.0.2560.1400" timestamp="1734122201967" />
-    <state width="1493" height="104" key="GridCell.Tab.1.left" timestamp="1736264893019">
+    <state width="1478" height="101" key="GridCell.Tab.1.left" timestamp="1736362767759">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="104" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1736264893019" />
+    <state width="1478" height="101" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1736362767759" />
     <state width="2517" height="39" key="GridCell.Tab.1.left/0.0.2560.1400/-1920.0.1536.824@0.0.2560.1400" timestamp="1734122201967" />
-    <state width="1493" height="104" key="GridCell.Tab.1.right" timestamp="1736264893019">
+    <state width="1478" height="101" key="GridCell.Tab.1.right" timestamp="1736362767759">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="104" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1736264893019" />
+    <state width="1478" height="101" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1736362767759" />
     <state width="2517" height="39" key="GridCell.Tab.1.right/0.0.2560.1400/-1920.0.1536.824@0.0.2560.1400" timestamp="1734122201967" />
-    <state width="1493" height="104" key="GridCell.Tab.2.bottom" timestamp="1736264893019">
+    <state width="1478" height="101" key="GridCell.Tab.2.bottom" timestamp="1736362767760">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="104" key="GridCell.Tab.2.bottom/0.0.1536.824@0.0.1536.824" timestamp="1736264893019" />
+    <state width="1478" height="101" key="GridCell.Tab.2.bottom/0.0.1536.824@0.0.1536.824" timestamp="1736362767760" />
     <state width="2517" height="39" key="GridCell.Tab.2.bottom/0.0.2560.1400/-1920.0.1536.824@0.0.2560.1400" timestamp="1734122201968" />
-    <state width="1493" height="104" key="GridCell.Tab.2.center" timestamp="1736264893019">
+    <state width="1478" height="101" key="GridCell.Tab.2.center" timestamp="1736362767760">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="104" key="GridCell.Tab.2.center/0.0.1536.824@0.0.1536.824" timestamp="1736264893019" />
+    <state width="1478" height="101" key="GridCell.Tab.2.center/0.0.1536.824@0.0.1536.824" timestamp="1736362767760" />
     <state width="2517" height="39" key="GridCell.Tab.2.center/0.0.2560.1400/-1920.0.1536.824@0.0.2560.1400" timestamp="1734122201967" />
-    <state width="1493" height="104" key="GridCell.Tab.2.left" timestamp="1736264893019">
+    <state width="1478" height="101" key="GridCell.Tab.2.left" timestamp="1736362767760">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="104" key="GridCell.Tab.2.left/0.0.1536.824@0.0.1536.824" timestamp="1736264893019" />
+    <state width="1478" height="101" key="GridCell.Tab.2.left/0.0.1536.824@0.0.1536.824" timestamp="1736362767760" />
     <state width="2517" height="39" key="GridCell.Tab.2.left/0.0.2560.1400/-1920.0.1536.824@0.0.2560.1400" timestamp="1734122201967" />
-    <state width="1493" height="104" key="GridCell.Tab.2.right" timestamp="1736264893019">
+    <state width="1478" height="101" key="GridCell.Tab.2.right" timestamp="1736362767760">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="104" key="GridCell.Tab.2.right/0.0.1536.824@0.0.1536.824" timestamp="1736264893019" />
+    <state width="1478" height="101" key="GridCell.Tab.2.right/0.0.1536.824@0.0.1536.824" timestamp="1736362767760" />
     <state width="2517" height="39" key="GridCell.Tab.2.right/0.0.2560.1400/-1920.0.1536.824@0.0.2560.1400" timestamp="1734122201967" />
-    <state width="1493" height="104" key="GridCell.Tab.3.bottom" timestamp="1736264893020">
+    <state width="1478" height="101" key="GridCell.Tab.3.bottom" timestamp="1736362767760">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="104" key="GridCell.Tab.3.bottom/0.0.1536.824@0.0.1536.824" timestamp="1736264893020" />
+    <state width="1478" height="101" key="GridCell.Tab.3.bottom/0.0.1536.824@0.0.1536.824" timestamp="1736362767760" />
     <state width="2517" height="39" key="GridCell.Tab.3.bottom/0.0.2560.1400/-1920.0.1536.824@0.0.2560.1400" timestamp="1734122201968" />
-    <state width="1493" height="104" key="GridCell.Tab.3.center" timestamp="1736264893019">
+    <state width="1478" height="101" key="GridCell.Tab.3.center" timestamp="1736362767760">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="104" key="GridCell.Tab.3.center/0.0.1536.824@0.0.1536.824" timestamp="1736264893019" />
+    <state width="1478" height="101" key="GridCell.Tab.3.center/0.0.1536.824@0.0.1536.824" timestamp="1736362767760" />
     <state width="2517" height="39" key="GridCell.Tab.3.center/0.0.2560.1400/-1920.0.1536.824@0.0.2560.1400" timestamp="1734122201968" />
-    <state width="1493" height="104" key="GridCell.Tab.3.left" timestamp="1736264893019">
+    <state width="1478" height="101" key="GridCell.Tab.3.left" timestamp="1736362767760">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="104" key="GridCell.Tab.3.left/0.0.1536.824@0.0.1536.824" timestamp="1736264893019" />
+    <state width="1478" height="101" key="GridCell.Tab.3.left/0.0.1536.824@0.0.1536.824" timestamp="1736362767760" />
     <state width="2517" height="39" key="GridCell.Tab.3.left/0.0.2560.1400/-1920.0.1536.824@0.0.2560.1400" timestamp="1734122201968" />
-    <state width="1493" height="104" key="GridCell.Tab.3.right" timestamp="1736264893019">
+    <state width="1478" height="101" key="GridCell.Tab.3.right" timestamp="1736362767760">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="104" key="GridCell.Tab.3.right/0.0.1536.824@0.0.1536.824" timestamp="1736264893019" />
+    <state width="1478" height="101" key="GridCell.Tab.3.right/0.0.1536.824@0.0.1536.824" timestamp="1736362767760" />
     <state width="2517" height="39" key="GridCell.Tab.3.right/0.0.2560.1400/-1920.0.1536.824@0.0.2560.1400" timestamp="1734122201968" />
+    <state x="93" y="93" width="1350" height="638" key="VCS.FileHistoryDialog" timestamp="1736330016633">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="93" y="93" width="1350" height="638" key="VCS.FileHistoryDialog/0.0.1536.824@0.0.1536.824" timestamp="1736330016633" />
+    <state x="425" y="187" key="run.anything.popup" timestamp="1736354937575">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1736354937575" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1736349873216">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1736349873216" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -196,6 +322,58 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/_scripts/Multiplayer/GameControllerMultiplayer.cs</url>
+          <line>115</line>
+          <properties documentPath="C:\Unity\Projects\tkpClient\Assets\_scripts\Multiplayer\GameControllerMultiplayer.cs" initialLine="115">
+            <startOffsets>
+              <option value="3455" />
+            </startOffsets>
+            <endOffsets>
+              <option value="3467" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/_scripts/Multiplayer/GridClone.cs</url>
+          <line>14</line>
+          <properties documentPath="C:\Unity\Projects\tkpClient\Assets\_scripts\Multiplayer\GridClone.cs" initialLine="14">
+            <startOffsets>
+              <option value="366" />
+            </startOffsets>
+            <endOffsets>
+              <option value="391" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/_scripts/Multiplayer/WorldInitializer.cs</url>
+          <line>41</line>
+          <properties documentPath="C:\Unity\Projects\tkpClient\Assets\_scripts\Multiplayer\WorldInitializer.cs" initialLine="34">
+            <startOffsets>
+              <option value="897" />
+            </startOffsets>
+            <endOffsets>
+              <option value="975" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/_scripts/Multiplayer/WorldInitializer.cs</url>
+          <line>52</line>
+          <properties documentPath="C:\Unity\Projects\tkpClient\Assets\_scripts\Multiplayer\WorldInitializer.cs" initialLine="47">
+            <startOffsets>
+              <option value="1178" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1241" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="17" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

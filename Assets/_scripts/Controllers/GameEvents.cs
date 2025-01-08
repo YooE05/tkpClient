@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using System;
 
@@ -13,39 +11,30 @@ public class GameEvents : MonoBehaviour
     }
 
     public event Action<Vector2> OnExitTriggerEnter;
+
     public void ExitTriggerEnter(Vector2 direction)
     {
-        if(OnExitTriggerEnter!=null)
-        {
-            OnExitTriggerEnter(direction);
-        }
+        OnExitTriggerEnter?.Invoke(direction);
     }
 
     public event Action OnDamagedPlayer;
+
     public void TakeDamage()
     {
-        if (OnDamagedPlayer != null)
-        {
-            OnDamagedPlayer();
-        }
+        OnDamagedPlayer?.Invoke();
     }
 
     public event Action OnIncreasePoints;
+
     public void IncreasePoints()
     {
-        if (OnIncreasePoints != null)
-        {
-            OnIncreasePoints();
-        }
+        OnIncreasePoints?.Invoke();
     }
 
     public event Action OnPlayerDied;
+
     public void Death()
     {
-        if (OnPlayerDied != null)
-        {
-            OnPlayerDied();
-        }
+        OnPlayerDied?.Invoke();
     }
-
 }

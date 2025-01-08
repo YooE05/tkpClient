@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using Mirror;
 using UnityEngine;
 
-public class LaserLine : MonoBehaviour
+public class LaserLine : NetworkBehaviour
 {
 
     [SerializeField] Texture[] textures;

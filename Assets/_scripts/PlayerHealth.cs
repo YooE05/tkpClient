@@ -1,20 +1,23 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
-    public int startHealth;
-
-    public int currentHealth;
+    public int StartHealth { get; private set; }
+    public int CurrentHealth { get; private set; }
 
     private void Awake()
     {
-        currentHealth = startHealth;
+        ResetHealth();
     }
+
+    public void ResetHealth()
+    {
+        CurrentHealth = StartHealth;
+    }
+
     private void Start()
     {
-       GameEvents.current.OnDamagedPlayer+=TakeDamage;
+        GameEvents.current.OnDamagedPlayer += TakeDamage;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -28,13 +31,12 @@ public class PlayerHealth : MonoBehaviour
 
     void TakeDamage()
     {
-        currentHealth--;
-        if (currentHealth <= 0)
+        CurrentHealth--;
+        if (CurrentHealth <= 0)
         {
             GameEvents.current.Death();
         }
     }
-
 
     private void OnDestroy()
     {

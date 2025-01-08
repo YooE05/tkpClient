@@ -62,10 +62,11 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
-  isReadable: 0
+  isReadable: 1
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -131,6 +132,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -469,6 +482,22 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      Atlas_sprite_walls1_original_size1_3: 5571379537383066163
+      Atlas_sprite_walls1_original_size1_5: -4393873991120761760
+      Atlas_sprite_walls1_original_size1_1: -5362541932820040212
+      Atlas_sprite_walls1_original_size1_6: -7204642950569078937
+      Atlas_sprite_walls1_original_size1_10: -3377132559695695154
+      Atlas_sprite_walls1_original_size1_0: 1699704949173603115
+      Atlas_sprite_walls1_original_size1_13: 8196876528128505885
+      Atlas_sprite_walls1_original_size1_8: -7605684038810579908
+      Atlas_sprite_walls1_original_size1_20: 7654402259458781362
+      Atlas_sprite_walls1_original_size1_9: 7914177267156707177
+      Atlas_sprite_walls1_original_size1_7: -5045646090505215375
+      Atlas_sprite_walls1_original_size1_11: 1171914672321390241
+      Atlas_sprite_walls1_original_size1_2: 3367363830301679953
+      Atlas_sprite_walls1_original_size1_12: 2537028674147278812
+      Atlas_sprite_walls1_original_size1_4: 4849916328713895963
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

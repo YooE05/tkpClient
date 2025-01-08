@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using Mirror;
 using UnityEngine;
 
-public class CannonBall : MonoBehaviour
+public class CannonBall : NetworkBehaviour
 {
     private void OnTriggerEnter2D(Collider2D collision)
     {

@@ -3,8 +3,23 @@
   <component name="ContentModelStore">
     <e p="C:\Unity\Projects\tkpClient" t="IncludeRecursive">
       <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
+      <e p="Assembly-CSharp-firstpass.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
+        <e p="_prefabs" t="Include">
+          <e p="Canvases" t="Include" />
+          <e p="GameScene" t="Include">
+            <e p="FloorCells" t="Include" />
+          </e>
+        </e>
+        <e p="_res" t="Include">
+          <e p="Animations" t="Include" />
+          <e p="Fonts" t="Include" />
+          <e p="Sprites" t="Include">
+            <e p="LevelEnviroment" t="Include" />
+          </e>
+        </e>
+        <e p="_scenes" t="Include" />
         <e p="_scripts" t="Include">
           <e p="AppConfigurations.cs" t="Include" />
           <e p="Article.cs" t="Include" />
@@ -50,6 +65,15 @@
             <e p="FunctionsManager.cs" t="Include" />
           </e>
           <e p="LaserBlast.cs" t="Include" />
+          <e p="Multiplayer" t="Include">
+            <e p="Core" t="Include">
+              <e p="MultiplayerGameInstaller.cs" t="Include" />
+            </e>
+            <e p="GameControllerMultiplayer.cs" t="Include" />
+            <e p="GridClone.cs" t="Include" />
+            <e p="NetworkHandler.cs" t="Include" />
+            <e p="WorldInitializer.cs" t="Include" />
+          </e>
           <e p="Phrase.cs" t="Include" />
           <e p="PlayerHealth.cs" t="Include" />
           <e p="PlayerMovement.cs" t="Include" />
@@ -177,6 +201,9 @@
               </e>
               <e p="GUIHelper.cs" t="Include" />
               <e p="Link.cs" t="Include" />
+              <e p="Plugins" t="Include">
+                <e p="Webgl" t="Include" />
+              </e>
               <e p="SampleBase.cs" t="Include" />
               <e p="SelectorUI" t="Include">
                 <e p="Category.cs" t="Include" />
@@ -248,6 +275,9 @@
           <e p="License.txt" t="Include" />
           <e p="link.xml" t="Include" />
           <e p="link_android_subset.xml" t="Include" />
+          <e p="Plugins" t="Include">
+            <e p="Webgl" t="Include" />
+          </e>
           <e p="ReleaseNotes.txt" t="Include" />
           <e p="Source" t="Include">
             <e p="Authentication" t="Include">
@@ -2231,8 +2261,17 @@
               <e p="SendResourceEventActionEditor.cs" t="Include" />
             </e>
           </e>
+          <e p="Gizmos" t="Include">
+            <e p="GameAnalytics" t="Include">
+              <e p="Images" t="Include" />
+            </e>
+          </e>
           <e p="Plugins" t="Include">
+            <e p="Android" t="Include" />
+            <e p="iOS" t="Include" />
+            <e p="Linux" t="Include" />
             <e p="Playmaker" t="Include">
+              <e p="Examples" t="Include" />
               <e p="GAInitialize.cs" t="Include" />
               <e p="GetABTestingId.cs" t="Include" />
               <e p="GetABTestingVariantId.cs" t="Include" />
@@ -2246,6 +2285,8 @@
               <e p="SendResourceEvent.cs" t="Include" />
               <e p="SetCustomDimension.cs" t="Include" />
             </e>
+            <e p="Prefabs" t="Include" />
+            <e p="SamsungTV" t="Include" />
             <e p="Scripts" t="Include">
               <e p="ATT" t="Include">
                 <e p="GameAnalyticsATTClient.cs" t="Include" />
@@ -2295,10 +2336,32 @@
                 <e p="GA_Wrapper.cs" t="Include" />
               </e>
             </e>
+            <e p="Tizen" t="Include" />
+            <e p="tvOS" t="Include" />
+            <e p="Webgl" t="Include" />
+            <e p="Windows" t="Include">
+              <e p="x64" t="Include" />
+              <e p="x86" t="Include" />
+            </e>
+            <e p="WSA" t="Include">
+              <e p="ARM" t="Include" />
+              <e p="x64" t="Include" />
+              <e p="x86" t="Include" />
+            </e>
           </e>
           <e p="Readme.txt" t="Include" />
         </e>
+        <e p="HQ PIXEL UI" t="Include">
+          <e p="Assets" t="Include">
+            <e p="PNGS" t="Include">
+              <e p="MENU PNGS" t="Include" />
+              <e p="MORE PNGS" t="Include" />
+              <e p="SucessDialog PNGS" t="Include" />
+            </e>
+          </e>
+        </e>
         <e p="HttpCookie" t="Include">
+          <e p="Plugins" t="Include" />
           <e p="Scripts" t="Include">
             <e p="HttpCookie.cs" t="Include" />
           </e>
@@ -2306,6 +2369,11 @@
         <e p="InputFieldsTabulation.cs" t="Include" />
         <e p="LaserInteraction.cs" t="Include" />
         <e p="LaserLine.cs" t="Include" />
+        <e p="Luchador Asset Pack by TikiTed" t="Include">
+          <e p="Animations" t="Include" />
+          <e p="Demo" t="Include" />
+          <e p="Sprites" t="Include" />
+        </e>
         <e p="Mirror" t="Include">
           <e p="Authenticators" t="Include">
             <e p="BasicAuthenticator.cs" t="Include" />
@@ -2392,6 +2460,7 @@
               <e p="NetworkPingGraph.cs" t="Include" />
               <e p="NetworkRuntimeProfiler.cs" t="Include" />
               <e p="NetworkUsageGraph.cs" t="Include" />
+              <e p="Prefabs" t="Include" />
               <e p="ToggleHotkey.cs" t="Include" />
             </e>
             <e p="RemoteStatistics.cs" t="Include" />
@@ -2486,6 +2555,7 @@
           <e p="Editor" t="Include">
             <e p="AndroidManifestHelper.cs" t="Include" />
             <e p="EditorHelper.cs" t="Include" />
+            <e p="Icon" t="Include" />
             <e p="InspectorHelper.cs" t="Include" />
             <e p="LagCompensatorInspector.cs" t="Include" />
             <e p="Mirror.Editor.asmdef" t="Include" />
@@ -2572,19 +2642,27 @@
               </e>
               <e p="KenneyAssets" t="Include">
                 <e p="kenney_kenney-fonts" t="Include">
+                  <e p="Fonts" t="Include" />
                   <e p="License.txt" t="Include" />
                 </e>
                 <e p="kenney_rpg-audio" t="Include">
+                  <e p="Audio" t="Include" />
                   <e p="License.txt" t="Include" />
                 </e>
               </e>
               <e p="OpenGameArt" t="Include">
                 <e p="License.txt" t="Include" />
+                <e p="Sounds" t="Include" />
               </e>
               <e p="Projectiles" t="Include">
                 <e p="TankProjectile" t="Include">
                   <e p="TankProjectile.cs" t="Include" />
                 </e>
+              </e>
+              <e p="RobotKyle" t="Include">
+                <e p="Materials" t="Include" />
+                <e p="Models" t="Include" />
+                <e p="Textures" t="Include" />
               </e>
               <e p="Scripts" t="Include">
                 <e p="CanvasNetworkManagerHUD" t="Include">
@@ -2606,15 +2684,26 @@
               </e>
             </e>
             <e p="AdditiveLevels" t="Include">
+              <e p="Materials" t="Include" />
+              <e p="Prefabs" t="Include" />
               <e p="Readme.txt" t="Include" />
+              <e p="Scenes" t="Include">
+                <e p="MirrorAdditiveLevelsOnline" t="Include" />
+              </e>
               <e p="Scripts" t="Include">
                 <e p="AdditiveLevelsNetworkManager.cs" t="Include" />
                 <e p="FadeInOut.cs" t="Include" />
                 <e p="LookAtMainCamera.cs" t="Include" />
                 <e p="Portal.cs" t="Include" />
               </e>
+              <e p="Textures" t="Include" />
             </e>
             <e p="AdditiveScenes" t="Include">
+              <e p="Materials" t="Include" />
+              <e p="Prefabs" t="Include" />
+              <e p="Scenes" t="Include">
+                <e p="MirrorAdditiveScenesMain" t="Include" />
+              </e>
               <e p="Scripts" t="Include">
                 <e p="AdditiveNetworkManager.cs" t="Include" />
                 <e p="ShootingTankBehaviour.cs" t="Include" />
@@ -2622,6 +2711,7 @@
               </e>
             </e>
             <e p="AutoLANClientController" t="Include">
+              <e p="Prefabs" t="Include" />
               <e p="Scripts" t="Include">
                 <e p="AutoLANNetworkDiscovery.cs" t="Include" />
                 <e p="AutoLANNetworkManager.cs" t="Include" />
@@ -2630,6 +2720,8 @@
               </e>
             </e>
             <e p="Basic" t="Include">
+              <e p="Prefabs" t="Include" />
+              <e p="Scenes" t="Include" />
               <e p="Scripts" t="Include">
                 <e p="BasicNetManager.cs" t="Include" />
                 <e p="CanvasUI.cs" t="Include" />
@@ -2638,6 +2730,9 @@
               </e>
             </e>
             <e p="Benchmark" t="Include">
+              <e p="Materials" t="Include" />
+              <e p="Prefabs" t="Include" />
+              <e p="Scenes" t="Include" />
               <e p="Scripts" t="Include">
                 <e p="BenchmarkNetworkManager.cs" t="Include" />
                 <e p="MonsterMovement.cs" t="Include" />
@@ -2660,6 +2755,8 @@
               <e p="Dependencies" t="Include">
                 <e p="netcode-benchmarker-util" t="Include">
                   <e p="Runtime" t="Include">
+                    <e p="Config" t="Include" />
+                    <e p="Prefabs" t="Include" />
                     <e p="Scripts" t="Include">
                       <e p="BehaviourConfig.cs" t="Include" />
                       <e p="BehaviourWrapper" t="Include">
@@ -2679,12 +2776,14 @@
                   </e>
                 </e>
                 <e p="Unity-Simulation-Timer" t="Include">
+                  <e p="package.json" t="Include" />
                   <e p="Runtime" t="Include">
                     <e p="PauseableSimulationTimer.cs" t="Include" />
                     <e p="SimulationTimer.cs" t="Include" />
                   </e>
                 </e>
               </e>
+              <e p="Prefabs" t="Include" />
               <e p="Scripts" t="Include">
                 <e p="GUIGame.cs" t="Include" />
                 <e p="SineMoveRandomBehaviour.cs" t="Include" />
@@ -2724,6 +2823,10 @@
             </e>
             <e p="CharacterSelection" t="Include">
               <e p="_ReadMe.txt" t="Include" />
+              <e p="Materials" t="Include" />
+              <e p="Prefabs" t="Include">
+                <e p="Characters" t="Include" />
+              </e>
               <e p="Scripts" t="Include">
                 <e p="CanvasReferencer.cs" t="Include" />
                 <e p="CharacterData.cs" t="Include" />
@@ -2735,8 +2838,11 @@
                 <e p="ScriptAnimations.cs" t="Include" />
                 <e p="StaticVariables.cs" t="Include" />
               </e>
+              <e p="Textures" t="Include" />
             </e>
             <e p="Chat" t="Include">
+              <e p="Prefabs" t="Include" />
+              <e p="Scenes" t="Include" />
               <e p="Scripts" t="Include">
                 <e p="ChatAuthenticator.cs" t="Include" />
                 <e p="ChatNetworkManager.cs" t="Include" />
@@ -2747,6 +2853,8 @@
             </e>
             <e p="CouchCoop" t="Include">
               <e p="_ReadMe.txt" t="Include" />
+              <e p="Materials" t="Include" />
+              <e p="Prefabs" t="Include" />
               <e p="Scripts" t="Include">
                 <e p="CameraViewForAll.cs" t="Include" />
                 <e p="CanvasScript.cs" t="Include" />
@@ -2756,8 +2864,14 @@
                 <e p="PlatformMovement.cs" t="Include" />
               </e>
             </e>
+            <e p="Discovery" t="Include">
+              <e p="Prefabs" t="Include" />
+              <e p="Scenes" t="Include" />
+            </e>
             <e p="EdgegapLobby" t="Include">
               <e p="_ReadMe.txt" t="Include" />
+              <e p="EdgegapLobbyTanks" t="Include" />
+              <e p="Prefabs" t="Include" />
               <e p="Scripts" t="Include">
                 <e p="UILobbyCreate.cs" t="Include" />
                 <e p="UILobbyEntry.cs" t="Include" />
@@ -2774,6 +2888,19 @@
             </e>
             <e p="Mirror.Examples.asmdef" t="Include" />
             <e p="MultipleAdditiveScenes" t="Include">
+              <e p="Materials" t="Include">
+                <e p="Physics" t="Include" />
+                <e p="Render" t="Include" />
+              </e>
+              <e p="Models" t="Include">
+                <e p="Icosphere" t="Include">
+                  <e p="Materials" t="Include" />
+                </e>
+              </e>
+              <e p="Prefabs" t="Include" />
+              <e p="Scenes" t="Include">
+                <e p="MirrorMultipleAdditiveScenesMain" t="Include" />
+              </e>
               <e p="Scripts" t="Include">
                 <e p="MultiSceneNetManager.cs" t="Include" />
                 <e p="PhysicsCollision.cs" t="Include" />
@@ -2783,6 +2910,8 @@
               </e>
             </e>
             <e p="MultipleMatches" t="Include">
+              <e p="Prefabs" t="Include" />
+              <e p="Scenes" t="Include" />
               <e p="Scripts" t="Include">
                 <e p="CanvasController.cs" t="Include" />
                 <e p="CellGUI.cs" t="Include" />
@@ -2795,6 +2924,8 @@
               </e>
             </e>
             <e p="PickupsDropsChilds" t="Include">
+              <e p="Materials" t="Include" />
+              <e p="Prefabs" t="Include" />
               <e p="Scripts" t="Include">
                 <e p="PickupsDropsChilds.cs" t="Include" />
                 <e p="SceneObject.cs" t="Include" />
@@ -2802,15 +2933,24 @@
             </e>
             <e p="PlayerTest" t="Include">
               <e p="PlayerTestNetMan.cs" t="Include" />
+              <e p="PlayerTestScene" t="Include" />
             </e>
             <e p="Pong" t="Include">
+              <e p="PhysicsMaterials" t="Include" />
+              <e p="Prefabs" t="Include" />
+              <e p="Scenes" t="Include" />
               <e p="Scripts" t="Include">
                 <e p="Ball.cs" t="Include" />
                 <e p="NetworkManagerPong.cs" t="Include" />
                 <e p="Player.cs" t="Include" />
               </e>
+              <e p="Sprites" t="Include" />
             </e>
             <e p="RigidbodyBenchmark" t="Include">
+              <e p="Materials" t="Include" />
+              <e p="PhysicMaterials" t="Include" />
+              <e p="Prefabs" t="Include" />
+              <e p="Scenes" t="Include" />
               <e p="Scripts" t="Include">
                 <e p="AddForce.cs" t="Include" />
                 <e p="AutoForce.cs" t="Include" />
@@ -2818,11 +2958,22 @@
               </e>
             </e>
             <e p="RigidbodyPhysics" t="Include">
+              <e p="Materials" t="Include" />
+              <e p="PhysicMaterials" t="Include" />
+              <e p="Prefabs" t="Include" />
+              <e p="Scenes" t="Include" />
               <e p="Scripts" t="Include">
                 <e p="AddForce.cs" t="Include" />
               </e>
             </e>
             <e p="Room" t="Include">
+              <e p="Materials" t="Include">
+                <e p="Textures" t="Include" />
+              </e>
+              <e p="Prefabs" t="Include" />
+              <e p="Scenes" t="Include">
+                <e p="MirrorRoomGame" t="Include" />
+              </e>
               <e p="Scripts" t="Include">
                 <e p="NetworkRoomManagerExt.cs" t="Include" />
                 <e p="NetworkRoomPlayerExt.cs" t="Include" />
@@ -2846,7 +2997,11 @@
               <e p="Player.cs" t="Include" />
             </e>
             <e p="Tanks" t="Include">
+              <e p="Prefabs" t="Include" />
               <e p="Readme.txt" t="Include" />
+              <e p="Scenes" t="Include">
+                <e p="MirrorTanks" t="Include" />
+              </e>
               <e p="Scripts" t="Include">
                 <e p="Box.cs" t="Include" />
                 <e p="Projectile.cs" t="Include" />
@@ -2859,12 +3014,20 @@
               </e>
             </e>
             <e p="TankTheftAuto" t="Include">
+              <e p="Materials" t="Include" />
+              <e p="MirrorTankTheftAuto" t="Include" />
+              <e p="Prefabs" t="Include" />
               <e p="Scripts" t="Include">
                 <e p="TankAuthority.cs" t="Include" />
                 <e p="TankTheftAutoNetMan.cs" t="Include" />
               </e>
             </e>
             <e p="TopDownShooter" t="Include">
+              <e p="Materials" t="Include" />
+              <e p="Prefabs" t="Include" />
+              <e p="Scenes" t="Include">
+                <e p="MirrorTopDownShooter" t="Include" />
+              </e>
               <e p="Scripts" t="Include">
                 <e p="CameraTopDown.cs" t="Include" />
                 <e p="CanvasHUD.cs" t="Include" />
@@ -2874,6 +3037,7 @@
                 <e p="PlayerTopDown.cs" t="Include" />
                 <e p="RespawnPortal.cs" t="Include" />
               </e>
+              <e p="Textures" t="Include" />
             </e>
             <e p="VR" t="Include">
               <e p="Readme.txt" t="Include" />
@@ -2926,6 +3090,12 @@
                 <e p="EdgegapWindow.uxml" t="Include" />
                 <e p="EdgegapWindowMetadata.cs" t="Include" />
                 <e p="EdgegapWindowV2.cs" t="Include" />
+                <e p="Fonts" t="Include">
+                  <e p="Src" t="Include">
+                    <e p="Spartan" t="Include" />
+                  </e>
+                </e>
+                <e p="Images" t="Include" />
               </e>
               <e p="Enums" t="Include">
                 <e p="ApiEnvironment.cs" t="Include" />
@@ -3026,14 +3196,19 @@
                 </e>
               </e>
               <e p="Newtonsoft_Package_Patch.cs" t="Include" />
+              <e p="package.json" t="Include" />
             </e>
             <e p="Readme.txt" t="Include" />
           </e>
           <e p="Notice.txt" t="Include" />
           <e p="Plugins" t="Include">
+            <e p="BouncyCastle" t="Include" />
             <e p="Mono.Cecil" t="Include">
               <e p="License.txt" t="Include" />
             </e>
+          </e>
+          <e p="Presets" t="Include">
+            <e p="NetworkTransform" t="Include" />
           </e>
           <e p="Readme.txt" t="Include" />
           <e p="Transports" t="Include">
@@ -3130,6 +3305,7 @@
                     <e p="WebSocketClientStandAlone.cs" t="Include" />
                   </e>
                   <e p="Webgl" t="Include">
+                    <e p="Plugin" t="Include" />
                     <e p="SimpleWebJSLib.cs" t="Include" />
                     <e p="WebSocketClientWebGl.cs" t="Include" />
                   </e>
@@ -3185,11 +3361,1067 @@
           </e>
           <e p="Version.txt" t="Include" />
         </e>
+        <e p="OArielG" t="Include">
+          <e p="2DSimpleUIPack" t="Include">
+            <e p="Examples" t="Include">
+              <e p="Animations" t="Include">
+                <e p="BlackContinueButton" t="Include" />
+                <e p="BlackOptionsButton" t="Include" />
+                <e p="BlackPlayButton" t="Include" />
+                <e p="BlackQuitButton" t="Include" />
+              </e>
+              <e p="Graphics" t="Include" />
+              <e p="Prefabs" t="Include">
+                <e p="HorizontalButtons" t="Include" />
+                <e p="SmallButtons" t="Include" />
+                <e p="VerticalButtons" t="Include" />
+              </e>
+              <e p="Scenes" t="Include" />
+            </e>
+            <e p="Sprites" t="Include" />
+          </e>
+        </e>
         <e p="Onboarding" t="Include">
           <e p="ChoiceInstruction.cs" t="Include" />
           <e p="InstructionController.cs" t="Include" />
           <e p="InstructionData.cs" t="Include" />
           <e p="LoadingInstruction.cs" t="Include" />
+        </e>
+        <e p="ParrelSync" t="Include">
+          <e p="Editor" t="Include">
+            <e p="AssetModBlock" t="Include">
+              <e p="EditorQuit.cs" t="Include" />
+              <e p="ParrelSyncAssetModificationProcessor.cs" t="Include" />
+            </e>
+            <e p="ClonesManager.cs" t="Include" />
+            <e p="ClonesManagerWindow.cs" t="Include" />
+            <e p="ExternalLinks.cs" t="Include" />
+            <e p="FileUtilities.cs" t="Include" />
+            <e p="NonCore" t="Include">
+              <e p="AskFeedbackDialog.cs" t="Include" />
+              <e p="OtherMenuItem.cs" t="Include" />
+            </e>
+            <e p="ParrelSyncProjectSettings.cs" t="Include" />
+            <e p="Preferences.cs" t="Include" />
+            <e p="Project.cs" t="Include" />
+            <e p="UpdateChecker.cs" t="Include" />
+            <e p="ValidateCopiedFoldersIntegrity.cs" t="Include" />
+          </e>
+          <e p="package.json" t="Include" />
+          <e p="projectCloner.asmdef" t="Include" />
+        </e>
+        <e p="Plugins" t="Include">
+          <e p="ParrelSync" t="Include">
+            <e p="ScriptableObjects" t="Include" />
+          </e>
+          <e p="Zenject" t="Include">
+            <e p="License.txt" t="Include" />
+            <e p="OptionalExtras" t="Include">
+              <e p="IntegrationTests" t="Include">
+                <e p="Bindings" t="Include">
+                  <e p="TestDiContainerMethods" t="Include">
+                    <e p="Foo.cs" t="Include" />
+                    <e p="Foo2.cs" t="Include" />
+                    <e p="Gorp.cs" t="Include" />
+                    <e p="Gorp2.cs" t="Include" />
+                  </e>
+                  <e p="TestFromComponentInHierarchyGameObjectContext" t="Include">
+                    <e p="Foo.cs" t="Include" />
+                    <e p="FooInstaller.cs" t="Include" />
+                    <e p="Gorp.cs" t="Include" />
+                  </e>
+                  <e p="TestFromGameObjectInstaller" t="Include">
+                    <e p="Bar.cs" t="Include" />
+                    <e p="Foo.cs" t="Include" />
+                  </e>
+                  <e p="TestFromNewScriptableObjectResource" t="Include">
+                    <e p="Bob.cs" t="Include" />
+                    <e p="Foo.cs" t="Include" />
+                  </e>
+                  <e p="TestFromPrefab" t="Include">
+                    <e p="Bar.cs" t="Include" />
+                    <e p="Bob.cs" t="Include" />
+                    <e p="Foo.cs" t="Include" />
+                    <e p="Gorp.cs" t="Include" />
+                    <e p="Jim.cs" t="Include" />
+                    <e p="Norf.cs" t="Include" />
+                    <e p="Norf2.cs" t="Include" />
+                    <e p="Qux.cs" t="Include" />
+                  </e>
+                  <e p="TestFromPrefabInstaller" t="Include">
+                    <e p="Bar.cs" t="Include" />
+                    <e p="Foo.cs" t="Include" />
+                  </e>
+                  <e p="TestFromPrefabResource" t="Include">
+                    <e p="Bar.cs" t="Include" />
+                    <e p="Bob.cs" t="Include" />
+                    <e p="Foo.cs" t="Include" />
+                    <e p="Gorp.cs" t="Include" />
+                    <e p="Jim.cs" t="Include" />
+                    <e p="Norf.cs" t="Include" />
+                    <e p="Norf2.cs" t="Include" />
+                    <e p="Qux.cs" t="Include" />
+                  </e>
+                  <e p="TestFromSubContainerPrefab" t="Include">
+                    <e p="Bar.cs" t="Include" />
+                    <e p="CircBar.cs" t="Include" />
+                    <e p="CircFoo.cs" t="Include" />
+                    <e p="Foo.cs" t="Include" />
+                    <e p="FooInstaller.cs" t="Include" />
+                    <e p="Gorp.cs" t="Include" />
+                  </e>
+                  <e p="TestFromSubContainerPrefabResource" t="Include">
+                    <e p="Bar.cs" t="Include" />
+                    <e p="Foo.cs" t="Include" />
+                    <e p="FooInstaller.cs" t="Include" />
+                    <e p="Gorp.cs" t="Include" />
+                  </e>
+                  <e p="TestInstantiateCallback" t="Include">
+                    <e p="Foo.cs" t="Include" />
+                  </e>
+                </e>
+                <e p="Factories" t="Include">
+                  <e p="PrefabFactory" t="Include">
+                    <e p="Foo.cs" t="Include" />
+                    <e p="Foo2.cs" t="Include" />
+                  </e>
+                  <e p="Resources" t="Include">
+                    <e p="TestBindFactory" t="Include" />
+                    <e p="TestBindFactoryFive" t="Include" />
+                    <e p="TestBindFactoryOne" t="Include" />
+                    <e p="TestGameObjectFactoryOne" t="Include" />
+                    <e p="TestGameObjectFactoryZero" t="Include" />
+                    <e p="TestPrefabFactory" t="Include" />
+                  </e>
+                  <e p="TestBindFactory" t="Include">
+                    <e p="Bar.cs" t="Include" />
+                    <e p="Foo.cs" t="Include" />
+                  </e>
+                  <e p="TestBindFactoryFive" t="Include">
+                    <e p="Foo.cs" t="Include" />
+                    <e p="FooInstaller.cs" t="Include" />
+                  </e>
+                  <e p="TestBindFactoryOne" t="Include">
+                    <e p="Bar.cs" t="Include" />
+                    <e p="Foo.cs" t="Include" />
+                    <e p="FooInstaller.cs" t="Include" />
+                  </e>
+                </e>
+                <e p="Installers" t="Include">
+                  <e p="Resources" t="Include">
+                    <e p="TestMonoInstallers" t="Include" />
+                    <e p="TestScriptableObjectInstallers" t="Include" />
+                  </e>
+                  <e p="TestInstallers" t="Include">
+                    <e p="BarInstaller.cs" t="Include" />
+                    <e p="FooInstaller.cs" t="Include" />
+                    <e p="QuxInstaller.cs" t="Include" />
+                  </e>
+                  <e p="TestMonoInstallers" t="Include">
+                    <e p="BarInstaller.cs" t="Include" />
+                    <e p="FooInstaller.cs" t="Include" />
+                    <e p="QuxInstaller.cs" t="Include" />
+                  </e>
+                  <e p="TestScriptableObjectInstallers" t="Include">
+                    <e p="BarInstaller.cs" t="Include" />
+                    <e p="FooInstaller.cs" t="Include" />
+                    <e p="QuxInstaller.cs" t="Include" />
+                  </e>
+                </e>
+                <e p="misc" t="Include">
+                  <e p="TestAnimationStateBehaviourInject" t="Include">
+                    <e p="Resources" t="Include">
+                      <e p="TestAnimationStateBehaviourInject" t="Include" />
+                    </e>
+                    <e p="StateBehaviour1.cs" t="Include" />
+                  </e>
+                  <e p="TestZenAutoInjecter" t="Include">
+                    <e p="Bar.cs" t="Include" />
+                    <e p="Gorp.cs" t="Include" />
+                    <e p="Qux.cs" t="Include" />
+                    <e p="Resources" t="Include">
+                      <e p="TestZenAutoInjecter" t="Include" />
+                    </e>
+                  </e>
+                </e>
+                <e p="Resources" t="Include">
+                  <e p="TestBindGameObject" t="Include" />
+                  <e p="TestDiContainerMethods" t="Include" />
+                  <e p="TestFromComponentInHierarchyGameObjectContext" t="Include" />
+                  <e p="TestFromNewScriptableObjectResource" t="Include" />
+                  <e p="TestFromPrefab" t="Include" />
+                  <e p="TestFromPrefabInstaller" t="Include" />
+                  <e p="TestFromPrefabResource" t="Include" />
+                  <e p="TestFromResource" t="Include" />
+                  <e p="TestFromSubContainerPrefab" t="Include" />
+                  <e p="TestFromSubContainerPrefabResource" t="Include" />
+                  <e p="TestInstantiateCallback" t="Include" />
+                </e>
+                <e p="SceneContractTests" t="Include">
+                  <e p="AutoLoader" t="Include">
+                    <e p="Resources" t="Include" />
+                    <e p="Scene1Installer.cs" t="Include" />
+                    <e p="Scene2Installer.cs" t="Include" />
+                    <e p="Scene3Installer.cs" t="Include" />
+                  </e>
+                  <e p="Decorators" t="Include">
+                    <e p="Resources" t="Include" />
+                    <e p="Scene1Installer.cs" t="Include" />
+                    <e p="Scene2Installer.cs" t="Include" />
+                  </e>
+                </e>
+                <e p="SceneTests" t="Include">
+                  <e p="TestDestructionOrder" t="Include">
+                    <e p="FooDisposable1.cs" t="Include" />
+                    <e p="FooDisposable2.cs" t="Include" />
+                    <e p="FooDisposable3.cs" t="Include" />
+                    <e p="FooMonoBehaviourUnderSceneContext1.cs" t="Include" />
+                    <e p="FooMonoBehaviourUnderSceneContext2.cs" t="Include" />
+                    <e p="FooMonoBehaviourUnderSceneContext3.cs" t="Include" />
+                    <e p="ProjectInstaller.cs" t="Include" />
+                    <e p="Readme.txt" t="Include" />
+                    <e p="RenameThisResources" t="Include" />
+                    <e p="Scene1Installer.cs" t="Include" />
+                    <e p="Scene2Installer.cs" t="Include" />
+                  </e>
+                  <e p="TestSceneContextEvents" t="Include">
+                    <e p="SceneContextEventsTester.cs" t="Include" />
+                    <e p="Tests" t="Include">
+                      <e p="Resources" t="Include">
+                        <e p="SceneTestFixtureSettings" t="Include" />
+                      </e>
+                    </e>
+                  </e>
+                </e>
+                <e p="Tests" t="Include">
+                  <e p="Bindings" t="Include">
+                    <e p="TestDiContainerMethods" t="Include">
+                      <e p="TestDiContainerMethods.cs" t="Include" />
+                    </e>
+                    <e p="TestFromComponent" t="Include">
+                      <e p="TestFromComponentOn.cs" t="Include" />
+                      <e p="TestFromNewComponentOn.cs" t="Include" />
+                    </e>
+                    <e p="TestFromComponentInChildren" t="Include">
+                      <e p="TestFromComponentInChildren.cs" t="Include" />
+                    </e>
+                    <e p="TestFromComponentInHierarchy" t="Include">
+                      <e p="TestFromComponentInHierarchy.cs" t="Include" />
+                    </e>
+                    <e p="TestFromComponentInHierarchyGameObjectContext" t="Include">
+                      <e p="TestFromComponentInHierarchyGameObjectContext.cs" t="Include" />
+                    </e>
+                    <e p="TestFromComponentInParents" t="Include">
+                      <e p="TestFromComponentInParents.cs" t="Include" />
+                    </e>
+                    <e p="TestFromComponentInSiblings" t="Include">
+                      <e p="TestFromComponentInSiblings.cs" t="Include" />
+                    </e>
+                    <e p="TestFromGameObject" t="Include">
+                      <e p="TestFromGameObject.cs" t="Include" />
+                    </e>
+                    <e p="TestFromGameObjectInstaller" t="Include">
+                      <e p="TestFromGameObjectInstaller.cs" t="Include" />
+                    </e>
+                    <e p="TestFromNewScriptableObjectResource" t="Include">
+                      <e p="TestFromNewScriptableObjectResource.cs" t="Include" />
+                    </e>
+                    <e p="TestFromPrefab" t="Include">
+                      <e p="TestFromPrefab.cs" t="Include" />
+                    </e>
+                    <e p="TestFromPrefabInstaller" t="Include">
+                      <e p="TestFromPrefabInstaller.cs" t="Include" />
+                    </e>
+                    <e p="TestFromPrefabResource" t="Include">
+                      <e p="TestFromPrefabResource.cs" t="Include" />
+                    </e>
+                    <e p="TestFromResource" t="Include">
+                      <e p="TestFromResource.cs" t="Include" />
+                    </e>
+                    <e p="TestFromSiblingComponent" t="Include">
+                      <e p="TestFromSiblingComponent.cs" t="Include" />
+                    </e>
+                    <e p="TestFromSubContainerPrefab" t="Include">
+                      <e p="TestFromSubContainerPrefab.cs" t="Include" />
+                    </e>
+                    <e p="TestFromSubContainerPrefabResource" t="Include">
+                      <e p="TestFromSubContainerPrefabResource.cs" t="Include" />
+                    </e>
+                    <e p="TestInstantiateCallback" t="Include">
+                      <e p="TestInstantiateCallback.cs" t="Include" />
+                    </e>
+                    <e p="TestLazy" t="Include">
+                      <e p="TestLazy.cs" t="Include" />
+                    </e>
+                  </e>
+                  <e p="Factories" t="Include">
+                    <e p="PrefabFactory" t="Include">
+                      <e p="TestPrefabFactory.cs" t="Include" />
+                    </e>
+                    <e p="TestBindFactory" t="Include">
+                      <e p="TestBindFactory.cs" t="Include" />
+                    </e>
+                    <e p="TestBindFactoryFive" t="Include">
+                      <e p="TestBindFactoryFive.cs" t="Include" />
+                    </e>
+                    <e p="TestBindFactoryOne" t="Include">
+                      <e p="TestBindFactoryOne.cs" t="Include" />
+                    </e>
+                    <e p="TestMemoryPools" t="Include">
+                      <e p="TestMemoryPool1.cs" t="Include" />
+                    </e>
+                  </e>
+                  <e p="Installers" t="Include">
+                    <e p="TestInstallers" t="Include">
+                      <e p="TestInstallers.cs" t="Include" />
+                    </e>
+                    <e p="TestMonoInstallers" t="Include">
+                      <e p="TestMonoInstallers.cs" t="Include" />
+                    </e>
+                    <e p="TestScriptableObjectInstallers" t="Include">
+                      <e p="TestScriptableObjectInstallers.cs" t="Include" />
+                    </e>
+                  </e>
+                  <e p="IntegrationTestTester" t="Include">
+                    <e p="TestIntegrationTest.cs" t="Include" />
+                  </e>
+                  <e p="misc" t="Include">
+                    <e p="TestAnimationStateBehaviourInject" t="Include">
+                      <e p="TestAnimationStateBehaviourInject.cs" t="Include" />
+                    </e>
+                    <e p="TestMonoKernelDecoration" t="Include">
+                      <e p="DelayedInitializeKernel.cs" t="Include" />
+                      <e p="KernelDecoratorInstaller.cs" t="Include" />
+                      <e p="TestMonoKernelDecoration.cs" t="Include" />
+                    </e>
+                    <e p="TestZenAutoInjecter" t="Include">
+                      <e p="TestZenAutoInjecter.cs" t="Include" />
+                    </e>
+                  </e>
+                  <e p="SceneTests" t="Include">
+                    <e p="TestSceneContextEvents.cs" t="Include" />
+                  </e>
+                  <e p="util" t="Include">
+                    <e p="FixtureUtil.cs" t="Include" />
+                  </e>
+                  <e p="Zenject-IntegrationTests-Editor.asmdef" t="Include" />
+                </e>
+                <e p="Zenject-IntegrationTests.asmdef" t="Include" />
+              </e>
+              <e p="MemoryPoolMonitor" t="Include">
+                <e p="Editor" t="Include">
+                  <e p="DebugWindow" t="Include">
+                    <e p="InPlaceStableSort.cs" t="Include" />
+                    <e p="MpmView.cs" t="Include" />
+                    <e p="MpmWindow.cs" t="Include" />
+                  </e>
+                  <e p="MpmSettingsInstaller.cs" t="Include" />
+                  <e p="Resources" t="Include">
+                    <e p="Installers" t="Include" />
+                  </e>
+                  <e p="Zenject-PoolMonitor-Editor.asmdef" t="Include" />
+                </e>
+              </e>
+              <e p="ReflectionBaking" t="Include">
+                <e p="Common" t="Include">
+                  <e p="CecilExtensions.cs" t="Include" />
+                  <e p="ReflectionBakingModuleEditor.cs" t="Include" />
+                </e>
+                <e p="Lib" t="Include" />
+                <e p="Unity" t="Include">
+                  <e p="AssemblyPathRegistry.cs" t="Include" />
+                  <e p="ReflectionBakingBuildObserver.cs" t="Include" />
+                  <e p="ReflectionBakingInternalUtil.cs" t="Include" />
+                  <e p="ReflectionBakingMenuItems.cs" t="Include" />
+                  <e p="UnityAssemblyResolver.cs" t="Include" />
+                  <e p="ZenjectReflectionBakingSettings.cs" t="Include" />
+                  <e p="ZenjectReflectionBakingSettingsEditor.cs" t="Include" />
+                </e>
+                <e p="Zenject-ReflectionBaking-Editor.asmdef" t="Include" />
+              </e>
+              <e p="SampleGame1 (Beginner)" t="Include">
+                <e p="Media" t="Include">
+                  <e p="Fonts" t="Include">
+                    <e p="Space.txt" t="Include" />
+                  </e>
+                  <e p="Imported" t="Include">
+                    <e p="Materials" t="Include" />
+                    <e p="Rocks" t="Include">
+                      <e p="meshes" t="Include">
+                        <e p="Materials" t="Include" />
+                      </e>
+                      <e p="Textures" t="Include" />
+                    </e>
+                    <e p="Shaders" t="Include">
+                      <e p="Add_Layer.shader" t="Include" />
+                      <e p="AddSmooth_Layer.shader" t="Include" />
+                      <e p="Particle Alpha Blend_IgnoreFog.shader" t="Include" />
+                    </e>
+                    <e p="SpaceShip" t="Include">
+                      <e p="Materials" t="Include" />
+                      <e p="Space_Shooter.fbm" t="Include" />
+                      <e p="Textures" t="Include" />
+                    </e>
+                    <e p="Textures" t="Include" />
+                  </e>
+                  <e p="Materials" t="Include" />
+                  <e p="meshes" t="Include">
+                    <e p="Materials" t="Include" />
+                  </e>
+                  <e p="Physics" t="Include" />
+                  <e p="Sounds" t="Include" />
+                  <e p="Textures" t="Include">
+                    <e p="Background" t="Include">
+                      <e p="Materials" t="Include" />
+                    </e>
+                  </e>
+                </e>
+                <e p="Prefabs" t="Include" />
+                <e p="Resources" t="Include">
+                  <e p="Installers" t="Include" />
+                </e>
+                <e p="Scripts" t="Include">
+                  <e p="Asteroid" t="Include">
+                    <e p="Asteroid.cs" t="Include" />
+                    <e p="AsteroidManager.cs" t="Include" />
+                  </e>
+                  <e p="Installers" t="Include">
+                    <e p="GameInstaller.cs" t="Include" />
+                    <e p="GameSettingsInstaller.cs" t="Include" />
+                  </e>
+                  <e p="Main" t="Include">
+                    <e p="GameController.cs" t="Include" />
+                  </e>
+                  <e p="misc" t="Include">
+                    <e p="AudioHandler.cs" t="Include" />
+                    <e p="GuiHandler.cs" t="Include" />
+                    <e p="LevelHelper.cs" t="Include" />
+                    <e p="TilingBackground.cs" t="Include" />
+                  </e>
+                  <e p="Ship" t="Include">
+                    <e p="Ship.cs" t="Include" />
+                    <e p="ShipStateFactory.cs" t="Include" />
+                    <e p="States" t="Include">
+                      <e p="BrokenShipFactory.cs" t="Include" />
+                      <e p="ExplosionFactory.cs" t="Include" />
+                      <e p="ShipState.cs" t="Include" />
+                      <e p="ShipStateDead.cs" t="Include" />
+                      <e p="ShipStateMoving.cs" t="Include" />
+                      <e p="ShipStateWaitingToStart.cs" t="Include" />
+                    </e>
+                  </e>
+                  <e p="util" t="Include">
+                    <e p="GameEvents.cs" t="Include" />
+                    <e p="UnityExtensionMethods.cs" t="Include" />
+                  </e>
+                </e>
+              </e>
+              <e p="SampleGame2 (Advanced)" t="Include">
+                <e p="Media" t="Include">
+                  <e p="Materials" t="Include" />
+                  <e p="Models" t="Include">
+                    <e p="Materials" t="Include" />
+                  </e>
+                  <e p="Physics" t="Include" />
+                  <e p="Prefabs" t="Include" />
+                  <e p="Sounds" t="Include" />
+                  <e p="Textures" t="Include" />
+                </e>
+                <e p="Resources" t="Include">
+                  <e p="SpaceFighter" t="Include" />
+                </e>
+                <e p="Scenes" t="Include" />
+                <e p="Scripts" t="Include">
+                  <e p="Enemy" t="Include">
+                    <e p="EnemyCommonSettings.cs" t="Include" />
+                    <e p="EnemyDeathHandler.cs" t="Include" />
+                    <e p="EnemyFacade.cs" t="Include" />
+                    <e p="EnemyRegistry.cs" t="Include" />
+                    <e p="EnemyRotationHandler.cs" t="Include" />
+                    <e p="EnemyStateManager.cs" t="Include" />
+                    <e p="EnemyTunables.cs" t="Include" />
+                    <e p="EnemyView.cs" t="Include" />
+                    <e p="GameEvents.cs" t="Include" />
+                    <e p="States" t="Include">
+                      <e p="EnemyStateAttack.cs" t="Include" />
+                      <e p="EnemyStateFollow.cs" t="Include" />
+                      <e p="EnemyStateIdle.cs" t="Include" />
+                    </e>
+                  </e>
+                  <e p="Installers" t="Include">
+                    <e p="EnemyInstaller.cs" t="Include" />
+                    <e p="GameInstaller.cs" t="Include" />
+                    <e p="GameSettingsInstaller.cs" t="Include" />
+                    <e p="GameSignalsInstaller.cs" t="Include" />
+                    <e p="PlayerInstaller.cs" t="Include" />
+                  </e>
+                  <e p="misc" t="Include">
+                    <e p="AudioPlayer.cs" t="Include" />
+                    <e p="Bullet.cs" t="Include" />
+                    <e p="ControlsDisplay.cs" t="Include" />
+                    <e p="EnemySpawner.cs" t="Include" />
+                    <e p="Explosion.cs" t="Include" />
+                    <e p="GameRestartHandler.cs" t="Include" />
+                    <e p="LevelBoundary.cs" t="Include" />
+                  </e>
+                  <e p="Player" t="Include">
+                    <e p="PlayerDamageHandler.cs" t="Include" />
+                    <e p="PlayerDirectionHandler.cs" t="Include" />
+                    <e p="PlayerFacade.cs" t="Include" />
+                    <e p="PlayerGUI.cs" t="Include" />
+                    <e p="PlayerHealthWatcher.cs" t="Include" />
+                    <e p="PlayerInputHandler.cs" t="Include" />
+                    <e p="PlayerInputState.cs" t="Include" />
+                    <e p="PlayerModel.cs" t="Include" />
+                    <e p="PlayerMoveHandler.cs" t="Include" />
+                    <e p="PlayerShootHandler.cs" t="Include" />
+                  </e>
+                </e>
+              </e>
+              <e p="Signals" t="Include">
+                <e p="Internal" t="Include">
+                  <e p="Binders" t="Include">
+                    <e p="BindSignal" t="Include">
+                      <e p="BindSignalFromBinder.cs" t="Include" />
+                      <e p="BindSignalIdToBinder.cs" t="Include" />
+                      <e p="BindSignalToBinder.cs" t="Include" />
+                      <e p="SignalCallbackWithLookupWrapper.cs" t="Include" />
+                      <e p="SignalCallbackWrapper.cs" t="Include" />
+                    </e>
+                    <e p="DeclareSignal" t="Include">
+                      <e p="DeclareSignalAsyncTickPriorityCopyBinder.cs" t="Include" />
+                      <e p="DeclareSignalIdRequireHandlerAsyncTickPriorityCopyBinder.cs" t="Include" />
+                      <e p="DeclareSignalRequireHandlerAsyncTickPriorityCopyBinder.cs" t="Include" />
+                      <e p="SignalBindingBindInfo.cs" t="Include" />
+                      <e p="SignalDeclarationBindInfo.cs" t="Include" />
+                    </e>
+                    <e p="SignalCopyBinder.cs" t="Include" />
+                    <e p="SignalExtensions.cs" t="Include" />
+                    <e p="SignalTickPriorityCopyBinder.cs" t="Include" />
+                  </e>
+                  <e p="SignalDeclaration.cs" t="Include" />
+                  <e p="SignalSubscription.cs" t="Include" />
+                  <e p="SignalSubscriptionId.cs" t="Include" />
+                </e>
+                <e p="Main" t="Include">
+                  <e p="SignalBus.cs" t="Include" />
+                  <e p="SignalBusInstaller.cs" t="Include" />
+                  <e p="SignalDeclarationAsyncInitializer.cs" t="Include" />
+                </e>
+              </e>
+              <e p="TestFramework" t="Include">
+                <e p="SceneTestFixture.cs" t="Include" />
+                <e p="SceneTestFixtureSceneReference.cs" t="Include" />
+                <e p="ValidateOnlyAttribute.cs" t="Include" />
+                <e p="Zenject-TestFramework.asmdef" t="Include" />
+                <e p="ZenjectIntegrationTestFixture.cs" t="Include" />
+                <e p="ZenjectTestUtil.cs" t="Include" />
+                <e p="ZenjectUnitTestFixture.cs" t="Include" />
+              </e>
+              <e p="UnitTests" t="Include">
+                <e p="Editor" t="Include">
+                  <e p="BindFeatures" t="Include">
+                    <e p="TestBindingInheritanceMethod.cs" t="Include" />
+                    <e p="TestConcreteIdentifier.cs" t="Include" />
+                    <e p="TestIfNotBound.cs" t="Include" />
+                    <e p="TestMoveIntoAllSubContainers.cs" t="Include" />
+                    <e p="TestMoveIntoDirectSubContainers.cs" t="Include" />
+                    <e p="TestMultipleContractTypes.cs" t="Include" />
+                    <e p="TestMultipleContractTypes2.cs" t="Include" />
+                    <e p="TestMultipleContractTypes3.cs" t="Include" />
+                    <e p="TestNonLazy.cs" t="Include" />
+                    <e p="TestRebind.cs" t="Include" />
+                    <e p="TestUnbind.cs" t="Include" />
+                    <e p="TestWithArguments.cs" t="Include" />
+                  </e>
+                  <e p="Bindings" t="Include">
+                    <e p="TestFrom.cs" t="Include" />
+                    <e p="TestFromFactory.cs" t="Include" />
+                    <e p="TestFromGetter.cs" t="Include" />
+                    <e p="TestFromIFactory.cs" t="Include" />
+                    <e p="TestFromIFactory2.cs" t="Include" />
+                    <e p="TestFromInstance.cs" t="Include" />
+                    <e p="TestFromMethod.cs" t="Include" />
+                    <e p="TestFromMethodMultiple.cs" t="Include" />
+                    <e p="TestFromMethodMultipleUntyped.cs" t="Include" />
+                    <e p="TestFromResolve.cs" t="Include" />
+                    <e p="TestFromSubContainerInstaller.cs" t="Include" />
+                    <e p="TestFromSubContainerInstance.cs" t="Include" />
+                    <e p="TestFromSubContainerInstanceGetter.cs" t="Include" />
+                    <e p="TestFromSubContainerMethod.cs" t="Include" />
+                    <e p="TestNonGeneric.cs" t="Include" />
+                    <e p="TestWithKernel.cs" t="Include" />
+                  </e>
+                  <e p="Conditions" t="Include">
+                    <e p="TestConditionsBasic.cs" t="Include" />
+                    <e p="TestConditionsComplex.cs" t="Include" />
+                    <e p="TestConditionsFieldName.cs" t="Include" />
+                    <e p="TestConditionsIdentifier.cs" t="Include" />
+                    <e p="TestConditionsParents.cs" t="Include" />
+                    <e p="TestConditionsTarget.cs" t="Include" />
+                    <e p="TestConditionsTargetInstance.cs" t="Include" />
+                    <e p="TestIdentifiers.cs" t="Include" />
+                    <e p="TestIdentifierTypes.cs" t="Include" />
+                  </e>
+                  <e p="Conventions" t="Include">
+                    <e p="Foo.cs" t="Include" />
+                    <e p="FooMore.cs" t="Include" />
+                    <e p="TestConvention.cs" t="Include" />
+                    <e p="TestConvention2.cs" t="Include" />
+                    <e p="TestConventionNames.cs" t="Include" />
+                  </e>
+                  <e p="Factories" t="Include">
+                    <e p="Bindings" t="Include">
+                      <e p="TestFactoryFrom0.cs" t="Include" />
+                      <e p="TestFactoryFrom1.cs" t="Include" />
+                      <e p="TestFactoryFrom5.cs" t="Include" />
+                      <e p="TestFactoryFromFactory0.cs" t="Include" />
+                      <e p="TestFactoryFromFactory1.cs" t="Include" />
+                      <e p="TestFactoryFromGetter0.cs" t="Include" />
+                      <e p="TestFactoryFromInstance0.cs" t="Include" />
+                      <e p="TestFactoryFromMethod0.cs" t="Include" />
+                      <e p="TestFactoryFromMethod1.cs" t="Include" />
+                      <e p="TestFactoryFromResolve0.cs" t="Include" />
+                      <e p="TestFactoryFromSubContainerInstaller0.cs" t="Include" />
+                      <e p="TestFactoryFromSubContainerInstaller1.cs" t="Include" />
+                      <e p="TestFactoryFromSubContainerMethod0.cs" t="Include" />
+                      <e p="TestFactoryFromSubContainerMethod1.cs" t="Include" />
+                      <e p="TestFactoryWithArguments.cs" t="Include" />
+                    </e>
+                    <e p="IFactory" t="Include">
+                      <e p="TestIFactory.cs" t="Include" />
+                    </e>
+                    <e p="TestFactory.cs" t="Include" />
+                  </e>
+                  <e p="Injection" t="Include">
+                    <e p="TestAllInjectionTypes.cs" t="Include" />
+                    <e p="TestBaseClassPropertyInjection.cs" t="Include" />
+                    <e p="TestCircularDependencies.cs" t="Include" />
+                    <e p="TestConstructorInjection.cs" t="Include" />
+                    <e p="TestConstructorInjectionOptional.cs" t="Include" />
+                    <e p="TestDuplicateInjection.cs" t="Include" />
+                    <e p="TestInjectSources.cs" t="Include" />
+                    <e p="TestListInjection.cs" t="Include" />
+                    <e p="TestNullableValues.cs" t="Include" />
+                    <e p="TestParameters.cs" t="Include" />
+                    <e p="TestPostInjectCall.cs" t="Include" />
+                    <e p="TestPostInjectParameters.cs" t="Include" />
+                    <e p="TestPropertyInjection.cs" t="Include" />
+                    <e p="TestStructInjection.cs" t="Include" />
+                    <e p="TestTestOptional.cs" t="Include" />
+                  </e>
+                  <e p="MemoryPool" t="Include">
+                    <e p="TestArrayPool.cs" t="Include" />
+                    <e p="TestDisposeBlock.cs" t="Include" />
+                    <e p="TestFromPoolableMemoryPoolOne.cs" t="Include" />
+                    <e p="TestFromPoolableMemoryPoolSix.cs" t="Include" />
+                    <e p="TestFromPoolableMemoryPoolValidation.cs" t="Include" />
+                    <e p="TestFromPoolableMemoryPoolZero.cs" t="Include" />
+                    <e p="TestMemoryPool0.cs" t="Include" />
+                    <e p="TestMemoryPoolCustomFactory.cs" t="Include" />
+                    <e p="TestPoolableStaticMemoryPool.cs" t="Include" />
+                    <e p="TestStaticMemoryPool.cs" t="Include" />
+                  </e>
+                  <e p="Other" t="Include">
+                    <e p="TestAllocs.cs" t="Include" />
+                    <e p="TestAsSingle.cs" t="Include" />
+                    <e p="TestBindCallbacks.cs" t="Include" />
+                    <e p="TestCircularDependencies.cs" t="Include" />
+                    <e p="TestClearCacheProvider.cs" t="Include" />
+                    <e p="TestCustomInjectAttribute.cs" t="Include" />
+                    <e p="TestDecorators.cs" t="Include" />
+                    <e p="TestDecoratorValidation.cs" t="Include" />
+                    <e p="TestFacadeSubContainer.cs" t="Include" />
+                    <e p="TestFactoryMemoryPoolCustomInterface.cs" t="Include" />
+                    <e p="TestGenericContract.cs" t="Include" />
+                    <e p="TestKeyedFactoryExample.cs" t="Include" />
+                    <e p="TestLazy.cs" t="Include" />
+                    <e p="TestNestedContainer.cs" t="Include" />
+                    <e p="TestPoolableManager.cs" t="Include" />
+                    <e p="TestResolve.cs" t="Include" />
+                    <e p="TestResolveMany.cs" t="Include" />
+                    <e p="TestSubContainers.cs" t="Include" />
+                    <e p="TestSubContainers4.cs" t="Include" />
+                    <e p="TestTaskUpdater.cs" t="Include" />
+                    <e p="TestTestUtil.cs" t="Include" />
+                    <e p="TestTransientMockProvider.cs" t="Include" />
+                    <e p="TestValidation.cs" t="Include" />
+                    <e p="TestValidationSettings.cs" t="Include" />
+                    <e p="ZenjectProfileTest.cs" t="Include" />
+                  </e>
+                  <e p="Profiling" t="Include">
+                    <e p="TestInstantiateApproaches.cs" t="Include" />
+                  </e>
+                  <e p="Signals" t="Include">
+                    <e p="TestAsyncSignals.cs" t="Include" />
+                    <e p="TestBindSignal.cs" t="Include" />
+                    <e p="TestSignalIdentifiers.cs" t="Include" />
+                    <e p="TestSignalRuntimeDeclaration.cs" t="Include" />
+                    <e p="TestSignals1.cs" t="Include" />
+                    <e p="TestSignalsAdvanced.cs" t="Include" />
+                  </e>
+                  <e p="util" t="Include">
+                    <e p="TestListComparer.cs" t="Include" />
+                  </e>
+                  <e p="Zenject-UnitTests-Editor.asmdef" t="Include" />
+                </e>
+                <e p="Readme.txt" t="Include" />
+              </e>
+            </e>
+            <e p="package.json" t="Include" />
+            <e p="Source" t="Include">
+              <e p="Binding" t="Include">
+                <e p="Binders" t="Include">
+                  <e p="ArgConditionCopyNonLazyBinder.cs" t="Include" />
+                  <e p="ConcreteBinders" t="Include">
+                    <e p="ConcreteBinderGeneric.cs" t="Include" />
+                    <e p="ConcreteBinderNonGeneric.cs" t="Include" />
+                    <e p="ConcreteIdBinderGeneric.cs" t="Include" />
+                    <e p="ConcreteIdBinderNonGeneric.cs" t="Include" />
+                  </e>
+                  <e p="ConcreteIdArgConditionCopyNonLazyBinder.cs" t="Include" />
+                  <e p="ConditionCopyNonLazyBinder.cs" t="Include" />
+                  <e p="Conventions" t="Include">
+                    <e p="ConventionAssemblySelectionBinder.cs" t="Include" />
+                    <e p="ConventionBindInfo.cs" t="Include" />
+                    <e p="ConventionFilterTypesBinder.cs" t="Include" />
+                    <e p="ConventionSelectTypesBinder.cs" t="Include" />
+                  </e>
+                  <e p="CopyNonLazyBinder.cs" t="Include" />
+                  <e p="DefaultParentScopeConcreteIdArgConditionCopyNonLazyBinder.cs" t="Include" />
+                  <e p="Factory" t="Include">
+                    <e p="FactoryArgumentsToChoiceBinder" t="Include">
+                      <e p="FactoryArgumentsToChoiceBinder0.cs" t="Include" />
+                      <e p="FactoryArgumentsToChoiceBinder1.cs" t="Include" />
+                      <e p="FactoryArgumentsToChoiceBinder10.cs" t="Include" />
+                      <e p="FactoryArgumentsToChoiceBinder2.cs" t="Include" />
+                      <e p="FactoryArgumentsToChoiceBinder3.cs" t="Include" />
+                      <e p="FactoryArgumentsToChoiceBinder4.cs" t="Include" />
+                      <e p="FactoryArgumentsToChoiceBinder5.cs" t="Include" />
+                      <e p="FactoryArgumentsToChoiceBinder6.cs" t="Include" />
+                    </e>
+                    <e p="FactoryFromBinder" t="Include">
+                      <e p="FactoryFromBinder0.cs" t="Include" />
+                      <e p="FactoryFromBinder1.cs" t="Include" />
+                      <e p="FactoryFromBinder10.cs" t="Include" />
+                      <e p="FactoryFromBinder2.cs" t="Include" />
+                      <e p="FactoryFromBinder3.cs" t="Include" />
+                      <e p="FactoryFromBinder4.cs" t="Include" />
+                      <e p="FactoryFromBinder5.cs" t="Include" />
+                      <e p="FactoryFromBinder6.cs" t="Include" />
+                      <e p="SubContainerBinder" t="Include">
+                        <e p="FactorySubContainerBinder0.cs" t="Include" />
+                        <e p="FactorySubContainerBinder1.cs" t="Include" />
+                        <e p="FactorySubContainerBinder10.cs" t="Include" />
+                        <e p="FactorySubContainerBinder2.cs" t="Include" />
+                        <e p="FactorySubContainerBinder3.cs" t="Include" />
+                        <e p="FactorySubContainerBinder4.cs" t="Include" />
+                        <e p="FactorySubContainerBinder5.cs" t="Include" />
+                        <e p="FactorySubContainerBinder6.cs" t="Include" />
+                        <e p="FactorySubContainerBinderBase.cs" t="Include" />
+                        <e p="FactorySubContainerBinderWithParams.cs" t="Include" />
+                      </e>
+                      <e p="Untyped" t="Include">
+                        <e p="FactoryFromBinderUntyped.cs" t="Include" />
+                      </e>
+                    </e>
+                    <e p="FactoryFromBinderBase.cs" t="Include" />
+                    <e p="FactoryToChoiceBinder" t="Include">
+                      <e p="DecoratorToChoiceFromBinder.cs" t="Include" />
+                      <e p="FactoryToChoiceBinder0.cs" t="Include" />
+                      <e p="FactoryToChoiceBinder1.cs" t="Include" />
+                      <e p="FactoryToChoiceBinder10.cs" t="Include" />
+                      <e p="FactoryToChoiceBinder2.cs" t="Include" />
+                      <e p="FactoryToChoiceBinder3.cs" t="Include" />
+                      <e p="FactoryToChoiceBinder4.cs" t="Include" />
+                      <e p="FactoryToChoiceBinder5.cs" t="Include" />
+                      <e p="FactoryToChoiceBinder6.cs" t="Include" />
+                    </e>
+                    <e p="FactoryToChoiceIdBinder" t="Include">
+                      <e p="FactoryToChoiceIdBinder0.cs" t="Include" />
+                      <e p="FactoryToChoiceIdBinder1.cs" t="Include" />
+                      <e p="FactoryToChoiceIdBinder10.cs" t="Include" />
+                      <e p="FactoryToChoiceIdBinder2.cs" t="Include" />
+                      <e p="FactoryToChoiceIdBinder3.cs" t="Include" />
+                      <e p="FactoryToChoiceIdBinder4.cs" t="Include" />
+                      <e p="FactoryToChoiceIdBinder5.cs" t="Include" />
+                      <e p="FactoryToChoiceIdBinder6.cs" t="Include" />
+                    </e>
+                    <e p="PlaceholderFactoryBindingFinalizer.cs" t="Include" />
+                    <e p="Pooling" t="Include">
+                      <e p="MemoryPoolBindingFinalizer.cs" t="Include" />
+                      <e p="MemoryPoolExpandBinder.cs" t="Include" />
+                      <e p="MemoryPoolInitialSizeBinder.cs" t="Include" />
+                    </e>
+                  </e>
+                  <e p="FromBinders" t="Include">
+                    <e p="FromBinder.cs" t="Include" />
+                    <e p="FromBinderGeneric.cs" t="Include" />
+                    <e p="FromBinderNonGeneric.cs" t="Include" />
+                  </e>
+                  <e p="GameObject" t="Include">
+                    <e p="NameTransformScopeConcreteIdArgConditionCopyNonLazyBinder.cs" t="Include" />
+                    <e p="TransformScopeConcreteIdArgConditionCopyNonLazyBinder.cs" t="Include" />
+                  </e>
+                  <e p="IdBinder.cs" t="Include" />
+                  <e p="IdScopeConcreteIdArgConditionCopyNonLazyBinder.cs" t="Include" />
+                  <e p="IfNotBoundBinder.cs" t="Include" />
+                  <e p="InstantiateCallbackConditionCopyNonLazyBinder.cs" t="Include" />
+                  <e p="NonLazyBinder.cs" t="Include" />
+                  <e p="ScopeConcreteIdArgConditionCopyNonLazyBinder.cs" t="Include" />
+                  <e p="SubContainerBinder.cs" t="Include" />
+                  <e p="WithKernelDefaultParentScopeConcreteIdArgConditionCopyNonLazyBinder.cs" t="Include" />
+                  <e p="WithKernelScopeConcreteIdArgConditionCopyNonLazyBinder.cs" t="Include" />
+                </e>
+                <e p="BindInfo" t="Include">
+                  <e p="BindInfo.cs" t="Include" />
+                  <e p="BindStatement.cs" t="Include" />
+                  <e p="FactoryBindInfo.cs" t="Include" />
+                  <e p="GameObjectCreationParameters.cs" t="Include" />
+                  <e p="MemoryPoolBindInfo.cs" t="Include" />
+                </e>
+                <e p="BindingUtil.cs" t="Include" />
+                <e p="Finalizers" t="Include">
+                  <e p="IBindingFinalizer.cs" t="Include" />
+                  <e p="NullBindingFinalizer.cs" t="Include" />
+                  <e p="PrefabBindingFinalizer.cs" t="Include" />
+                  <e p="PrefabResourceBindingFinalizer.cs" t="Include" />
+                  <e p="ProviderBindingFinalizer.cs" t="Include" />
+                  <e p="ScopableBindingFinalizer.cs" t="Include" />
+                  <e p="SingleProviderBindingFinalizer.cs" t="Include" />
+                  <e p="SubContainerBindingFinalizer.cs" t="Include" />
+                  <e p="SubContainerPrefabBindingFinalizer.cs" t="Include" />
+                </e>
+              </e>
+              <e p="Editor" t="Include">
+                <e p="Editors" t="Include">
+                  <e p="ContextEditor.cs" t="Include" />
+                  <e p="GameObjectContextEditor.cs" t="Include" />
+                  <e p="ProjectContextEditor.cs" t="Include" />
+                  <e p="RunnableContextEditor.cs" t="Include" />
+                  <e p="SceneContextEditor.cs" t="Include" />
+                  <e p="SceneDecoratorContextEditor.cs" t="Include" />
+                </e>
+                <e p="EditorStaticInstaller.cs" t="Include" />
+                <e p="EditorWindow" t="Include">
+                  <e p="ZenjectEditorWindow.cs" t="Include" />
+                </e>
+                <e p="ObjectGraphVisualizer.cs" t="Include" />
+                <e p="SceneParentLoading" t="Include">
+                  <e p="DefaultSceneContractConfig.cs" t="Include" />
+                  <e p="SceneParentAutomaticLoader.cs" t="Include" />
+                </e>
+                <e p="UnityInspectorListEditor.cs" t="Include" />
+                <e p="Zenject-Editor.asmdef" t="Include" />
+                <e p="ZenMenuItems.cs" t="Include" />
+                <e p="ZenUnityEditorUtil.cs" t="Include" />
+              </e>
+              <e p="Factories" t="Include">
+                <e p="FactoryProviderWrapper.cs" t="Include" />
+                <e p="IFactory.cs" t="Include" />
+                <e p="KeyedFactory.cs" t="Include" />
+                <e p="PlaceholderFactory.cs" t="Include" />
+                <e p="PlaceholderFactoryBase.cs" t="Include" />
+                <e p="Pooling" t="Include">
+                  <e p="IMemoryPool.cs" t="Include" />
+                  <e p="MemoryPool.cs" t="Include" />
+                  <e p="MemoryPoolBase.cs" t="Include" />
+                  <e p="MonoMemoryPool.cs" t="Include" />
+                  <e p="MonoPoolableMemoryPool.cs" t="Include" />
+                  <e p="PoolableMemoryPool.cs" t="Include" />
+                  <e p="PoolFactory.cs" t="Include" />
+                  <e p="Static" t="Include">
+                    <e p="PoolableStaticMemoryPool.cs" t="Include" />
+                    <e p="StaticMemoryPool.cs" t="Include" />
+                  </e>
+                  <e p="util" t="Include">
+                    <e p="ArrayPool.cs" t="Include" />
+                    <e p="DictionaryPool.cs" t="Include" />
+                    <e p="HashSetPool.cs" t="Include" />
+                    <e p="ListPool.cs" t="Include" />
+                    <e p="PoolCleanupChecker.cs" t="Include" />
+                    <e p="StaticMemoryPoolRegistry.cs" t="Include" />
+                  </e>
+                </e>
+                <e p="PrefabFactory.cs" t="Include" />
+                <e p="PrefabResourceFactory.cs" t="Include" />
+              </e>
+              <e p="Injection" t="Include">
+                <e p="InjectContext.cs" t="Include" />
+                <e p="InjectUtil.cs" t="Include" />
+                <e p="LazyInject.cs" t="Include" />
+              </e>
+              <e p="Install" t="Include">
+                <e p="Contexts" t="Include">
+                  <e p="Context.cs" t="Include" />
+                  <e p="GameObjectContext.cs" t="Include" />
+                  <e p="ProjectContext.cs" t="Include" />
+                  <e p="RunnableContext.cs" t="Include" />
+                  <e p="SceneContext.cs" t="Include" />
+                  <e p="SceneDecoratorContext.cs" t="Include" />
+                  <e p="StaticContext.cs" t="Include" />
+                </e>
+                <e p="IInstaller.cs" t="Include" />
+                <e p="Installer.cs" t="Include" />
+                <e p="InstallerBase.cs" t="Include" />
+                <e p="MonoInstaller.cs" t="Include" />
+                <e p="MonoInstallerBase.cs" t="Include" />
+                <e p="ScriptableObjectInstaller.cs" t="Include" />
+                <e p="ScriptableObjectInstallerBase.cs" t="Include" />
+                <e p="ZenjectBinding.cs" t="Include" />
+                <e p="ZenjectManagersInstaller.cs" t="Include" />
+              </e>
+              <e p="Internal" t="Include">
+                <e p="Assert.cs" t="Include" />
+                <e p="Func.cs" t="Include" />
+                <e p="LinqExtensions.cs" t="Include" />
+                <e p="Log.cs" t="Include" />
+                <e p="MiscExtensions.cs" t="Include" />
+                <e p="PreserveAttribute.cs" t="Include" />
+                <e p="TypeExtensions.cs" t="Include" />
+                <e p="TypeStringFormatter.cs" t="Include" />
+                <e p="ValuePair.cs" t="Include" />
+              </e>
+              <e p="Main" t="Include">
+                <e p="BindingId.cs" t="Include" />
+                <e p="DiContainer.cs" t="Include" />
+                <e p="IInstantiator.cs" t="Include" />
+                <e p="LazyInstanceInjector.cs" t="Include" />
+                <e p="LookupId.cs" t="Include" />
+                <e p="SingletonMarkRegistry.cs" t="Include" />
+                <e p="ZenjectSettings.cs" t="Include" />
+              </e>
+              <e p="Providers" t="Include">
+                <e p="CachedOpenTypeProvider.cs" t="Include" />
+                <e p="CachedProvider.cs" t="Include" />
+                <e p="ComponentProviders" t="Include">
+                  <e p="AddToGameObjectComponentProviders" t="Include">
+                    <e p="AddToCurrentGameObjectComponentProvider.cs" t="Include" />
+                    <e p="AddToExistingGameObjectComponentProvider.cs" t="Include" />
+                    <e p="AddToGameObjectComponentProviderBase.cs" t="Include" />
+                    <e p="AddToNewGameObjectComponentProvider.cs" t="Include" />
+                  </e>
+                  <e p="GetFromGameObjectComponentProvider.cs" t="Include" />
+                  <e p="GetFromGameObjectGetterComponentProvider.cs" t="Include" />
+                  <e p="GetFromPrefabComponentProvider.cs" t="Include" />
+                  <e p="InstantiateOnPrefabComponentProvider.cs" t="Include" />
+                </e>
+                <e p="Decorator" t="Include">
+                  <e p="DecoratorProvider.cs" t="Include" />
+                </e>
+                <e p="GameObjectProviders" t="Include">
+                  <e p="EmptyGameObjectProvider.cs" t="Include" />
+                  <e p="PrefabGameObjectProvider.cs" t="Include" />
+                </e>
+                <e p="GetterProvider.cs" t="Include" />
+                <e p="IFactoryProvider.cs" t="Include" />
+                <e p="InstanceProvider.cs" t="Include" />
+                <e p="IProvider.cs" t="Include" />
+                <e p="IProviderExtensions.cs" t="Include" />
+                <e p="MethodMultipleProviderUntyped.cs" t="Include" />
+                <e p="MethodProvider.cs" t="Include" />
+                <e p="MethodProviderMultiple.cs" t="Include" />
+                <e p="MethodProviderSimple.cs" t="Include" />
+                <e p="MethodProviderUntyped.cs" t="Include" />
+                <e p="MethodProviderWithContainer.cs" t="Include" />
+                <e p="PoolableMemoryPoolProvider.cs" t="Include" />
+                <e p="PrefabCreators" t="Include">
+                  <e p="IPrefabInstantiator.cs" t="Include" />
+                  <e p="PrefabInstantiator.cs" t="Include" />
+                  <e p="PrefabInstantiatorCached.cs" t="Include" />
+                </e>
+                <e p="PrefabProviders" t="Include">
+                  <e p="IPrefabProvider.cs" t="Include" />
+                  <e p="PrefabProvider.cs" t="Include" />
+                  <e p="PrefabProviderCustom.cs" t="Include" />
+                  <e p="PrefabProviderResource.cs" t="Include" />
+                </e>
+                <e p="ProviderUtil.cs" t="Include" />
+                <e p="ResolveProvider.cs" t="Include" />
+                <e p="ResourceProvider.cs" t="Include" />
+                <e p="ScriptableObjectInstanceProvider.cs" t="Include" />
+                <e p="ScriptableObjectResourceProvider.cs" t="Include" />
+                <e p="SubContainerCreators" t="Include">
+                  <e p="ISubContainerCreator.cs" t="Include" />
+                  <e p="SubContainerCreatorBindInfo.cs" t="Include" />
+                  <e p="SubContainerCreatorByInstaller.cs" t="Include" />
+                  <e p="SubContainerCreatorByInstance.cs" t="Include" />
+                  <e p="SubContainerCreatorByInstanceGetter.cs" t="Include" />
+                  <e p="SubContainerCreatorByMethod.cs" t="Include" />
+                  <e p="SubContainerCreatorByNewGameObjectDynamicContext.cs" t="Include" />
+                  <e p="SubContainerCreatorByNewPrefab.cs" t="Include" />
+                  <e p="SubContainerCreatorByNewPrefabDynamicContext.cs" t="Include" />
+                  <e p="SubContainerCreatorByNewPrefabWithParams.cs" t="Include" />
+                  <e p="SubContainerCreatorCached.cs" t="Include" />
+                  <e p="SubContainerCreatorDynamicContext.cs" t="Include" />
+                  <e p="SubContainerCreatorUtil.cs" t="Include" />
+                </e>
+                <e p="SubContainerDependencyProvider.cs" t="Include" />
+                <e p="TransientProvider.cs" t="Include" />
+              </e>
+              <e p="Runtime" t="Include">
+                <e p="AnimatorInterfaces" t="Include">
+                  <e p="AnimatorIkHandlerManager.cs" t="Include" />
+                  <e p="AnimatorInstaller.cs" t="Include" />
+                  <e p="AnimatorMoveHandlerManager.cs" t="Include" />
+                  <e p="IAnimatorIkHandler.cs" t="Include" />
+                  <e p="IAnimatorMoveHandler.cs" t="Include" />
+                </e>
+                <e p="DisposableManager.cs" t="Include" />
+                <e p="GuiRenderableManager.cs" t="Include" />
+                <e p="GuiRenderer.cs" t="Include" />
+                <e p="InitializableManager.cs" t="Include" />
+                <e p="Kernels" t="Include">
+                  <e p="DecoratableMonoKernel.cs" t="Include" />
+                  <e p="DefaultGameObjectKernel.cs" t="Include" />
+                  <e p="Kernel.cs" t="Include" />
+                  <e p="MonoKernel.cs" t="Include" />
+                  <e p="ProjectKernel.cs" t="Include" />
+                  <e p="SceneKernel.cs" t="Include" />
+                </e>
+                <e p="PoolableManager.cs" t="Include" />
+                <e p="SceneContextRegistry.cs" t="Include" />
+                <e p="SceneContextRegistryAdderAndRemover.cs" t="Include" />
+                <e p="TaskUpdater.cs" t="Include" />
+                <e p="TickableManager.cs" t="Include" />
+              </e>
+              <e p="Usage" t="Include">
+                <e p="link.xml" t="Include" />
+              </e>
+              <e p="util" t="Include">
+                <e p="ActionInstaller.cs" t="Include" />
+                <e p="CheatSheet.cs" t="Include" />
+                <e p="DefaultGameObjectParentInstaller.cs" t="Include" />
+                <e p="DisposeBlock.cs" t="Include" />
+                <e p="ExecutionOrderInstaller.cs" t="Include" />
+                <e p="ProfileBlock.cs" t="Include" />
+                <e p="ProfileTimers.cs" t="Include" />
+                <e p="ReflectionInfoTypeInfoConverter.cs" t="Include" />
+                <e p="ReflectionTypeInfo.cs" t="Include" />
+                <e p="ReflectionUtil.cs" t="Include" />
+                <e p="TypeAnalyzer.cs" t="Include" />
+                <e p="UnityUtil.cs" t="Include" />
+                <e p="ValidationUtil.cs" t="Include" />
+                <e p="ZenAutoInjecter.cs" t="Include" />
+                <e p="ZenjectException.cs" t="Include" />
+                <e p="ZenjectSceneLoader.cs" t="Include" />
+                <e p="ZenjectStateMachineBehaviourAutoInjecter.cs" t="Include" />
+                <e p="ZenPools.cs" t="Include" />
+                <e p="ZenReflectionTypeAnalyzer.cs" t="Include" />
+                <e p="ZenUtilInternal.cs" t="Include" />
+              </e>
+              <e p="Validation" t="Include">
+                <e p="IValidatable.cs" t="Include" />
+                <e p="ValidationMarker.cs" t="Include" />
+              </e>
+            </e>
+            <e p="Version.txt" t="Include" />
+            <e p="zenject.asmdef" t="Include" />
+          </e>
+        </e>
+        <e p="Resources" t="Include">
+          <e p="Configs" t="Include" />
+          <e p="GameAnalytics" t="Include" />
         </e>
         <e p="RestClient" t="Include">
           <e p="DemoScene" t="Include">
@@ -3216,6 +4448,7 @@
                 <e p="ResponseHelper.cs" t="Include" />
                 <e p="StaticCoroutine.cs" t="Include" />
               </e>
+              <e p="package.json" t="Include" />
               <e p="RestClient.cs" t="Include" />
               <e p="RestClientPromise.cs" t="Include" />
             </e>
@@ -3238,12 +4471,16 @@
           <e p="SpritesSettings.cs" t="Include" />
         </e>
         <e p="TextMesh Pro" t="Include">
+          <e p="Documentation" t="Include" />
           <e p="Fonts" t="Include">
             <e p="LiberationSans - OFL.txt" t="Include" />
           </e>
           <e p="Resources" t="Include">
+            <e p="Fonts &amp; Materials" t="Include" />
             <e p="LineBreaking Following Characters.txt" t="Include" />
             <e p="LineBreaking Leading Characters.txt" t="Include" />
+            <e p="Sprite Assets" t="Include" />
+            <e p="Style Sheets" t="Include" />
           </e>
           <e p="Shaders" t="Include">
             <e p="TMP_Bitmap-Custom-Atlas.shader" t="Include" />
@@ -3266,6 +4503,7 @@
           </e>
           <e p="Sprites" t="Include">
             <e p="EmojiOne Attribution.txt" t="Include" />
+            <e p="EmojiOne.json" t="Include" />
           </e>
         </e>
         <e p="WebGLMobileInput.cs" t="Include" />
@@ -3273,10 +4511,20 @@
           <e p="Editor" t="Include">
             <e p="WebGLNativeInputFieldEditor.cs" t="Include" />
           </e>
+          <e p="Plugins" t="Include">
+            <e p="Webgl" t="Include" />
+          </e>
           <e p="Scripts" t="Include">
             <e p="WebGLNativeInputField.cs" t="Include" />
             <e p="WebNativeDialog.cs" t="Include" />
           </e>
+        </e>
+        <e p="WebGLTemplates" t="Include">
+          <e p="Fullscreen" t="Include" />
+          <e p="MyDefaultFullscreen" t="Include">
+            <e p="TemplateData" t="Include" />
+          </e>
+          <e p="MyMinimalFullscreen" t="Include" />
         </e>
       </e>
       <e p="BestHTTP.csproj" t="IncludeRecursive" />
@@ -3292,11 +4540,20 @@
       <e p="Mirror.Transports.csproj" t="IncludeRecursive" />
       <e p="obj" t="ExcludeRecursive" />
       <e p="Packages" t="ExcludeRecursive" />
+      <e p="ParrelSync.csproj" t="IncludeRecursive" />
       <e p="SimpleWebTransport.csproj" t="IncludeRecursive" />
       <e p="Telepathy.csproj" t="IncludeRecursive" />
       <e p="Temp\Bin" t="ExcludeRecursive" />
       <e p="tkpClient.sln" t="IncludeFlat" />
       <e p="Unity.Mirror.CodeGen.csproj" t="IncludeRecursive" />
+      <e p="Zenject-Editor.csproj" t="IncludeRecursive" />
+      <e p="Zenject-IntegrationTests-Editor.csproj" t="IncludeRecursive" />
+      <e p="Zenject-IntegrationTests.csproj" t="IncludeRecursive" />
+      <e p="Zenject-PoolMonitor-Editor.csproj" t="IncludeRecursive" />
+      <e p="Zenject-ReflectionBaking-Editor.csproj" t="IncludeRecursive" />
+      <e p="Zenject-TestFramework.csproj" t="IncludeRecursive" />
+      <e p="Zenject-UnitTests-Editor.csproj" t="IncludeRecursive" />
+      <e p="Zenject.csproj" t="IncludeRecursive" />
     </e>
     <e p="C:\Users\Админ\AppData\Local\JetBrains\Rider2020.2\extResources" t="IncludeRecursive" />
     <e p="C:\Users\Админ\AppData\Local\JetBrains\Rider2020.2\resharper-host\Local\Transient\Rider\v202\SolutionCaches\_tkpClient.539239658.00" t="ExcludeRecursive" />

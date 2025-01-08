@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using Mirror;
 using UnityEngine;
 
-public class Cannon : MonoBehaviour
+public class Cannon : NetworkBehaviour
 {
     [SerializeField] float delay = 3f;
     [SerializeField] float speed = 1f;
@@ -21,16 +22,26 @@ public class Cannon : MonoBehaviour
     {
         for (int i = 0; i < countOfBalls; i++)
         {
-            cannonBalls.Add(Instantiate(cannonballPrefab, new Vector3(transform.position.x, transform.position.y, 0.5f), Quaternion.identity, transform));
+            cannonBalls.Add(Instantiate(cannonballPrefab, new Vector3(transform.position.x, transform.position.y, 0.5f),
+                Quaternion.identity, transform));
+            NetworkServer.Spawn(cannonBalls[i]);
+
             cannonBalls[i].SetActive(false);
+            RpcSetActivePortals(cannonBalls[i], false);
         }
 
         isShoot = true;
     }
+
     void Start()
     {
-
         StartCoroutine("Shoot");
+    }
+
+    [ClientRpc]
+    void RpcSetActivePortals(GameObject go, bool isEnabled)
+    {
+        go.SetActive(isEnabled);
     }
 
     public void StartShooting()
@@ -38,6 +49,7 @@ public class Cannon : MonoBehaviour
         isShoot = true;
         StartCoroutine("Shoot");
     }
+
     public void StopShooting()
     {
         isShoot = false;
@@ -50,23 +62,24 @@ public class Cannon : MonoBehaviour
 
     IEnumerator BallFly(GameObject ball)
     {
-
         while (ball.activeSelf)
         {
             ball.transform.Translate((gameObject.transform.up * speed) * Time.deltaTime);
             yield return null;
         }
+
         if (laserSpark)
         {
-            laserSpark.gameObject.transform.position = ball.transform.position+ gameObject.transform.up;
+            laserSpark.gameObject.transform.position = ball.transform.position + gameObject.transform.up;
             laserSpark.Play();
         }
-
     }
+
     IEnumerator Shoot()
     {
-        Vector3 startBallPosition = new Vector3(transform.position.x, transform.position.y, 0.5f) + gameObject.transform.up;
-        
+        Vector3 startBallPosition =
+            new Vector3(transform.position.x, transform.position.y, 0.5f) + gameObject.transform.up;
+
         while (true)
         {
             GameObject ball = cannonBalls[currentBall];
@@ -81,12 +94,11 @@ public class Cannon : MonoBehaviour
 
             currentBall++;
             if (currentBall == countOfBalls)
-            { currentBall = 0; }
+            {
+                currentBall = 0;
+            }
 
             yield return new WaitForSeconds(delay);
         }
-
-
     }
-
 }

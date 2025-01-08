@@ -257,10 +257,11 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
-  isReadable: 0
+  isReadable: 1
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -326,6 +327,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -2008,6 +2021,86 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      Atlas-sprite-3_73: 9133928163489581209
+      Atlas-sprite-3_78: 4667382293709672866
+      Atlas-sprite-3_3: -6746089847577113100
+      Atlas-sprite-3_28: -8852659525468528191
+      Atlas-sprite-3_77: -8408816343448338571
+      Atlas-sprite-3_10: 3994823164065283310
+      Atlas-sprite-3_50: -4190181053699302576
+      Atlas-sprite-3_65: 4772425205596913344
+      Atlas-sprite-3_56: -7549220818024885493
+      Atlas-sprite-3_14: 2691579525066286450
+      Atlas-sprite-3_12: 2305491682694621981
+      Atlas-sprite-3_4: -1726903092263942921
+      Atlas-sprite-3_20: 2218725417628418028
+      Atlas-sprite-3_42: 2794563018714001622
+      Atlas-sprite-3_74: 8896009519803488676
+      Atlas-sprite-3_59: 4556485376589937494
+      Atlas-sprite-3_43: -6728942436077597839
+      Atlas-sprite-3_55: -4196547711813390310
+      Atlas-sprite-3_62: 6196079975012698645
+      Atlas-sprite-3_1: -2672179036991658626
+      Atlas-sprite-3_63: -5008159684381839313
+      Atlas-sprite-3_72: -6184648060168267465
+      Atlas-sprite-3_60: 1900428522711252943
+      Atlas-sprite-3_47: -3576974760412100720
+      Atlas-sprite-3_61: -5600460689933629386
+      Atlas-sprite-3_21: 106538343056114575
+      Atlas-sprite-3_68: -4924693307561016608
+      Atlas-sprite-3_31: -3460131377016189232
+      Atlas-sprite-3_48: 2840071236537772170
+      Atlas-sprite-3_19: 5781252793679841658
+      Atlas-sprite-3_29: -5935260073757004274
+      Atlas-sprite-3_69: -6640130519595228659
+      Atlas-sprite-3_76: 4798665754708938484
+      Atlas-sprite-3_15: 4167804356999859250
+      Atlas-sprite-3_8: -824451908984121960
+      Atlas-sprite-3_0: 8220539903634051656
+      Atlas-sprite-3_25: 6995170786004828205
+      Atlas-sprite-3_27: 5511975369865542963
+      Atlas-sprite-3_5: 2093265197926831200
+      Atlas-sprite-3_6: -7034357792239526855
+      Atlas-sprite-3_2: 6319328845216622369
+      Atlas-sprite-3_44: 4711543542969593836
+      Atlas-sprite-3_37: -7789936757908062624
+      Atlas-sprite-3_39: -1022162915757122024
+      Atlas-sprite-3_52: -7746728001940974845
+      Atlas-sprite-3_45: 5725712294754480358
+      Atlas-sprite-3_7: 6477858372815497397
+      Atlas-sprite-3_13: -9123308626232556915
+      Atlas-sprite-3_57: 2880419419613096837
+      Atlas-sprite-3_75: 3725386892037559418
+      Atlas-sprite-3_36: -1723473595487114286
+      Atlas-sprite-3_53: -4980974499565634531
+      Atlas-sprite-3_51: -6917188294214314723
+      Atlas-sprite-3_35: -1066434558508656286
+      Atlas-sprite-3_64: -6111462190433173771
+      Atlas-sprite-3_16: 2115584041093394304
+      Atlas-sprite-3_34: 9097231271810281159
+      Atlas-sprite-3_54: -4981519403356780494
+      Atlas-sprite-3_38: 5941391344332558221
+      Atlas-sprite-3_23: -2024323207923713701
+      Atlas-sprite-3_30: 3722154832312734977
+      Atlas-sprite-3_33: -1335382334000572448
+      Atlas-sprite-3_46: -9047389380441666416
+      Atlas-sprite-3_67: 7875074167611082172
+      Atlas-sprite-3_32: 887020173696812751
+      Atlas-sprite-3_22: 5651192706020557924
+      Atlas-sprite-3_17: -788672506956995822
+      Atlas-sprite-3_26: 8392704183135386137
+      Atlas-sprite-3_40: 6605627301817458500
+      Atlas-sprite-3_49: -6532173680489147480
+      Atlas-sprite-3_66: -2735223518489636662
+      Atlas-sprite-3_41: 2291705476466263583
+      Atlas-sprite-3_11: -2534871959718471470
+      Atlas-sprite-3_24: 645031144638801486
+      Atlas-sprite-3_70: 6562388989096921712
+      Atlas-sprite-3_71: 9073221641309696042
+      Atlas-sprite-3_18: 3618697547593979270
+      Atlas-sprite-3_9: -1234328819545814188
+      Atlas-sprite-3_58: 51772661644889066
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

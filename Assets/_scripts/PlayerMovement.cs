@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using Mirror;
+using TMPro;
 using UnityEngine;
 
 public class PlayerMovement : NetworkBehaviour
@@ -10,20 +11,50 @@ public class PlayerMovement : NetworkBehaviour
     [SerializeField] float speed;
 
     [SerializeField] Animator animator;
+    [SerializeField] private TextMeshProUGUI _playerDebug;
 
-    public Grid grid;
+    public Grid _grid;
     [SerializeField] const int countOfMoveBlock = 2;
     Cell[] nextCell = new Cell[countOfMoveBlock + 1];
     public bool canMove = false;
 
+    private WorldInitializer _world;
+
     void OnDisable()
     {
+        if (!isLocalPlayer) return;
         StopAllCoroutines();
     }
 
-    void OnEnable()
+    void Start()
     {
+        if (!isLocalPlayer)
+        {
+            return;
+        }
+
+        if (!_world)
+        {
+            _world = FindObjectOfType<WorldInitializer>();
+            _playerDebug.text = "world founded";
+        }
+        else
+        {
+            _playerDebug.text = "world already Exist";
+        }
+
+        _grid = _world.GetCurrentGrid(out var gridSize);
+
+        _playerDebug.text = gridSize;
+
         StartCoroutine(Move2());
+
+//        var PlayerBaseID = Convert.ToInt32(GetComponent<NetworkIdentity>().netId) -
+        //                     GameObject.Find("NetworkManager").GetComponent<NetworkManager>().numPlayers;
+        //_playerDebug.text = PlayerBaseID.ToString();
+
+        transform.position = new Vector3(1, 1, 0);
+        canMove = true;
     }
 
     IEnumerator Move2()
@@ -33,6 +64,7 @@ public class PlayerMovement : NetworkBehaviour
             if (!isLocalPlayer)
             {
                 yield return new WaitForSeconds(0.00001f);
+                _playerDebug.text = "isntLocalPlayer";
                 continue;
             }
 
@@ -101,12 +133,13 @@ public class PlayerMovement : NetworkBehaviour
 
     void moveCheck(int xOffset, int yOffset, int lastCheckCell, int index = 0)
     {
-        possibleNextCoordinate = new Vector2(transform.position.x + (index + 1) * xOffset * grid.cellSize,
-            transform.position.y + (index + 1) * yOffset * grid.cellSize);
-        possibleNextCoordinate.x = Mathf.Clamp(possibleNextCoordinate.x, -1, grid.gridSideX + 1);
-        possibleNextCoordinate.y = Mathf.Clamp(possibleNextCoordinate.y, -1, grid.gridSideY + 1);
+        possibleNextCoordinate = new Vector2(transform.position.x + (index + 1) * xOffset * _grid.cellSize,
+            transform.position.y + (index + 1) * yOffset * _grid.cellSize);
+        possibleNextCoordinate.x = Mathf.Clamp(possibleNextCoordinate.x, -1, _grid.gridSideX + 1);
+        possibleNextCoordinate.y = Mathf.Clamp(possibleNextCoordinate.y, -1, _grid.gridSideY + 1);
 
-        nextCell[index] = grid.cellsDictionary[possibleNextCoordinate];
+        nextCell[index] = _grid.cellsDictionary[possibleNextCoordinate];
+        _playerDebug.text = _grid.cellsDictionary[possibleNextCoordinate].GetGridPos().ToString();
 
         if (nextCell[index].exitDirection != "")
         {
@@ -155,7 +188,7 @@ public class PlayerMovement : NetworkBehaviour
         }
         else
         {
-            if (!grid.CellIsBorder(nextCell[index]) || index == 0)
+            if (!_grid.CellIsBorder(nextCell[index]) || index == 0)
             {
                 // animator.SetInteger("HorizDirection", xOffset);
                 // animator.SetInteger("VerticalDirection", yOffset);

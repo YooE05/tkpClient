@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -54,7 +53,7 @@ public class LaserBlast : CannonBall
         blastRenderer.enabled = false;
         blastCollider.enabled = false;
 
-        //включить партиклы
+        //РІРєР»СЋС‡РёС‚СЊ РїР°СЂС‚РёРєР»С‹
         //collisionPrticles.Play();
 
         yield return new WaitForSeconds(0.5f);

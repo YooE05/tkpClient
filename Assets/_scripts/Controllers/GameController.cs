@@ -182,9 +182,9 @@ public class GameController : MonoBehaviour
         playerMovement.canMove = false;
         countOfAllPhrases = 0;
         needChangeRoom = false;
-        _viewController.RestartGameView(playerHealth.startHealth);
+        _viewController.RestartGameView(playerHealth.StartHealth);
 
-        playerHealth.currentHealth = playerHealth.startHealth;
+        playerHealth.ResetHealth();
         ClearRooms();
         if (!isDemo)
         {
@@ -279,7 +279,7 @@ public class GameController : MonoBehaviour
         currentRoomCoordinate = new Vector2(x / 2, y / 2);
         currentRoomIndex = roomsCoordinateDictionary[currentRoomCoordinate];
         roomsList[currentRoomIndex].gameObject.SetActive(true);
-        playerMovement.grid = roomsList[currentRoomIndex].gridGO.GetComponent<Grid>();
+       // playerMovement._grid = new GridClone(roomsList[currentRoomIndex].gridGO.GetComponent<Grid>());
 
 
         _viewController.HideLoadingView();
@@ -738,7 +738,7 @@ public class GameController : MonoBehaviour
         {
             for (int i = 0; i < roomsList.Count; i++)
             {
-                roomsList[i].gridGO.GetComponent<Grid>().ClearGrid();
+                roomsList[i].GridComponent.ClearGrid();
                 Destroy(roomsList[i].gameObject);
             }
 
@@ -775,7 +775,7 @@ public class GameController : MonoBehaviour
 
         if (needChangeRoom)
         {
-            playerMovement.grid.StopCannonsShooting();
+            // playerMovement._grid.StopCannonsShooting();
             //��������� ������� �������
             roomsList[currentRoomIndex].gameObject.SetActive(false);
 
@@ -787,11 +787,11 @@ public class GameController : MonoBehaviour
             currentRoomCoordinate = nextRoomCoordinate;
 
             //�������� ����� ������������ ������ �� ������� �������
-            playerMovement.grid = roomsList[currentRoomIndex].gridGO.GetComponent<Grid>();
+           // playerMovement._grid = new GridClone(roomsList[currentRoomIndex].gridGO.GetComponent<Grid>());
 
             //����������� ������ � ������� ����� ��������������� �������
             playerMovement.gameObject.transform.position = GetPlayerCoordinateInNextRoom(nextRoomDirection);
-            playerMovement.grid.StartCannonsShooting();
+            // playerMovement._grid.StartCannonsShooting();
         }
     }
 
@@ -800,13 +800,13 @@ public class GameController : MonoBehaviour
         int x, y;
         if (nextRoomDirection.x == 0)
         {
-            x = playerMovement.grid.gridSideX / 2;
-            y = nextRoomDirection.y == 1 ? 0 : playerMovement.grid.gridSideY;
+            x = playerMovement._grid.gridSideX / 2;
+            y = nextRoomDirection.y == 1 ? 0 : playerMovement._grid.gridSideY;
         }
         else
         {
-            y = playerMovement.grid.gridSideY / 2;
-            x = nextRoomDirection.x == 1 ? 0 : playerMovement.grid.gridSideX;
+            y = playerMovement._grid.gridSideY / 2;
+            x = nextRoomDirection.x == 1 ? 0 : playerMovement._grid.gridSideX;
         }
 
         return new Vector2(x, y);
@@ -834,7 +834,7 @@ public class GameController : MonoBehaviour
     {
         _isDataUpdating = true;
 
-        _viewController.ShowGameEndPanel(playerHealth.startHealth, (int) countOfAllPhrases);
+        _viewController.ShowGameEndPanel(playerHealth.StartHealth, (int) countOfAllPhrases);
         playerMovement.canMove = false;
 
         _dataController.IncreaseLevel();

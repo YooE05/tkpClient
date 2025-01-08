@@ -21,7 +21,7 @@ public class ViewController : MonoBehaviour
 
     void Start()
     {
-        _loadingScreen.SetActive(true);
+        //_loadingScreen.SetActive(true);
         gameEndPanel.SetActive(false);        
         ShowGameView();
 
@@ -33,7 +33,7 @@ public class ViewController : MonoBehaviour
     
 
 
-    //убрать пред релизом 
+    //СѓР±СЂР°С‚СЊ РїСЂРµРґ СЂРµР»РёР·РѕРј 
     public void RegenerateScreen()
     {
         gameController.GenerateLevelStruct();
