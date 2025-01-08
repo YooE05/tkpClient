@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 using Proyecto26;
 
 public enum GameResult
@@ -12,11 +11,10 @@ public enum GameResult
     LOSE,
     DRAW
 }
+
 public class GameController : MonoBehaviour
 {
-
-    [Header("Main Links")]
-    bool isDemo;
+    [Header("Main Links")] bool isDemo;
     Grid grid;
     [SerializeField] ViewController _viewController;
     DataController _dataController;
@@ -29,8 +27,7 @@ public class GameController : MonoBehaviour
     [SerializeField] List<LevelTrapSettings> trapSettings;
     [SerializeField] List<SpritesSettings> spriteSettings;
 
-    [Header("Prefabs")]
-    [SerializeField] GameObject roomPrefab;
+    [Header("Prefabs")] [SerializeField] GameObject roomPrefab;
     [SerializeField] GameObject phrasePrefab;
     [SerializeField] GameObject articlePrefab;
     [SerializeField] GameObject doorToNextLvl;
@@ -38,11 +35,11 @@ public class GameController : MonoBehaviour
     [SerializeField] GameObject cannonPrefab;
     [SerializeField] GameObject laserPrefab;
 
-    [Header("RoomsGridProperties")]
-    int countOfRoom = 11;
+    [Header("RoomsGridProperties")] int countOfRoom = 11;
     int x = 10;
     int y = 10;
     int[,] levelGrid;
+
     struct Neighbours
     {
         public void SetUp()
@@ -52,11 +49,13 @@ public class GameController : MonoBehaviour
             left = false;
             right = false;
         }
+
         public bool up;
         public bool down;
         public bool left;
         public bool right;
     }
+
     [SerializeField] List<Room> roomsList = new List<Room>();
     Dictionary<Vector2, int> roomsCoordinateDictionary = new Dictionary<Vector2, int>();
 
@@ -64,25 +63,23 @@ public class GameController : MonoBehaviour
     Vector2 currentRoomCoordinate;
 
     int maxCountRoomTasks = 2;
-    string[] articlesNamesArray = { "a", "the", "an", "none" };
+    string[] articlesNamesArray = {"a", "the", "an", "none"};
     List<Article> allArticles = new List<Article>();
     List<Vector2> coordBetweenPhrasesParts = new List<Vector2>();
     List<Vector2> allPhrasesCoordinates = new List<Vector2>();
     [SerializeField] GameObject phraseForPreloadGrid;
 
 
-    [Header("Other")]
-    [HideInInspector] public int tasksCount;
+    [Header("Other")] [HideInInspector] public int tasksCount;
     [HideInInspector] public int articlesCount;
+
     int letterInBlock = 5;
+
     //public int cellSize = 1;
     [HideInInspector] public int correctAnswers = 0;
     [SerializeField] float countOfAllPhrases = 0;
 
     private RestManager _restManager;
-
-
-
 
     private void Awake()
     {
@@ -90,15 +87,23 @@ public class GameController : MonoBehaviour
 
         DemolevelTasks.AddRange(levelTasks);
         if (FindObjectOfType<DataController>())
-        { isDemo = false; }
-        else { isDemo = true; }
+        {
+            isDemo = false;
+        }
+        else
+        {
+            isDemo = true;
+        }
 
         if (!isDemo)
-        { _dataController = FindObjectOfType<DataController>(); }
+        {
+            _dataController = FindObjectOfType<DataController>();
+        }
 
         playerHealth = FindObjectOfType<PlayerHealth>();
         playerMovement = FindObjectOfType<PlayerMovement>();
     }
+
     private void Start()
     {
         _viewController.ShowLoadingView();
@@ -107,7 +112,6 @@ public class GameController : MonoBehaviour
         GameEvents.current.OnExitTriggerEnter += ChangeRoomByExit;
         GameEvents.current.OnPlayerDied += GenerateLevelStruct;
         GameEvents.current.OnIncreasePoints += IncreasePoints;
-
     }
 
 
@@ -128,6 +132,7 @@ public class GameController : MonoBehaviour
             {
                 crntLevel = 1;
             }
+
             countOfRoom = (crntLevel >= 11) ? 11 : crntLevel + 1;
 
             LoadLevelTasks(maxCountRoomTasks, "level");
@@ -137,36 +142,37 @@ public class GameController : MonoBehaviour
             countOfRoom = 5;
             GenerateLevelStruct();
         }
-
     }
 
 
     private void LoadLevelTasks(int maxTasksInRoom, string rootAddition)
     {
         var bodyStr = $"{{\"maxTasksInRoom\": {maxTasksInRoom} }}";
-   
+
         _restManager.currentRequest = new RequestHelper
         {
             Uri = _restManager._root + rootAddition,
-            Headers = new Dictionary<string, string> {
-            { "Authorization", "Bearer "+ _dataController.GetJwtToken() }  },
+            Headers = new Dictionary<string, string>
+            {
+                {"Authorization", "Bearer " + _dataController.GetJwtToken()}
+            },
             BodyString = bodyStr,
             EnableDebug = true
         };
 
         RestClient.GetArray<ArticleTask>(_restManager.currentRequest)
-        .Then(res =>
-        {
-            //�������� ������ � ���� ����������
-            _dataController._tasksArr = res;
-            GenerateLevelStruct();
-        })
-        .Catch(err =>
-        {
-            var error = err as RequestException;
-            Debug.Log(error.Message);
-            SceneManager.LoadScene("MenuScreen");
-        });
+            .Then(res =>
+            {
+                //�������� ������ � ���� ����������
+                _dataController._tasksArr = res;
+                GenerateLevelStruct();
+            })
+            .Catch(err =>
+            {
+                var error = err as RequestException;
+                Debug.Log(error.Message);
+                SceneManager.LoadScene("MenuScreen");
+            });
     }
 
 
@@ -221,33 +227,40 @@ public class GameController : MonoBehaviour
             switch (rand)
             {
                 case 0:
+                {
+                    if (lastY < y - 1)
                     {
-                        if (lastY < y - 1)
-                        { lastY++; }
+                        lastY++;
                     }
+                }
                     break;
                 case 1:
+                {
+                    if (lastX < x - 1)
                     {
-                        if (lastX < x - 1)
-                        { lastX++; }
+                        lastX++;
                     }
+                }
                     break;
                 case 2:
+                {
+                    if (lastY > 0)
                     {
-                        if (lastY > 0)
-                        { lastY--; }
+                        lastY--;
                     }
+                }
                     break;
                 case 3:
+                {
+                    if (lastX > 0)
                     {
-                        if (lastX > 0)
-                        { lastX--; }
+                        lastX--;
                     }
+                }
                     break;
                 default:
                     break;
             }
-
         }
 
 
@@ -256,15 +269,13 @@ public class GameController : MonoBehaviour
         {
             for (int j = 0; j < y; j++)
             {
-
                 if (levelGrid[i, j] == 1)
                 {
                     GenerateRoom(i, j);
                 }
-
             }
-
         }
+
         currentRoomCoordinate = new Vector2(x / 2, y / 2);
         currentRoomIndex = roomsCoordinateDictionary[currentRoomCoordinate];
         roomsList[currentRoomIndex].gameObject.SetActive(true);
@@ -290,22 +301,33 @@ public class GameController : MonoBehaviour
         if (crntX < x - 1)
         {
             if (levelGrid[crntX + 1, crntY] == 1)
-            { crntNeigbours.right = true; }
+            {
+                crntNeigbours.right = true;
+            }
         }
+
         if (crntX > 0)
         {
             if (levelGrid[crntX - 1, crntY] == 1)
-            { crntNeigbours.left = true; }
+            {
+                crntNeigbours.left = true;
+            }
         }
+
         if (crntY > 0)
         {
             if (levelGrid[crntX, crntY - 1] == 1)
-            { crntNeigbours.down = true; }
+            {
+                crntNeigbours.down = true;
+            }
         }
+
         if (crntY < y - 1)
         {
             if (levelGrid[crntX, crntY + 1] == 1)
-            { crntNeigbours.up = true; }
+            {
+                crntNeigbours.up = true;
+            }
         }
 
         return crntNeigbours;
@@ -317,7 +339,8 @@ public class GameController : MonoBehaviour
         allPhrasesCoordinates.Clear();
         coordBetweenPhrasesParts.Clear();
 
-        Room newRoom = Instantiate(roomPrefab, Vector3.zero, Quaternion.identity, gameObject.transform).GetComponent<Room>();
+        Room newRoom = Instantiate(roomPrefab, Vector3.zero, Quaternion.identity, gameObject.transform)
+            .GetComponent<Room>();
         grid = newRoom.GetComponentInChildren<Grid>();
         newRoom.gridCoordinate = new Vector2(roomX, roomY);
         newRoom.phraseDirections = "vertical";
@@ -335,12 +358,13 @@ public class GameController : MonoBehaviour
 
         int randCountTasks = UnityEngine.Random.Range(1, maxCountRoomTasks + 1);
         if (isDemo)
-        { randCountTasks = UnityEngine.Random.Range(1, 3); }
+        {
+            randCountTasks = UnityEngine.Random.Range(1, 3);
+        }
 
         //���� �� ������ ���������� ������� 
         for (int i = 0; i < randCountTasks; i++)
         {
-
             int lenthOfWordPart = 0;
             int phrasesPrefabOffset = 0;
             int articlePrefabOffset = (i + 1) * 2;
@@ -372,11 +396,13 @@ public class GameController : MonoBehaviour
                     lenthOfWordPart = 1 + levelTasks[0].firstPhrase.Length / letterInBlock;
                     phrasesPrefabOffset += lenthOfWordPart;
                 }
+
                 int phraseY = minGridY / randCountTasks / 2 + minGridY / randCountTasks * i + 1;
                 int phraseX = minGridX / 4 + phrasesPrefabOffset;
 
                 //������� ������ �����
-                Phrase crntPhrase = GetInstanceGO(phrasePrefab, phraseX, phraseY, newRoom.phrasesContainer.transform).GetComponent<Phrase>();
+                Phrase crntPhrase = GetInstanceGO(phrasePrefab, phraseX, phraseY, newRoom.phrasesContainer.transform)
+                    .GetComponent<Phrase>();
 
                 //����������� ����� �����
                 if (j == 0 && levelTasks[0].firstPhrase != "")
@@ -385,6 +411,7 @@ public class GameController : MonoBehaviour
                     AddPhraseCoordinates(lenthOfWordPart, phraseY, crntPhrase, "first");
                     //k++;
                 }
+
                 lenthOfWordPart = CountPhraseLenth(0, j, ref phrasesPrefabOffset);
                 crntPhrase.setUpSecondPart(lenthOfWordPart, levelTasks[0].phrases[j]);
                 AddPhraseCoordinates(lenthOfWordPart, phraseY, crntPhrase, "second");
@@ -397,12 +424,14 @@ public class GameController : MonoBehaviour
                 //����� ������ ��������
                 for (int k = 0; k < 4; k++)
                 {
-
-                    crntArticle = GetInstanceGO(articlePrefab, -100, -100, newRoom.articlesContainer.transform).GetComponent<Article>();
+                    crntArticle = GetInstanceGO(articlePrefab, -100, -100, newRoom.articlesContainer.transform)
+                        .GetComponent<Article>();
                     crntArticle.SetArticleText(articlesNamesArray[k]);
                     allArticles.Add(crntArticle);
                 }
+
                 #region Old Article Spawn
+
                 /* if (j == 0)
                  {
                      //����� ������ ��������
@@ -448,19 +477,23 @@ public class GameController : MonoBehaviour
                      }
                  }
  */
+
                 #endregion
+
                 phrasesPrefabOffset++;
                 articlePrefabOffset++;
             }
 
             if (phrasesPrefabOffset + 5 > minGridX)
-            { minGridX = phrasesPrefabOffset + 5; }
+            {
+                minGridX = phrasesPrefabOffset + 5;
+            }
 
             //������� - ��� ������ ����������� � ����� �������� !!refactor
 
             levelTasks.Remove(levelTasks[0]);
-
         }
+
         //������� ��� ����������� ����
         //grid.gridSide = Mathf.Max(minGridY, minGridX);
         grid.gridSideX = minGridX;
@@ -468,7 +501,8 @@ public class GameController : MonoBehaviour
 
 
         Neighbours crntRoomNeighbours = CheckNeighbours(roomX, roomY);
-        grid.GenerateGrid(crntRoomNeighbours.left, crntRoomNeighbours.right, crntRoomNeighbours.up, crntRoomNeighbours.down, spriteSettings);
+        grid.GenerateGrid(crntRoomNeighbours.left, crntRoomNeighbours.right, crntRoomNeighbours.up,
+            crntRoomNeighbours.down, spriteSettings);
         SetUpPhrasesCells();
         MoveArticles(newRoom);
         ClearSpaceBetweenPhraseParts();
@@ -494,7 +528,6 @@ public class GameController : MonoBehaviour
 
         grid.ClearExitCells();
         newRoom.gameObject.SetActive(false);
-
     }
 
     private void ClearSpaceBetweenPhraseParts()
@@ -523,28 +556,33 @@ public class GameController : MonoBehaviour
         float midleOfPhrase;
         if (part == "first")
         {
-            midleOfPhrase = crntPhrase.gameObject.transform.position.x - grid.cellSize * (float)(lenthOfWordPart / 2.0 + 0.5);
+            midleOfPhrase = crntPhrase.gameObject.transform.position.x -
+                            grid.cellSize * (float) (lenthOfWordPart / 2.0 + 0.5);
         }
         else
         {
-            midleOfPhrase = crntPhrase.gameObject.transform.position.x + grid.cellSize * (float)(lenthOfWordPart / 2.0 + 0.5);
+            midleOfPhrase = crntPhrase.gameObject.transform.position.x +
+                            grid.cellSize * (float) (lenthOfWordPart / 2.0 + 0.5);
         }
 
         int startPhraseBlock;
         if (Math.Ceiling(midleOfPhrase) > midleOfPhrase)
-        { startPhraseBlock = (int)(Math.Ceiling(midleOfPhrase) - lenthOfWordPart / 2); }
+        {
+            startPhraseBlock = (int) (Math.Ceiling(midleOfPhrase) - lenthOfWordPart / 2);
+        }
         else
         {
-            startPhraseBlock = (int)(midleOfPhrase - (lenthOfWordPart - 1) / 2);
+            startPhraseBlock = (int) (midleOfPhrase - (lenthOfWordPart - 1) / 2);
         }
+
         if (part != "first")
         {
             allPhrasesCoordinates.Add(new Vector2(startPhraseBlock - 1, phraseY));
             coordBetweenPhrasesParts.Add(new Vector2(startPhraseBlock - 1, phraseY));
         }
+
         for (int k = 0; k < lenthOfWordPart; k++)
         {
-
             allPhrasesCoordinates.Add(new Vector2(startPhraseBlock + k, phraseY));
         }
     }
@@ -566,11 +604,13 @@ public class GameController : MonoBehaviour
         for (int i = 0; i < trapCount; i++)
         {
             trapCoord = GetFreeGridCoordinate(crntRoom, "trap");
-            grid.cellsDictionary[trapCoord].currentObject = GetInstanceGO(trapPrefab, trapCoord.x, trapCoord.y, crntRoom.transform);
+            grid.cellsDictionary[trapCoord].currentObject =
+                GetInstanceGO(trapPrefab, trapCoord.x, trapCoord.y, crntRoom.transform);
         }
     }
 
     float trapRotationAngle;
+
     private void PutTheLasers(Room crntRoom, int laserCount)
     {
         trapRotationAngle = 0f;
@@ -578,10 +618,12 @@ public class GameController : MonoBehaviour
         for (int i = 0; i < laserCount; i++)
         {
             trapCoord = GetFreeGridCoordinate(crntRoom, "laser");
-            grid.cellsDictionary[trapCoord].currentObject = GetInstanceGO(laserPrefab, trapCoord.x, trapCoord.y, crntRoom.transform, trapRotationAngle);
+            grid.cellsDictionary[trapCoord].currentObject = GetInstanceGO(laserPrefab, trapCoord.x, trapCoord.y,
+                crntRoom.transform, trapRotationAngle);
             grid.lasersList.Add(grid.cellsDictionary[trapCoord].currentObject.GetComponentInChildren<LaserLine>());
         }
     }
+
     private void PutTheCannons(Room crntRoom, int cannonsCount)
     {
         trapRotationAngle = 0f;
@@ -589,13 +631,13 @@ public class GameController : MonoBehaviour
         for (int i = 0; i < cannonsCount; i++)
         {
             trapCoord = GetFreeGridCoordinate(crntRoom, "cannon");
-            grid.cellsDictionary[trapCoord].currentObject = GetInstanceGO(cannonPrefab, trapCoord.x, trapCoord.y, crntRoom.transform, trapRotationAngle);
+            grid.cellsDictionary[trapCoord].currentObject = GetInstanceGO(cannonPrefab, trapCoord.x, trapCoord.y,
+                crntRoom.transform, trapRotationAngle);
 
             grid.cannonsList.Add(grid.cellsDictionary[trapCoord].currentObject.GetComponent<Cannon>());
-
         }
-
     }
+
     private void SetUpPhrasesCells()
     {
         Vector2 phraseBlockCoord;
@@ -612,51 +654,20 @@ public class GameController : MonoBehaviour
         switch (trapType)
         {
             case "article":
-                {
-                    i = UnityEngine.Random.Range(2, grid.gridSideX - 2);
-                    j = UnityEngine.Random.Range(2, grid.gridSideY - 2);
-                    break;
-                }
+            {
+                i = UnityEngine.Random.Range(2, grid.gridSideX - 2);
+                j = UnityEngine.Random.Range(2, grid.gridSideY - 2);
+                break;
+            }
             case "trap":
-                {
-                    i = UnityEngine.Random.Range(2, grid.gridSideX - 2);
-                    j = UnityEngine.Random.Range(2, grid.gridSideY - 2);
-                    break;
-                }
+            {
+                i = UnityEngine.Random.Range(2, grid.gridSideX - 2);
+                j = UnityEngine.Random.Range(2, grid.gridSideY - 2);
+                break;
+            }
             case "cannon":
-                {
-                    if (UnityEngine.Random.Range(0, 2) == 0)
-                    {
-
-                        if (UnityEngine.Random.Range(0, 2) == 0)
-                        {
-                            i = 0;
-                            trapRotationAngle = -90f;
-                        }
-                        else
-                        {
-                            i = grid.gridSideX;
-                            trapRotationAngle = 90f;
-                        }
-                        j = UnityEngine.Random.Range(2, grid.gridSideY - 2);
-                    }
-                    else
-                    {
-                        if (UnityEngine.Random.Range(0, 2) == 0)
-                        {
-                            j = 0;
-                            trapRotationAngle = Mathf.Epsilon;
-                        }
-                        else
-                        {
-                            j = grid.gridSideY;
-                            trapRotationAngle = 180f;
-                        }
-                        i = UnityEngine.Random.Range(2, grid.gridSideX - 2);
-                    }
-                    break;
-                }
-            case "laser":
+            {
+                if (UnityEngine.Random.Range(0, 2) == 0)
                 {
                     if (UnityEngine.Random.Range(0, 2) == 0)
                     {
@@ -665,29 +676,60 @@ public class GameController : MonoBehaviour
                     }
                     else
                     {
-                        trapRotationAngle = 90f;
                         i = grid.gridSideX;
+                        trapRotationAngle = 90f;
                     }
 
                     j = UnityEngine.Random.Range(2, grid.gridSideY - 2);
-                    break;
                 }
+                else
+                {
+                    if (UnityEngine.Random.Range(0, 2) == 0)
+                    {
+                        j = 0;
+                        trapRotationAngle = Mathf.Epsilon;
+                    }
+                    else
+                    {
+                        j = grid.gridSideY;
+                        trapRotationAngle = 180f;
+                    }
+
+                    i = UnityEngine.Random.Range(2, grid.gridSideX - 2);
+                }
+
+                break;
+            }
+            case "laser":
+            {
+                if (UnityEngine.Random.Range(0, 2) == 0)
+                {
+                    i = 0;
+                    trapRotationAngle = -90f;
+                }
+                else
+                {
+                    trapRotationAngle = 90f;
+                    i = grid.gridSideX;
+                }
+
+                j = UnityEngine.Random.Range(2, grid.gridSideY - 2);
+                break;
+            }
             default:
                 break;
         }
 
 
-        if (grid.cellsDictionary[new Vector2(i, j)].currentObject != null)// || (trapType == "cannon")&& (i == grid.gridSideX/2|| j == grid.gridSideY / 2))
+        if (grid.cellsDictionary[new Vector2(i, j)].currentObject != null
+        ) // || (trapType == "cannon")&& (i == grid.gridSideX/2|| j == grid.gridSideY / 2))
         {
-
             return GetFreeGridCoordinate(crntRoom, trapType);
         }
         else
         {
-
             return new Vector2(i, j);
         }
-
     }
 
     public void ClearRooms()
@@ -699,17 +741,21 @@ public class GameController : MonoBehaviour
                 roomsList[i].gridGO.GetComponent<Grid>().ClearGrid();
                 Destroy(roomsList[i].gameObject);
             }
+
             roomsCoordinateDictionary.Clear();
             roomsList.Clear();
         }
     }
-    GameObject GetInstanceGO(GameObject prefab, float xOffset, float yOffset, Transform parentTransform, float rotationAngle = 0f)
+
+    GameObject GetInstanceGO(GameObject prefab, float xOffset, float yOffset, Transform parentTransform,
+        float rotationAngle = 0f)
     {
         Quaternion quat = Quaternion.Euler(0, 0, rotationAngle);
 
         float zOffset = (rotationAngle != 0f) ? -2.5f : 0.51f;
         return Instantiate(prefab, new Vector3(xOffset, yOffset, zOffset), quat, parentTransform);
     }
+
     private int CountPhraseLenth(int i, int j, ref int prefabOffset)
     {
         int lenthOfWordPart = 1 + levelTasks[i].phrases[j].Length / letterInBlock;
@@ -718,6 +764,7 @@ public class GameController : MonoBehaviour
     }
 
     bool needChangeRoom;
+
     void ChangeRoomByExit(Vector2 nextRoomDirection)
     {
         needChangeRoom = true;
@@ -746,8 +793,8 @@ public class GameController : MonoBehaviour
             playerMovement.gameObject.transform.position = GetPlayerCoordinateInNextRoom(nextRoomDirection);
             playerMovement.grid.StartCannonsShooting();
         }
-
     }
+
     private Vector2 GetPlayerCoordinateInNextRoom(Vector2 nextRoomDirection)
     {
         int x, y;
@@ -779,14 +826,15 @@ public class GameController : MonoBehaviour
         {
             _viewController.ShowExitButton();
         }
-
     }
+
     private bool _isDataUpdating;
+
     public void EndGame()
     {
         _isDataUpdating = true;
 
-        _viewController.ShowGameEndPanel(playerHealth.startHealth, (int)countOfAllPhrases);
+        _viewController.ShowGameEndPanel(playerHealth.startHealth, (int) countOfAllPhrases);
         playerMovement.canMove = false;
 
         _dataController.IncreaseLevel();
@@ -794,39 +842,41 @@ public class GameController : MonoBehaviour
         int points = Convert.ToInt32(_viewController.pointsText.text);
 
         Debug.Log(DateTime.UtcNow.ToString("yyyy-MM-ddTHH:mm:ss"));
-        UpdateUserProgress(new UserProgress(points, _dataController.GetUserLevel(), DateTime.UtcNow.ToString("yyyy-MM-ddTHH:mm:ss")), "users/update/progress");
+        UpdateUserProgress(
+            new UserProgress(points, _dataController.GetUserLevel(), DateTime.UtcNow.ToString("yyyy-MM-ddTHH:mm:ss")),
+            "users/update/progress");
     }
+
     private void UpdateUserProgress(UserProgress bodyObject, string rootAddition)
     {
-
         _restManager.currentRequest = new RequestHelper
         {
             Uri = _restManager._root + rootAddition,
-            Headers = new Dictionary<string, string> {
-            { "Authorization", "Bearer "+ _dataController.GetJwtToken() }  },
+            Headers = new Dictionary<string, string>
+            {
+                {"Authorization", "Bearer " + _dataController.GetJwtToken()}
+            },
             Body = bodyObject,
             EnableDebug = true
         };
 
         RestClient.Post(_restManager.currentRequest)
-        .Then(res =>
-        {
-            _isDataUpdating = false;
-        })
-        .Catch(err =>
-        {
-            _isDataUpdating = false;
+            .Then(res => { _isDataUpdating = false; })
+            .Catch(err =>
+            {
+                _isDataUpdating = false;
 
-            var error = err as RequestException;
-            Debug.Log(error.Message);
-
-        });
+                var error = err as RequestException;
+                Debug.Log(error.Message);
+            });
     }
+
     public void OnReturnToMainMenu()
     {
         StopAllCoroutines();
         StartCoroutine(TryBackToMenu());
     }
+
     IEnumerator TryBackToMenu()
     {
         _viewController.ShowEndLoadingView();
@@ -839,5 +889,4 @@ public class GameController : MonoBehaviour
         _viewController.HideEndLoadingView();
         SceneManager.LoadScene("MenuScreen");
     }
-
 }

@@ -29,7 +29,7 @@ public class AuthManager : MonoBehaviour
 
         string idToken;
         string userId;
-#if UNITY_EDITOR
+#if UNITY_EDITOR || UNITY_STANDALONE
         idToken = PlayerPrefs.GetString("idToken");
         userId = PlayerPrefs.GetString("userId");
 #elif UNITY_WEBGL && !UNITY_EDITOR
@@ -179,7 +179,7 @@ public class AuthManager : MonoBehaviour
 
     public string GetRefreshToken()
     {
-#if UNITY_EDITOR
+#if UNITY_EDITOR || UNITY_STANDALONE
         return PlayerPrefs.GetString("refreshToken");
 #elif UNITY_WEBGL && !UNITY_EDITOR
         return HttpCookie.GetCookie("refreshToken");

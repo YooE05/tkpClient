@@ -1,9 +1,9 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
+using Mirror;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement : NetworkBehaviour
 {
     [SerializeField] AudioSource wrongSound;
 
@@ -16,16 +16,11 @@ public class PlayerMovement : MonoBehaviour
     Cell[] nextCell = new Cell[countOfMoveBlock + 1];
     public bool canMove = false;
 
-    private void Start()
-    {
-
-    }
-
-
     void OnDisable()
     {
         StopAllCoroutines();
     }
+
     void OnEnable()
     {
         StartCoroutine(Move2());
@@ -35,6 +30,12 @@ public class PlayerMovement : MonoBehaviour
     {
         while (true)
         {
+            if (!isLocalPlayer)
+            {
+                yield return new WaitForSeconds(0.00001f);
+                continue;
+            }
+
             if (canMove)
             {
                 float xOff = Input.GetAxisRaw("Horizontal");
@@ -47,7 +48,10 @@ public class PlayerMovement : MonoBehaviour
                     transform.rotation = Quaternion.Euler(0, -180, 0);
                 }
                 else if (xOff > 0)
-                { transform.rotation = Quaternion.Euler(0, 0, 0); }
+                {
+                    transform.rotation = Quaternion.Euler(0, 0, 0);
+                }
+
                 animator.SetFloat("HorizDirection", Mathf.Abs(xOff));
 
 
@@ -69,31 +73,36 @@ public class PlayerMovement : MonoBehaviour
 
 
                 if (xOff == 0 && yOff == 0)
-                { yield return new WaitForSeconds(0.00001f); }
-                else
-                if (!(xOff != 0 && yOff != 0))
+                {
+                    yield return new WaitForSeconds(0.00001f);
+                }
+                else if (!(xOff != 0 && yOff != 0))
                 {
                     if (Math.Abs(xOff) > 0)
                     {
                         // animator.SetTrigger("HorizMove");
-                        moveCheck((int)xOff, 0, countOfMoveBlock);
+                        moveCheck((int) xOff, 0, countOfMoveBlock);
                     }
+
                     if (Math.Abs(yOff) > 0)
                     {
-                        moveCheck(0, (int)yOff, countOfMoveBlock);
+                        moveCheck(0, (int) yOff, countOfMoveBlock);
                     }
+
                     yield return new WaitForSeconds(1f / speed);
                 }
-
             }
+
             yield return new WaitForSeconds(0.00001f);
         }
     }
 
     Vector2 possibleNextCoordinate;
+
     void moveCheck(int xOffset, int yOffset, int lastCheckCell, int index = 0)
     {
-        possibleNextCoordinate = new Vector2(transform.position.x + (index + 1) * xOffset * grid.cellSize, transform.position.y + (index + 1) * yOffset * grid.cellSize);
+        possibleNextCoordinate = new Vector2(transform.position.x + (index + 1) * xOffset * grid.cellSize,
+            transform.position.y + (index + 1) * yOffset * grid.cellSize);
         possibleNextCoordinate.x = Mathf.Clamp(possibleNextCoordinate.x, -1, grid.gridSideX + 1);
         possibleNextCoordinate.y = Mathf.Clamp(possibleNextCoordinate.y, -1, grid.gridSideY + 1);
 
@@ -107,16 +116,24 @@ public class PlayerMovement : MonoBehaviour
                 switch (nextCell[index].exitDirection)
                 {
                     case "up":
-                        { direction = new Vector2(0, 1); }
+                    {
+                        direction = new Vector2(0, 1);
+                    }
                         break;
                     case "down":
-                        { direction = new Vector2(0, -1); }
+                    {
+                        direction = new Vector2(0, -1);
+                    }
                         break;
                     case "left":
-                        { direction = new Vector2(-1, 0); }
+                    {
+                        direction = new Vector2(-1, 0);
+                    }
                         break;
                     case "right":
-                        { direction = new Vector2(1, 0); }
+                    {
+                        direction = new Vector2(1, 0);
+                    }
                         break;
                     default:
                         direction = new Vector2(0, 0);
@@ -126,16 +143,15 @@ public class PlayerMovement : MonoBehaviour
                 GameEvents.current.ExitTriggerEnter(direction);
             }
         }
-        else
-        if (nextCell[index].currentObject && nextCell[index].currentObject.tag != "trap")
+        else if (nextCell[index].currentObject && nextCell[index].currentObject.tag != "trap")
         {
-
             if (nextCell[index].currentObject.tag == "article")
             {
                 if (index < lastCheckCell)
-                { moveCheck(xOffset, yOffset, lastCheckCell, ++index); }
+                {
+                    moveCheck(xOffset, yOffset, lastCheckCell, ++index);
+                }
             }
-
         }
         else
         {
@@ -147,29 +163,27 @@ public class PlayerMovement : MonoBehaviour
                 {
                     //   animator.SetInteger("HorizDirection",1);
                 }
+
                 if (xOffset < 0)
                 {
                     //     animator.SetInteger("HorizDirection", -1);
                 }
+
                 StartCoroutine(TranslatePlayer(gameObject, new Vector3(xOffset, yOffset, 0), 0.1f));
                 for (int i = 0; i < index; i++)
                 {
                     StartCoroutine(TranslatePlayer(nextCell[i].currentObject, new Vector3(xOffset, yOffset, 0), 0.1f));
-
                 }
             }
             else
             {
                 wrongSound.Play();
             }
-
         }
-
     }
 
     IEnumerator TranslatePlayer(GameObject movedObject, Vector3 offset, float translateTime)
     {
-
         float crntTime = 0f;
         Vector3 startPoint = movedObject.transform.position;
         Vector3 endPoint = movedObject.transform.position + offset;
@@ -183,8 +197,11 @@ public class PlayerMovement : MonoBehaviour
             }
             else break;
         }
+
         if (canMove)
-        { movedObject.transform.position = endPoint; }
+        {
+            movedObject.transform.position = endPoint;
+        }
         else
         {
             if (movedObject.tag == "Player")
@@ -192,8 +209,6 @@ public class PlayerMovement : MonoBehaviour
                 movedObject.transform.position = new Vector2(1, 1);
             }
         }
-
-
     }
 
 
@@ -207,5 +222,4 @@ public class PlayerMovement : MonoBehaviour
     {
         rb.velocity = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized * speed;
     }*/
-
 }

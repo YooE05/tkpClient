@@ -5,25 +5,28 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
-    path: Assets/_scenes/FirebaseConfig.unity
-    guid: d099ac9f13e3e4443965ade1a8d6e85c
-  - enabled: 1
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
     path: Assets/_scenes/Auth.unity
     guid: db866bea2aee0c749be90bb851c0f168
-  - enabled: 1
-    path: Assets/_scenes/PlatformRegistration.unity
-    guid: 6323947f77fbd564c946e436178e5110
-  - enabled: 1
-    path: Assets/_scenes/DataLoadingScreen.unity
-    guid: 3050fe71518bd9647bab787b9c236402
-  - enabled: 1
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
     path: Assets/_scenes/MenuScreen.unity
     guid: e86cb3ef2c11d454d8e75295eead1033
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
-  - enabled: 1
+  - enabled: 0
     path: Assets/_scenes/Game.unity
     guid: db3f1f146556e594cb3f26dec09f9f37
+  - enabled: 1
+    path: Assets/_scenes/GameTest.unity
+    guid: c27b070d3f7df2f4fad8107ffcbaa361
   m_configObjects: {}

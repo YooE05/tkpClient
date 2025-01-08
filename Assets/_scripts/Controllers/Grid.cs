@@ -203,7 +203,7 @@ public class Grid : MonoBehaviour
                 Destroy(cell.gameObject);
             }
 
-            //вариант для квадратного поля
+            //РІР°СЂРёР°РЅС‚ РґР»СЏ РєРІР°РґСЂР°С‚РЅРѕРіРѕ РїРѕР»СЏ
             /*  for (int i = 0; i < (gridSide) * 4; i++)
               {
                   Destroy(wallList[i]);
