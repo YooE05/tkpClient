@@ -434,13 +434,13 @@ public class GameControllerMultiplayer : NetworkBehaviour
                 //����������� ����� �����
                 if (j == 0 && levelTasks[0].firstPhrase != "")
                 {
-                    crntPhrase.setUpFirstPart(lenthOfWordPart, levelTasks[0].firstPhrase);
+                    crntPhrase.SetUpFirstPart(lenthOfWordPart, levelTasks[0].firstPhrase);
                     AddPhraseCoordinates(lenthOfWordPart, phraseY, crntPhrase, "first");
                     //k++;
                 }
 
                 lenthOfWordPart = CountPhraseLenth(0, j, ref phrasesPrefabOffset);
-                crntPhrase.setUpSecondPart(lenthOfWordPart, levelTasks[0].phrases[j]);
+                crntPhrase.SetUpSecondPart(lenthOfWordPart, levelTasks[0].phrases[j]);
                 AddPhraseCoordinates(lenthOfWordPart, phraseY, crntPhrase, "second");
 
                 //������� ���, ����� ����� ���������� �� �������� � ������������ � ������ ����� ������ ����� ���������(����������� ��� ��������)

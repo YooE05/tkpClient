@@ -25,7 +25,7 @@ public class WorldInitializer : NetworkBehaviour
     private float _trapRotationAngle;
 
     private readonly string[] _articlesNamesArray = {"a", "the", "an", "none"};
-    private List<Article> _allArticles = new List<Article>();
+    private readonly List<Article> _allArticles = new List<Article>();
     private readonly SyncList<Vector2> _coordBetweenPhrasesParts = new SyncList<Vector2>();
     private readonly SyncList<Vector2> _allPhrasesCoordinates = new SyncList<Vector2>();
 
@@ -45,11 +45,14 @@ public class WorldInitializer : NetworkBehaviour
         {
             _room = FindObjectOfType<Room>();
             _room.GridComponent.SetupSprites(_spriteSettings);
-            ClSetupArticlesValue();
+            ClSetupPhrasesValues();
+
+            SetUpPhrasesCells();
+            ClearSpaceBetweenPhraseParts();
         }
     }
 
-    private void ClSetupArticlesValue()
+    private void ClSetupPhrasesValues()
     {
         _allArticles.Clear();
         _allArticles.AddRange(FindObjectsOfType<Article>());
@@ -60,8 +63,13 @@ public class WorldInitializer : NetworkBehaviour
             var coordinates = new Vector2(position.x, position.y);
             article.SetArticleText(_articlesValueDictionary[coordinates]);
         }
-    }
 
+        var _phrases = FindObjectsOfType<Phrase>();
+        foreach (var phrase in _phrases)
+        {
+            phrase.SetupByOwn();
+        }
+    }
 
     private void Update()
     {
@@ -113,7 +121,7 @@ public class WorldInitializer : NetworkBehaviour
         var countOfAllPhrases = 0;
         var articlesCount = 0;
 
-        var randCountTasks = UnityEngine.Random.Range(1, 3);
+        var randCountTasks = UnityEngine.Random.Range(2, 5);
 
         for (int i = 0; i < randCountTasks; i++)
         {
@@ -143,12 +151,12 @@ public class WorldInitializer : NetworkBehaviour
 
                 if (j == 0 && _levelTasks[0].firstPhrase != "")
                 {
-                    crntPhrase.setUpFirstPart(lenthOfWordPart, _levelTasks[0].firstPhrase);
+                    crntPhrase.SetUpFirstPart(lenthOfWordPart, _levelTasks[0].firstPhrase);
                     AddPhraseCoordinates(lenthOfWordPart, phraseY, crntPhrase, "first");
                 }
 
                 lenthOfWordPart = CountPhraseLenth(0, j, ref phrasesPrefabOffset);
-                crntPhrase.setUpSecondPart(lenthOfWordPart, _levelTasks[0].phrases[j]);
+                crntPhrase.SetUpSecondPart(lenthOfWordPart, _levelTasks[0].phrases[j]);
                 AddPhraseCoordinates(lenthOfWordPart, phraseY, crntPhrase, "second");
 
                 crntPhrase.correctArticle = _levelTasks[0].articles[j];
@@ -210,6 +218,7 @@ public class WorldInitializer : NetworkBehaviour
         }
     }
 
+    [Server]
     private void AddPhraseCoordinates(int lenthOfWordPart, int phraseY, Phrase crntPhrase, string part)
     {
         float midleOfPhrase;
