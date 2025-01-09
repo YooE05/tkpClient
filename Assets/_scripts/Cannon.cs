@@ -11,50 +11,49 @@ public class Cannon : NetworkBehaviour
     [SerializeField] GameObject cannonballPrefab;
     [SerializeField] ParticleSystem laserSpark;
 
-    List<GameObject> cannonBalls = new List<GameObject>();
+    private List<GameObject> _cannonBalls = new List<GameObject>();
 
-    int countOfBalls = 50;
-    int currentBall = 0;
+    [SyncVar] int countOfBalls = 50;
+    [SyncVar] int currentBall = 0;
 
-    public bool isShoot;
+    [SyncVar] public bool isShoot;
+    [SyncVar] public bool isDelayEnded;
 
     private void Awake()
     {
-        for (int i = 0; i < countOfBalls; i++)
-        {
-            cannonBalls.Add(Instantiate(cannonballPrefab, new Vector3(transform.position.x, transform.position.y, 0.5f),
-                Quaternion.identity, transform));
-//            NetworkServer.Spawn(cannonBalls[i]);
-
-            cannonBalls[i].SetActive(false);
-//            RpcSetActivePortals(cannonBalls[i], false);
-        }
-
-        isShoot = true;
+        InitCannonBalls();
     }
 
-    void Start()
+    private void Start()
     {
         StartCoroutine("Shoot");
+    }
+
+    private void InitCannonBalls()
+    {
+        for (int i = 0; i < countOfBalls; i++)
+        {
+            _cannonBalls.Add(Instantiate(cannonballPrefab,
+                new Vector3(transform.position.x, transform.position.y, 0.5f),
+                Quaternion.identity, transform));
+            // NetworkServer.Spawn(cannonBalls[i]);
+
+            _cannonBalls[i].SetActive(false);
+            //            RpcSetActivePortals(cannonBalls[i], false);
+        }
     }
 
     [ClientRpc]
-    void RpcSetActivePortals(GameObject go, bool isEnabled)
-    {
-        go.SetActive(isEnabled);
-    }
-
     public void StartShooting()
     {
         isShoot = true;
-        StartCoroutine("Shoot");
     }
 
     public void StopShooting()
     {
         isShoot = false;
         StopAllCoroutines();
-        foreach (var ball in cannonBalls)
+        foreach (var ball in _cannonBalls)
         {
             ball.SetActive(false);
         }
@@ -82,23 +81,30 @@ public class Cannon : NetworkBehaviour
 
         while (true)
         {
-            GameObject ball = cannonBalls[currentBall];
-
-            ball.SetActive(true);
-            ball.transform.position = startBallPosition;
-
-            ball.GetComponent<Collider2D>().enabled = true;
-            ball.GetComponent<SpriteRenderer>().enabled = true;
-
-            StartCoroutine(BallFly(ball));
-
-            currentBall++;
-            if (currentBall == countOfBalls)
+            if (isShoot && isDelayEnded)
             {
-                currentBall = 0;
+                isDelayEnded = false;
+                GameObject ball = _cannonBalls[currentBall];
+
+                ball.SetActive(true);
+                ball.transform.position = startBallPosition;
+
+                ball.GetComponent<Collider2D>().enabled = true;
+                ball.GetComponent<SpriteRenderer>().enabled = true;
+
+                StartCoroutine(BallFly(ball));
+
+                currentBall++;
+                if (currentBall == countOfBalls)
+                {
+                    currentBall = 0;
+                }
+
+                yield return new WaitForSeconds(delay);
+                isDelayEnded = true;
             }
 
-            yield return new WaitForSeconds(delay);
+            yield return null;
         }
     }
 }

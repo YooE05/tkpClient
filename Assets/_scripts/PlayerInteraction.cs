@@ -21,10 +21,14 @@ public class PlayerInteraction : NetworkBehaviour
         if (Input.GetKeyDown(KeyCode.E))
         {
             TryDisableLaser();
-            CmdTryDisableLaser();
+
             if (isServer)
             {
                 RpcDisableLaser();
+            }
+            else
+            {
+                CmdTryDisableLaser();
             }
         }
     }

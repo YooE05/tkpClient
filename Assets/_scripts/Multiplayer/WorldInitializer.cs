@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Mirror;
 using UnityEngine;
@@ -7,6 +8,7 @@ public class WorldInitializer : NetworkBehaviour
     [SerializeField] private GameObject _roomPrefab;
     [SerializeField] private List<SpritesSettings> _spriteSettings;
     [SerializeField] private List<LevelTrapSettings> _trapSettings;
+    [SerializeField] private List<ArticleTask> _levelTasks;
 
     [SerializeField] private GameObject phrasePrefab;
     [SerializeField] private GameObject articlePrefab;
@@ -15,10 +17,23 @@ public class WorldInitializer : NetworkBehaviour
     [SerializeField] private GameObject cannonPrefab;
     [SerializeField] private GameObject laserPrefab;
 
+    [SerializeField] private GameObject _phraseForPreloadGrid;
+
     private Room _room;
     private Grid Grid => _room.GridComponent;
 
     private float _trapRotationAngle;
+
+    private readonly string[] _articlesNamesArray = {"a", "the", "an", "none"};
+    private List<Article> _allArticles = new List<Article>();
+    private readonly SyncList<Vector2> _coordBetweenPhrasesParts = new SyncList<Vector2>();
+    private readonly SyncList<Vector2> _allPhrasesCoordinates = new SyncList<Vector2>();
+
+    private readonly SyncDictionary<Vector2, string> _articlesValueDictionary = new SyncDictionary<Vector2, string>();
+
+    private int _minGridX = 15;
+    private int _minGridY = 5;
+    private readonly int _letterInBlock = 5;
 
     private void Start()
     {
@@ -30,6 +45,40 @@ public class WorldInitializer : NetworkBehaviour
         {
             _room = FindObjectOfType<Room>();
             _room.GridComponent.SetupSprites(_spriteSettings);
+            ClSetupArticlesValue();
+        }
+    }
+
+    private void ClSetupArticlesValue()
+    {
+        _allArticles.Clear();
+        _allArticles.AddRange(FindObjectsOfType<Article>());
+
+        foreach (var article in _allArticles)
+        {
+            var position = article.transform.position;
+            var coordinates = new Vector2(position.x, position.y);
+            article.SetArticleText(_articlesValueDictionary[coordinates]);
+        }
+    }
+
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            foreach (var cannon in Grid.cannonsList)
+            {
+                cannon.StartShooting();
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            foreach (var cannon in Grid.cannonsList)
+            {
+                cannon.StopShooting();
+            }
         }
     }
 
@@ -38,7 +87,15 @@ public class WorldInitializer : NetworkBehaviour
     {
         var roomGO = Instantiate(_roomPrefab, transform);
         _room = roomGO.GetComponent<Room>();
+
+        SetupArticles();
+
         SetupGrid();
+
+        SetUpPhrasesCells();
+        MoveArticles();
+        ClearSpaceBetweenPhraseParts();
+
         NetworkServer.Spawn(_room.gameObject);
     }
 
@@ -46,12 +103,160 @@ public class WorldInitializer : NetworkBehaviour
     private void SetupGrid()
     {
         _room.GridComponent.GenerateGrid(false, false, false, false, _spriteSettings);
-        SetupArticles();
         SetupTraps();
     }
 
+    [Server]
     private void SetupArticles()
     {
+        int maxCountRoomTasks = 2;
+        var countOfAllPhrases = 0;
+        var articlesCount = 0;
+
+        var randCountTasks = UnityEngine.Random.Range(1, 3);
+
+        for (int i = 0; i < randCountTasks; i++)
+        {
+            int lenthOfWordPart = 0;
+            int phrasesPrefabOffset = 0;
+            int articlePrefabOffset = (i + 1) * 2;
+            _minGridY += 3;
+
+            for (int j = 0; j < _levelTasks[0].articlesCount; j++)
+            {
+                countOfAllPhrases++;
+                articlesCount++;
+
+                if (j == 0 && _levelTasks[0].firstPhrase != "")
+                {
+                    lenthOfWordPart = 1 + _levelTasks[0].firstPhrase.Length / _letterInBlock;
+                    phrasesPrefabOffset += lenthOfWordPart;
+                }
+
+                int phraseY = _minGridY / randCountTasks / 2 + _minGridY / randCountTasks * i + 1;
+                int phraseX = _minGridX / 4 + phrasesPrefabOffset;
+
+
+                Phrase crntPhrase = GetInstanceGO(phrasePrefab, phraseX, phraseY, _room.phrasesContainer.transform)
+                    .GetComponent<Phrase>();
+
+
+                if (j == 0 && _levelTasks[0].firstPhrase != "")
+                {
+                    crntPhrase.setUpFirstPart(lenthOfWordPart, _levelTasks[0].firstPhrase);
+                    AddPhraseCoordinates(lenthOfWordPart, phraseY, crntPhrase, "first");
+                }
+
+                lenthOfWordPart = CountPhraseLenth(0, j, ref phrasesPrefabOffset);
+                crntPhrase.setUpSecondPart(lenthOfWordPart, _levelTasks[0].phrases[j]);
+                AddPhraseCoordinates(lenthOfWordPart, phraseY, crntPhrase, "second");
+
+                crntPhrase.correctArticle = _levelTasks[0].articles[j];
+
+                Article crntArticle;
+
+                for (int k = 0; k < 4; k++)
+                {
+                    crntArticle = GetInstanceGO(articlePrefab, -100, -100, _room.articlesContainer.transform)
+                        .GetComponent<Article>();
+                    crntArticle.SetArticleText(_articlesNamesArray[k]);
+                    _allArticles.Add(crntArticle);
+                }
+
+                phrasesPrefabOffset++;
+                articlePrefabOffset++;
+            }
+
+            if (phrasesPrefabOffset + 5 > _minGridX)
+            {
+                _minGridX = phrasesPrefabOffset + 5;
+            }
+
+            _levelTasks.Remove(_levelTasks[0]);
+        }
+
+        Grid.gridSideX = _minGridX;
+        Grid.gridSideY = _minGridY;
+
+        // Neighbours crntRoomNeighbours = CheckNeighbours(roomX, roomY);
+        // Grid.GenerateGrid(crntRoomNeighbours.left, crntRoomNeighbours.right, crntRoomNeighbours.up,
+        //     crntRoomNeighbours.down, _spriteSettings);
+    }
+
+    private int CountPhraseLenth(int i, int j, ref int prefabOffset)
+    {
+        int lenthOfWordPart = 1 + _levelTasks[i].phrases[j].Length / _letterInBlock;
+        prefabOffset += lenthOfWordPart;
+        return lenthOfWordPart;
+    }
+
+    private void SetUpPhrasesCells()
+    {
+        Vector2 phraseBlockCoord;
+        for (int i = 0; i < _allPhrasesCoordinates.Count; i++)
+        {
+            phraseBlockCoord = _allPhrasesCoordinates[i];
+            Grid.cellsDictionary[phraseBlockCoord].currentObject = _phraseForPreloadGrid;
+        }
+    }
+
+    private void ClearSpaceBetweenPhraseParts()
+    {
+        Vector2 spaceCoord;
+        for (int i = 0; i < _coordBetweenPhrasesParts.Count; i++)
+        {
+            spaceCoord = _coordBetweenPhrasesParts[i];
+            Grid.cellsDictionary[spaceCoord].currentObject = null;
+        }
+    }
+
+    private void AddPhraseCoordinates(int lenthOfWordPart, int phraseY, Phrase crntPhrase, string part)
+    {
+        float midleOfPhrase;
+        if (part == "first")
+        {
+            midleOfPhrase = crntPhrase.gameObject.transform.position.x -
+                            Grid.cellSize * (float) (lenthOfWordPart / 2.0 + 0.5);
+        }
+        else
+        {
+            midleOfPhrase = crntPhrase.gameObject.transform.position.x +
+                            Grid.cellSize * (float) (lenthOfWordPart / 2.0 + 0.5);
+        }
+
+        int startPhraseBlock;
+        if (Math.Ceiling(midleOfPhrase) > midleOfPhrase)
+        {
+            startPhraseBlock = (int) (Math.Ceiling(midleOfPhrase) - lenthOfWordPart / 2);
+        }
+        else
+        {
+            startPhraseBlock = (int) (midleOfPhrase - (lenthOfWordPart - 1) / 2);
+        }
+
+        if (part != "first")
+        {
+            _allPhrasesCoordinates.Add(new Vector2(startPhraseBlock - 1, phraseY));
+            _coordBetweenPhrasesParts.Add(new Vector2(startPhraseBlock - 1, phraseY));
+        }
+
+        for (int k = 0; k < lenthOfWordPart; k++)
+        {
+            _allPhrasesCoordinates.Add(new Vector2(startPhraseBlock + k, phraseY));
+        }
+    }
+
+    [Server]
+    private void MoveArticles()
+    {
+        Vector2 articleCoord;
+        for (int i = 0; i < _allArticles.Count; i++)
+        {
+            articleCoord = GetFreeGridCoordinate();
+            Grid.cellsDictionary[articleCoord].currentObject = _allArticles[i].gameObject;
+            _allArticles[i].transform.position = articleCoord;
+            _articlesValueDictionary.Add(articleCoord, _allArticles[i].selfArticle);
+        }
     }
 
     public Grid GetCurrentGrid(out string hasGrid)
@@ -59,7 +264,7 @@ public class WorldInitializer : NetworkBehaviour
         hasGrid = _room.GridComponent.cellsDictionary.Count.ToString();
         return _room.GridComponent;
     }
-    
+
     [Server]
     private void SetupTraps()
     {
@@ -185,6 +390,7 @@ public class WorldInitializer : NetworkBehaviour
             : new Vector2(i, j);
     }
 
+    [Server]
     GameObject GetInstanceGO(GameObject prefab, float xOffset, float yOffset, Transform parentTransform,
         float rotationAngle = 0f)
     {

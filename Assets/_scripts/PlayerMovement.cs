@@ -224,7 +224,9 @@ public class PlayerMovement : NetworkBehaviour
         {
             if (canMove)
             {
-                movedObject.transform.position = Vector3.Lerp(startPoint, endPoint, crntTime / translateTime);
+                var pos = Vector3.Lerp(startPoint, endPoint, crntTime / translateTime);
+                //  movedObject.transform.position = Vector3.Lerp(startPoint, endPoint, crntTime / translateTime);
+                CmdSendPositionToServer(movedObject, pos);
                 crntTime += Time.deltaTime * speed;
                 yield return null;
             }
@@ -233,7 +235,8 @@ public class PlayerMovement : NetworkBehaviour
 
         if (canMove)
         {
-            movedObject.transform.position = endPoint;
+           // movedObject.transform.position = endPoint;
+            CmdSendPositionToServer(movedObject, endPoint);
         }
         else
         {
@@ -244,15 +247,15 @@ public class PlayerMovement : NetworkBehaviour
         }
     }
 
-
-    /*//old code
-     * void FixedUpdate()
+    [Command]
+    void CmdSendPositionToServer(GameObject go, Vector3 position)
     {
-        Move();   
+        RpcUpdatePosition(go, position);
     }
 
-    private void Move()
+    [ClientRpc]
+    void RpcUpdatePosition(GameObject go, Vector3 position)
     {
-        rb.velocity = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized * speed;
-    }*/
+        go.transform.position = position;
+    }
 }

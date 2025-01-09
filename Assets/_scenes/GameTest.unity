@@ -1351,7 +1351,6 @@ MonoBehaviour:
   - {fileID: 4804128430421390438, guid: 7194ba8db0ba0504192666b608c5bd18, type: 3}
   - {fileID: 6687936080208434834, guid: 499623b2c7eddbb448427b0cc239307f, type: 3}
   - {fileID: 1194647850522414158, guid: d08b539336ae1ca4fafb80bab1fe8fb9, type: 3}
-  - {fileID: 783794168741832220, guid: b12a8a178b91e3045b18209c2d3f61cf, type: 3}
   - {fileID: 5713661248223781881, guid: fbebb5c0a401a0d4886af3a80918f2c5, type: 3}
   - {fileID: 4804128430421390438, guid: b54e7b6696e8600479455d29609fd457, type: 3}
   - {fileID: 2491136999532902722, guid: 41ef420a97f5fd94c98116052eb5db01, type: 3}
@@ -5170,11 +5169,85 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f67b1a6787fa4a54eb1bc25c24316f86, type: 2}
   _trapSettings:
   - {fileID: 11400000, guid: 749dfccaaf7a88c4e9fd651b3c79e396, type: 2}
+  _levelTasks:
+  - difficulty: 
+    firstPhrase: Be
+    phrases:
+    - bread? Or not
+    - bread?
+    articlesCount: 2
+    articles:
+    - the
+    - the
+  - difficulty: 
+    firstPhrase: 
+    phrases:
+    - cat
+    articlesCount: 1
+    articles:
+    - the
+  - difficulty: 
+    firstPhrase: I have
+    phrases:
+    - cat
+    articlesCount: 1
+    articles:
+    - the
+  - difficulty: 
+    firstPhrase: ' Cairo is'
+    phrases:
+    - capital of Egypt.
+    articlesCount: 1
+    articles:
+    - the
+  - difficulty: 
+    firstPhrase: ' Cairo is'
+    phrases:
+    - capital of Egypt.
+    articlesCount: 1
+    articles:
+    - the
+  - difficulty: 
+    firstPhrase: ' Cairo is'
+    phrases:
+    - capital of Egypt.
+    articlesCount: 1
+    articles:
+    - the
+  - difficulty: 
+    firstPhrase: ' Cairo is'
+    phrases:
+    - capital of Egypt.
+    articlesCount: 1
+    articles:
+    - the
+  - difficulty: 
+    firstPhrase: ' Cairo is'
+    phrases:
+    - capital of Egypt.
+    articlesCount: 1
+    articles:
+    - the
+  - difficulty: 
+    firstPhrase: ' Cairo is'
+    phrases:
+    - capital of Egypt.
+    articlesCount: 1
+    articles:
+    - the
+  - difficulty: 
+    firstPhrase: ' Cairo is'
+    phrases:
+    - capital of Egypt.
+    articlesCount: 1
+    articles:
+    - the
   phrasePrefab: {fileID: 5713661248223781881, guid: fbebb5c0a401a0d4886af3a80918f2c5, type: 3}
   articlePrefab: {fileID: 2765639268399657509, guid: c351cff24d3e8e043814119173a4a975, type: 3}
   trapPrefab: {fileID: 6597851605307048485, guid: 1fc83a81d8d24d848a444208b7ebea40, type: 3}
   cannonPrefab: {fileID: 4804128430421390438, guid: 7194ba8db0ba0504192666b608c5bd18, type: 3}
   laserPrefab: {fileID: 4804128430421390438, guid: b54e7b6696e8600479455d29609fd457, type: 3}
+  _phraseForPreloadGrid: {fileID: 794895802}
 --- !u!114 &1620549116
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5889,7 +5962,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 118.900024, y: 107.15991}
+  m_AnchoredPosition: {x: 118.90015, y: 107.15991}
   m_SizeDelta: {x: 80, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1751230116
@@ -6985,11 +7058,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7223973731814447312, guid: 5e2ddb081cddd2643b6d8a24ebd068ae, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 118.900024
+      value: 118.90015
       objectReference: {fileID: 0}
     - target: {fileID: 7223973731814447312, guid: 5e2ddb081cddd2643b6d8a24ebd068ae, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -242.8
+      value: -242.80005
       objectReference: {fileID: 0}
     - target: {fileID: 7223973731814447312, guid: 5e2ddb081cddd2643b6d8a24ebd068ae, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -7843,11 +7916,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9055026022024018916, guid: 6b4aaa8f02b3e6d47b341f16af1fade4, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 118.900024
+      value: 118.90015
       objectReference: {fileID: 0}
     - target: {fileID: 9055026022024018916, guid: 6b4aaa8f02b3e6d47b341f16af1fade4, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -84.71
+      value: -84.70996
       objectReference: {fileID: 0}
     - target: {fileID: 9055026022024018916, guid: 6b4aaa8f02b3e6d47b341f16af1fade4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

@@ -1,10 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
+using Mirror;
 using UnityEngine;
 using TMPro;
 
-public class Article : MonoBehaviour
+public class Article : NetworkBehaviour
 {
+    [SyncVar]
     public string selfArticle;
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -14,6 +14,7 @@ public class Article : MonoBehaviour
             collision.gameObject.SetActive(false);
         }
     }
+    
     public void SetArticleText(string correctArticleText)
     {
         selfArticle = correctArticleText;
