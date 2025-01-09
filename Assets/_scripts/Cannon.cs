@@ -24,10 +24,10 @@ public class Cannon : NetworkBehaviour
         {
             cannonBalls.Add(Instantiate(cannonballPrefab, new Vector3(transform.position.x, transform.position.y, 0.5f),
                 Quaternion.identity, transform));
-            NetworkServer.Spawn(cannonBalls[i]);
+//            NetworkServer.Spawn(cannonBalls[i]);
 
             cannonBalls[i].SetActive(false);
-            RpcSetActivePortals(cannonBalls[i], false);
+//            RpcSetActivePortals(cannonBalls[i], false);
         }
 
         isShoot = true;

@@ -76,6 +76,7 @@
           </e>
           <e p="Phrase.cs" t="Include" />
           <e p="PlayerHealth.cs" t="Include" />
+          <e p="PlayerInteraction.cs" t="Include" />
           <e p="PlayerMovement.cs" t="Include" />
           <e p="QuizPattern" t="Include">
             <e p="IQuizJudge.cs" t="Include" />

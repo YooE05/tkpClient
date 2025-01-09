@@ -6,32 +6,40 @@ using UnityEngine;
 public class LaserInteraction : NetworkBehaviour
 {
     ViewController viewController;
-    bool canDisableLaser = false;
-    bool laserIsOn;
+    [SyncVar] public bool canDisableLaser = false;
+    [SyncVar] private bool laserIsOn;
     [SerializeField] int laserDelay;
+
     [SerializeField] LaserLine ownLaserLine;
-   // [SerializeField] Cannon parentCannon;
+    // [SerializeField] Cannon parentCannon;
 
     [SerializeField] int maxCountOfDisabling = 2;
-    int countOfDisabling = 0;
+    [SyncVar] private int countOfDisabling = 0;
 
     [SerializeField] GameObject EnabledSpriteObj;
     [SerializeField] GameObject DisabledSpriteObj;
 
     private void Awake()
     {
-        countOfDisabling = 0;
-        canDisableLaser = false;
-        laserIsOn = true;
+        InitLaser();
+
         viewController = FindObjectOfType<ViewController>();
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void InitLaser()
+    {
+        countOfDisabling = 0;
+        canDisableLaser = false;
+        laserIsOn = true;
+    }
+
+    /*private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Player")
         {
             canDisableLaser = true;
         }
+
         CheckLaserInteraction();
     }
 
@@ -55,24 +63,30 @@ public class LaserInteraction : NetworkBehaviour
 
     IEnumerator WaitForDisableLaser()
     {
-        while (laserIsOn&& canDisableLaser)
+        while (laserIsOn && canDisableLaser)
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
-                EnabledSpriteObj.SetActive(false);
-                DisabledSpriteObj.SetActive(true);
-                countOfDisabling++;
-                laserIsOn = false;
-                ownLaserLine.StopBlasting();
-               // parentCannon.StopShooting();
-                viewController.ChangeLaserDisableText(false);
-                StartCoroutine("LaserTimer");
+                Disable();
             }
+
             yield return null;
         }
     }
+*/
+    public void Disable()
+    {
+        EnabledSpriteObj.SetActive(false);
+        DisabledSpriteObj.SetActive(true);
+        countOfDisabling++;
+        laserIsOn = false;
+        ownLaserLine.StopBlasting();
+        // parentCannon.StopShooting();
+        viewController.ChangeLaserDisableText(false);
+        StartCoroutine(nameof(StartLaserTimer));
+    }
 
-    IEnumerator LaserTimer()
+    private IEnumerator StartLaserTimer()
     {
         ParticleSystem laserSparks = DisabledSpriteObj.transform.Find("FastSparks").GetComponent<ParticleSystem>();
         yield return new WaitForSeconds(laserDelay - 2f);
@@ -81,16 +95,14 @@ public class LaserInteraction : NetworkBehaviour
             laserSparks.Play();
             //parentCannon.GetComponent<SpriteRenderer>().color = Color.red;
             yield return new WaitForSeconds(0.5f);
-
         }
 
         EnabledSpriteObj.SetActive(true);
         DisabledSpriteObj.SetActive(false);
 
         laserIsOn = true;
-        CheckLaserInteraction();
+        // CheckLaserInteraction();
         ownLaserLine.StartBlasting();
-        // parentCannon.StartShooting();
     }
 
     public void ResetLaser()
@@ -98,9 +110,11 @@ public class LaserInteraction : NetworkBehaviour
         laserIsOn = true;
         EnabledSpriteObj.SetActive(true);
         DisabledSpriteObj.SetActive(false);
-       // parentCannon.GetComponent<SpriteRenderer>().color = Color.white;
-        CheckLaserInteraction();
+        // CheckLaserInteraction();
     }
 
-
+    public bool CanBeTurnedOff()
+    {
+        return laserIsOn && canDisableLaser;
+    }
 }

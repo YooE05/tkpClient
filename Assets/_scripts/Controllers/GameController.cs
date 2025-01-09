@@ -279,7 +279,7 @@ public class GameController : MonoBehaviour
         currentRoomCoordinate = new Vector2(x / 2, y / 2);
         currentRoomIndex = roomsCoordinateDictionary[currentRoomCoordinate];
         roomsList[currentRoomIndex].gameObject.SetActive(true);
-       // playerMovement._grid = new GridClone(roomsList[currentRoomIndex].gridGO.GetComponent<Grid>());
+        // playerMovement._grid = new GridClone(roomsList[currentRoomIndex].gridGO.GetComponent<Grid>());
 
 
         _viewController.HideLoadingView();
@@ -416,12 +416,9 @@ public class GameController : MonoBehaviour
                 crntPhrase.setUpSecondPart(lenthOfWordPart, levelTasks[0].phrases[j]);
                 AddPhraseCoordinates(lenthOfWordPart, phraseY, crntPhrase, "second");
 
-                //������� ���, ����� ����� ���������� �� �������� � ������������ � ������ ����� ������ ����� ���������(����������� ��� ��������)
-
                 crntPhrase.correctArticle = levelTasks[0].articles[j];
-                //������ � ����������� �������
+
                 Article crntArticle;
-                //����� ������ ��������
                 for (int k = 0; k < 4; k++)
                 {
                     crntArticle = GetInstanceGO(articlePrefab, -100, -100, newRoom.articlesContainer.transform)
@@ -434,7 +431,6 @@ public class GameController : MonoBehaviour
 
                 /* if (j == 0)
                  {
-                     //����� ������ ��������
                      for (int k = 0; k < 4; k++)
                      {
 
@@ -787,7 +783,7 @@ public class GameController : MonoBehaviour
             currentRoomCoordinate = nextRoomCoordinate;
 
             //�������� ����� ������������ ������ �� ������� �������
-           // playerMovement._grid = new GridClone(roomsList[currentRoomIndex].gridGO.GetComponent<Grid>());
+            // playerMovement._grid = new GridClone(roomsList[currentRoomIndex].gridGO.GetComponent<Grid>());
 
             //����������� ������ � ������� ����� ��������������� �������
             playerMovement.gameObject.transform.position = GetPlayerCoordinateInNextRoom(nextRoomDirection);

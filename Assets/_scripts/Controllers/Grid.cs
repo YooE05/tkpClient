@@ -183,12 +183,6 @@ public class Grid : NetworkBehaviour
         // RpcSetRandomSprite(newCell, randSprite);
     }
 
-    [ClientRpc]
-    private void RpcSetRandomSprite(GameObject newCell, Sprite sprite)
-    {
-        newCell.GetComponent<SpriteRenderer>().sprite = sprite;
-    }
-
     private void CheckExitNessesity(bool leftNei, bool rightNei, bool upNei, bool downNei, int i, int j,
         GameObject newCell)
     {
@@ -288,11 +282,6 @@ public class Grid : NetworkBehaviour
                 Destroy(cell.gameObject);
             }
 
-            //вариант для квадратного поля
-            /*  for (int i = 0; i < (gridSide) * 4; i++)
-              {
-                  Destroy(wallList[i]);
-              }*/
             for (int i = 0; i < 2 * (gridSideX + gridSideY) - countOfNeighbours; i++)
             {
                 Destroy(wallList[i]);
