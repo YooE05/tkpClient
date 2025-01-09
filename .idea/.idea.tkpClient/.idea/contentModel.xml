@@ -4469,6 +4469,7 @@
         <e p="ScriptableObjects" t="Include">
           <e p="LevelTrapSettings.cs" t="Include" />
           <e p="SpritesSettings.cs" t="Include" />
+          <e p="SpritesSettingsNet.cs" t="Include" />
         </e>
         <e p="TextMesh Pro" t="Include">
           <e p="Documentation" t="Include" />

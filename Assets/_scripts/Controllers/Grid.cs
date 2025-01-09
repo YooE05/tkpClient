@@ -9,18 +9,17 @@ public class Grid : NetworkBehaviour
     public readonly SyncDictionary<Vector2, Cell> cellsDictionary = new SyncDictionary<Vector2, Cell>();
     public SyncList<GameObject> wallList = new SyncList<GameObject>();
 
-    [SyncVar]
-    public int gridSideX;
-    [SyncVar]
-    public int gridSideY;
-    [SyncVar]
-    public int cellSize;
+    [SyncVar] private int _spriteListId;
+
+    [SyncVar] public int gridSideX;
+    [SyncVar] public int gridSideY;
+    [SyncVar] public int cellSize;
 
     [SerializeField] GameObject cellPrefab;
     [SerializeField] GameObject wallPrefab;
     [SerializeField] GameObject upDoorPrefab;
 
-    int countOfNeighbours;
+    [SyncVar] int countOfNeighbours;
     bool needWall = true;
     List<Cell> exitCellsForTraps = new List<Cell>();
     public List<Cannon> cannonsList = new List<Cannon>();
@@ -28,7 +27,9 @@ public class Grid : NetworkBehaviour
 
     public void GenerateGrid(bool leftNei, bool rightNei, bool upNei, bool downNei, List<SpritesSettings> spriteList)
     {
-        spritesSettings = spriteList[GetRandomNumber(spriteList.Count)];
+        _spriteListId = GetRandomNumber(spriteList.Count);
+
+        spritesSettings = spriteList[_spriteListId];
 
         countOfNeighbours = 0;
         exitCellsForTraps.Clear();
@@ -72,6 +73,62 @@ public class Grid : NetworkBehaviour
                     }
 
                     needWall = true;
+                }
+            }
+        }
+    }
+
+    public void SetupSprites(List<SpritesSettings> spriteList)
+    {
+        spritesSettings = spriteList[_spriteListId];
+
+        for (int i = 0; i < gridSideX + 1; i++)
+        {
+            for (int j = 0; j < gridSideY + 1; j++)
+            {
+                Vector2 cellCoordinates = new Vector2(i, j);
+
+                //GameObject newCell = Instantiate(cellPrefab, new Vector3(cellCoordinates.x, cellCoordinates.y, 1),
+                //     Quaternion.identity, gameObject.transform);
+                var cell = cellsDictionary[cellCoordinates];
+
+                SetRandomSprite(cell.gameObject, spritesSettings.floorCells);
+
+
+                /*if (!cellsDictionary.ContainsKey(cellCoordinates))
+                {
+                    cellsDictionary.Add(cellCoordinates, newCell.GetComponent<Cell>());
+                }
+                else if (cellsDictionary[cellCoordinates] == null)
+                {
+                    cellsDictionary[cellCoordinates] = newCell.GetComponent<Cell>();
+                }
+
+                NetworkServer.Spawn(newCell);*/
+
+                if (i == 0 || i == gridSideX || j == 0 || j == gridSideY)
+                {
+                    CheckExitNessesity(false, false, false, false, i, j, cell.gameObject);
+
+                    /*if (needWall)
+                    {
+                      //  GameObject wall = Instantiate(wallPrefab, new Vector3(cellCoordinates.x, cellCoordinates.y, -1),
+                      //     Quaternion.identity, gameObject.transform);
+                      //  wallList.Add(wall);
+                        ChangeWallSprite(i, j, wallList.Find(go=>go.transform.position==new Vector3(cellCoordinates.x, cellCoordinates.y, -1)));
+                      //  NetworkServer.Spawn(wall);
+                    }
+                    else
+                    {
+                        countOfNeighbours++;
+                    }*/
+
+                    //needWall = true;
+                }
+
+                foreach (var wall in wallList)
+                {
+                    ChangeWallSprite((int) wall.transform.position.x, (int) wall.transform.position.y, wall.gameObject);
                 }
             }
         }

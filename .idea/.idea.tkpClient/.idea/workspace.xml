@@ -20,77 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="42c626ed-59ab-4b2e-af77-3a0769a1da96" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/_scripts/Multiplayer/GridClone.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_scripts/Multiplayer/GridClone.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.tkpClient/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.tkpClient/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.tkpClient/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.tkpClient/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.tkpClient/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.tkpClient/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LaserInteraction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LaserInteraction.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LaserLine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LaserLine.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Luchador Asset Pack by TikiTed/Sprites/luchador-attack-right.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Luchador Asset Pack by TikiTed/Sprites/luchador-attack-right.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Luchador Asset Pack by TikiTed/Sprites/luchador-attack-right2.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Luchador Asset Pack by TikiTed/Sprites/luchador-attack-right2.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Luchador Asset Pack by TikiTed/Sprites/luchador-attack-right3.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Luchador Asset Pack by TikiTed/Sprites/luchador-attack-right3.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Luchador Asset Pack by TikiTed/Sprites/luchador-death-right.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Luchador Asset Pack by TikiTed/Sprites/luchador-death-right.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Luchador Asset Pack by TikiTed/Sprites/luchador-hurt-right.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Luchador Asset Pack by TikiTed/Sprites/luchador-hurt-right.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Luchador Asset Pack by TikiTed/Sprites/luchador-idle-right.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Luchador Asset Pack by TikiTed/Sprites/luchador-idle-right.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Luchador Asset Pack by TikiTed/Sprites/luchador-look-right.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Luchador Asset Pack by TikiTed/Sprites/luchador-look-right.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Luchador Asset Pack by TikiTed/Sprites/luchador-walk-down-left.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Luchador Asset Pack by TikiTed/Sprites/luchador-walk-down-left.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Luchador Asset Pack by TikiTed/Sprites/luchador-walk-down-right.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Luchador Asset Pack by TikiTed/Sprites/luchador-walk-down-right.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Luchador Asset Pack by TikiTed/Sprites/luchador-walk-down.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Luchador Asset Pack by TikiTed/Sprites/luchador-walk-down.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Luchador Asset Pack by TikiTed/Sprites/luchador-walk-left.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Luchador Asset Pack by TikiTed/Sprites/luchador-walk-left.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Luchador Asset Pack by TikiTed/Sprites/luchador-walk-right.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Luchador Asset Pack by TikiTed/Sprites/luchador-walk-right.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Luchador Asset Pack by TikiTed/Sprites/luchador-walk-up-left.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Luchador Asset Pack by TikiTed/Sprites/luchador-walk-up-left.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Luchador Asset Pack by TikiTed/Sprites/luchador-walk-up-right.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Luchador Asset Pack by TikiTed/Sprites/luchador-walk-up-right.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Luchador Asset Pack by TikiTed/Sprites/luchador-walk-up.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Luchador Asset Pack by TikiTed/Sprites/luchador-walk-up.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Mirror/Components/PredictedRigidbody/PredictedRigidbody.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Mirror/Components/PredictedRigidbody/PredictedRigidbody.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/OArielG/2DSimpleUIPack/Examples/Graphics/ui-large-buttons-horizontal.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/OArielG/2DSimpleUIPack/Examples/Graphics/ui-large-buttons-horizontal.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/OArielG/2DSimpleUIPack/Examples/Graphics/ui-large-buttons-vertical.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/OArielG/2DSimpleUIPack/Examples/Graphics/ui-large-buttons-vertical.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/OArielG/2DSimpleUIPack/Examples/Graphics/ui-panels.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/OArielG/2DSimpleUIPack/Examples/Graphics/ui-panels.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/OArielG/2DSimpleUIPack/Examples/Graphics/ui-small-buttons.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/OArielG/2DSimpleUIPack/Examples/Graphics/ui-small-buttons.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/OArielG/2DSimpleUIPack/Examples/Graphics/ui-small-icons.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/OArielG/2DSimpleUIPack/Examples/Graphics/ui-small-icons.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_prefabs/GameScene/Article.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_prefabs/GameScene/Article.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_prefabs/GameScene/Cannon.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_prefabs/GameScene/Cannon.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_prefabs/GameScene/CannonBall.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_prefabs/GameScene/CannonBall.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_prefabs/GameScene/Cell.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_prefabs/GameScene/Cell.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_prefabs/GameScene/Grid.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_prefabs/GameScene/Grid.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_prefabs/GameScene/HorizontalPhrase.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_prefabs/GameScene/HorizontalPhrase.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_prefabs/GameScene/Laser.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_prefabs/GameScene/Laser.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_prefabs/GameScene/LaserBlast.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_prefabs/GameScene/LaserBlast.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_prefabs/GameScene/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_prefabs/GameScene/Player.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_prefabs/GameScene/Room.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_prefabs/GameScene/Room.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_prefabs/GameScene/UpDoor.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_prefabs/GameScene/UpDoor.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_prefabs/GameScene/VerticalPhrase.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_prefabs/GameScene/VerticalPhrase.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_prefabs/GameScene/Wall.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_prefabs/GameScene/Wall.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_prefabs/GameScene/laserSparks.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_prefabs/GameScene/laserSparks.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_prefabs/GameScene/newLaserBlast.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_prefabs/GameScene/newLaserBlast.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_prefabs/GameScene/trap.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_prefabs/GameScene/trap.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_res/Sprites/LevelEnviroment/Atlas-sprite-3.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_res/Sprites/LevelEnviroment/Atlas-sprite-3.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_res/Sprites/LevelEnviroment/Atlas_sprite_floor1_original_size.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_res/Sprites/LevelEnviroment/Atlas_sprite_floor1_original_size.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_res/Sprites/LevelEnviroment/Atlas_sprite_walls1_original_size1.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_res/Sprites/LevelEnviroment/Atlas_sprite_walls1_original_size1.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_res/Sprites/LevelEnviroment/laser.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_res/Sprites/LevelEnviroment/laser.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_res/Sprites/LevelEnviroment/yellowWalls.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_res/Sprites/LevelEnviroment/yellowWalls.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_scenes/GameTest.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scenes/GameTest.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_scripts/Cannon.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/Cannon.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_scripts/CannonBall.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/CannonBall.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_scripts/Cell.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/Cell.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_scripts/Controllers/GameController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/Controllers/GameController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_scripts/Controllers/GameEvents.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/Controllers/GameEvents.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_scripts/Controllers/Grid.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/Controllers/Grid.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_scripts/Core.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_scripts/Core/MultiplayerGameInstaller.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_scripts/Core/MultiplayerGameInstaller.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_scripts/LaserBlast.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/LaserBlast.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_scripts/PlayerHealth.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/PlayerHealth.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_scripts/PlayerMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/PlayerMovement.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_scripts/Room.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/Room.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_scripts/ViewController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/ViewController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_scripts/Multiplayer/WorldInitializer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/Multiplayer/WorldInitializer.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -124,11 +56,11 @@
         <option value="$PROJECT_DIR$/Assets/_scripts/ViewController.cs" />
         <option value="$PROJECT_DIR$/Assets/_scripts/Multiplayer/NetworkHandler.cs" />
         <option value="$PROJECT_DIR$/Assets/_scripts/Cell.cs" />
-        <option value="$PROJECT_DIR$/Assets/_scripts/Controllers/Grid.cs" />
         <option value="$PROJECT_DIR$/Assets/_scripts/PlayerMovement.cs" />
         <option value="$PROJECT_DIR$/Assets/_scripts/Room.cs" />
         <option value="$PROJECT_DIR$/Assets/_scripts/Multiplayer/GameControllerMultiplayer.cs" />
         <option value="$PROJECT_DIR$/Assets/_scripts/Controllers/GameController.cs" />
+        <option value="$PROJECT_DIR$/Assets/_scripts/Controllers/Grid.cs" />
         <option value="$PROJECT_DIR$/Assets/_scripts/Multiplayer/WorldInitializer.cs" />
       </list>
     </option>
@@ -164,10 +96,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="16868">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="16868" />
+      <option name="pid" />
       <option name="selectedOptions">
         <set />
       </option>
@@ -186,6 +118,7 @@
       <workItem from="1734099748879" duration="4009000" />
       <workItem from="1736261846916" duration="1771000" />
       <workItem from="1736327786924" duration="30484000" />
+      <workItem from="1736423598329" duration="1144000" />
     </task>
     <servers />
   </component>
@@ -204,6 +137,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
@@ -348,32 +282,6 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="11" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/_scripts/Multiplayer/WorldInitializer.cs</url>
-          <line>41</line>
-          <properties documentPath="C:\Unity\Projects\tkpClient\Assets\_scripts\Multiplayer\WorldInitializer.cs" initialLine="34">
-            <startOffsets>
-              <option value="897" />
-            </startOffsets>
-            <endOffsets>
-              <option value="975" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="14" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/_scripts/Multiplayer/WorldInitializer.cs</url>
-          <line>52</line>
-          <properties documentPath="C:\Unity\Projects\tkpClient\Assets\_scripts\Multiplayer\WorldInitializer.cs" initialLine="47">
-            <startOffsets>
-              <option value="1178" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1241" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="17" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

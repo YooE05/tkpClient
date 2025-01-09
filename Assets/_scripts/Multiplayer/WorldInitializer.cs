@@ -20,6 +20,7 @@ public class WorldInitializer : NetworkBehaviour
         else
         {
             _room = FindObjectOfType<Room>();
+            _room.GridComponent.SetupSprites(_spriteSettings);
         }
     }
 
