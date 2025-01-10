@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: TrapSettings0
   m_EditorClassIdentifier: 
   needRandomCount: 1
-  trapCount: 3
-  lasersCount: 2
-  cannonsCount: 3
+  trapCount: 10
+  lasersCount: 10
+  cannonsCount: 0

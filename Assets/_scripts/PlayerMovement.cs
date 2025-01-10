@@ -23,6 +23,22 @@ public class PlayerMovement : NetworkBehaviour
     private Vector3 _velocity = Vector3.zero;
     private Vector3 _cameraOffset = new Vector3(0f, 0f, -10f);
 
+    [SyncVar(hook = nameof(OnNickNameChanged))]
+    private string _ownNickName;
+
+    // Команда для отправки никнейма на сервер
+    [Command]
+    public void CmdSetNickName(string newNickName)
+    {
+        _ownNickName = newNickName;
+        _playerDebug.text = newNickName;
+    }
+
+    private void OnNickNameChanged(string oldNick, string newNick)
+    {
+        _playerDebug.text = newNick;
+    }
+
     private void OnEnable()
     {
         if (!isLocalPlayer) return;
@@ -50,23 +66,32 @@ public class PlayerMovement : NetworkBehaviour
 
         if (!isLocalPlayer)
         {
+            _playerDebug.text = _ownNickName;
+            CmdSetupName(_ownNickName);
             return;
         }
 
         if (!_world)
         {
             _world = FindObjectOfType<WorldInitializer>();
-            _playerDebug.text = "world founded";
         }
-        else
+        
+        if (_world.GameIsEnded)
         {
-            _playerDebug.text = "world already Exist";
+            canMove = false;
+            return;
         }
 
         Grid = _world.GetCurrentGrid(out var gridSize);
 
-        _playerDebug.text = gridSize;
-
+        var nick = PlayerPrefs.GetString("Nickname");
+        if (nick == String.Empty)
+        {
+            nick = "Player" + _world.numPlayers;
+        }
+        CmdSetNickName(nick);
+        
+        
         StartMoving();
 
 //        var PlayerBaseID = Convert.ToInt32(GetComponent<NetworkIdentity>().netId) -
@@ -76,6 +101,13 @@ public class PlayerMovement : NetworkBehaviour
         transform.position = new Vector3(1, 1, 0);
         canMove = true;
     }
+
+    [Command]
+    private void CmdSetupName(string nick)
+    {
+        _playerDebug.text = nick;
+    }
+
 
     public void StartMoving()
     {
@@ -89,7 +121,6 @@ public class PlayerMovement : NetworkBehaviour
             if (!isLocalPlayer)
             {
                 yield return new WaitForSeconds(0.00001f);
-                _playerDebug.text = "isntLocalPlayer";
                 continue;
             }
 
@@ -103,10 +134,12 @@ public class PlayerMovement : NetworkBehaviour
                 if (xOff < 0)
                 {
                     transform.rotation = Quaternion.Euler(0, -180, 0);
+                    _playerDebug.rectTransform.localRotation = Quaternion.Euler(0, -180, 0);
                 }
                 else if (xOff > 0)
                 {
                     transform.rotation = Quaternion.Euler(0, 0, 0);
+                    _playerDebug.rectTransform.localRotation = Quaternion.Euler(0, 0, 0);
                 }
 
                 animator.SetFloat("HorizDirection", Mathf.Abs(xOff));
@@ -163,7 +196,6 @@ public class PlayerMovement : NetworkBehaviour
         possibleNextCoordinate.y = Mathf.Clamp(possibleNextCoordinate.y, -1, Grid.gridSideY + 1);
 
         nextCell[index] = Grid.cellsDictionary[possibleNextCoordinate];
-        _playerDebug.text = Grid.cellsDictionary[possibleNextCoordinate].GetGridPos().ToString();
 
         if (nextCell[index].exitDirection != "")
         {

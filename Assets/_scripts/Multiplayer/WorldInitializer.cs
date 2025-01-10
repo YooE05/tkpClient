@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Mirror;
 using UnityEngine;
+using Random = System.Random;
 
 public class WorldInitializer : NetworkBehaviour
 {
@@ -9,7 +10,7 @@ public class WorldInitializer : NetworkBehaviour
     [SerializeField] private List<SpritesSettings> _spriteSettings;
     [SerializeField] private List<LevelTrapSettings> _trapSettings;
     [SerializeField] private List<ArticleTask> _levelTasks;
-    private List<ArticleTask> _copyLevelTasks = new List<ArticleTask>();
+    private readonly List<ArticleTask> _copyLevelTasks = new List<ArticleTask>();
 
     [SerializeField] private GameObject phrasePrefab;
     [SerializeField] private GameObject articlePrefab;
@@ -38,17 +39,20 @@ public class WorldInitializer : NetworkBehaviour
 
     private ExitGameManager _exitGameManager;
 
+    [SerializeField] private int _phraseMinCount = 2;
+    [SerializeField] private int _phraseMaxCount = 6;
+
     [SyncVar] public int DeadCount;
     [SyncVar] public int numPlayers;
 
     [SyncVar] public int _correctArticles;
     [SyncVar] public float _spentTime;
-    [SyncVar] private bool _gameIsEnded;
+    [SyncVar] public bool GameIsEnded;
 
     private void Awake()
     {
         _spentTime = 0;
-        _gameIsEnded = false;
+        GameIsEnded = false;
 
         _correctArticles = 0;
         //GameEvents.current.OnPlayerDied += CheckAllPlayerDeath;
@@ -137,7 +141,7 @@ public class WorldInitializer : NetworkBehaviour
             SetUpPhrasesCells();
             ClearSpaceBetweenPhraseParts();
 
-           // SetupClientPointsText();
+            // SetupClientPointsText();
         }
 
         SetupClientPointsText();
@@ -150,7 +154,7 @@ public class WorldInitializer : NetworkBehaviour
 
     private void Update()
     {
-        if (!_gameIsEnded)
+        if (!GameIsEnded)
         {
             _spentTime += Time.deltaTime;
         }
@@ -205,6 +209,8 @@ public class WorldInitializer : NetworkBehaviour
         _copyLevelTasks.Clear();
         _copyLevelTasks.AddRange(_levelTasks);
 
+        ShafleList();
+
         if (_room != null)
         {
             _room.GridComponent.ClearGrid();
@@ -223,6 +229,19 @@ public class WorldInitializer : NetworkBehaviour
         ClearSpaceBetweenPhraseParts();
 
         NetworkServer.Spawn(_room.gameObject);
+    }
+
+    private void ShafleList()
+    {
+        Random random = new Random();
+
+        for (int i = _copyLevelTasks.Count - 1; i > 0; i--)
+        {
+            int j = random.Next(0, i + 1);
+            var temp = _copyLevelTasks[i];
+            _copyLevelTasks[i] = _copyLevelTasks[j];
+            _copyLevelTasks[j] = temp;
+        }
     }
 
     [Server]
@@ -245,7 +264,12 @@ public class WorldInitializer : NetworkBehaviour
         _minGridX = 15;
         _minGridY = 5;
 
-        var randCountTasks = UnityEngine.Random.Range(1, 1);
+        if (_phraseMaxCount > _levelTasks.Count)
+        {
+            _phraseMaxCount = _levelTasks.Count;
+        }
+
+        var randCountTasks = UnityEngine.Random.Range(_phraseMinCount, _phraseMaxCount);
 
         for (int i = 0; i < randCountTasks; i++)
         {
@@ -403,9 +427,12 @@ public class WorldInitializer : NetworkBehaviour
     {
         int num = UnityEngine.Random.Range(0, _trapSettings.Count);
 
-        PutTheTraps(_room, UnityEngine.Random.Range(1, _trapSettings[num].trapCount + 1));
-        PutTheLasers(_room, UnityEngine.Random.Range(1, _trapSettings[num].lasersCount + 1));
-        PutTheCannons(_room, UnityEngine.Random.Range(1, _trapSettings[num].cannonsCount + 1));
+        PutTheTraps(_room,
+            UnityEngine.Random.Range(_trapSettings[num].trapCount / 2, _trapSettings[num].trapCount + 1));
+        PutTheLasers(_room,
+            UnityEngine.Random.Range(_trapSettings[num].lasersCount / 2, _trapSettings[num].lasersCount + 1));
+        PutTheCannons(_room,
+            UnityEngine.Random.Range(_trapSettings[num].cannonsCount / 2, _trapSettings[num].cannonsCount + 1));
     }
 
     private void PutTheTraps(Room crntRoom, int trapCount)
@@ -584,12 +611,18 @@ public class WorldInitializer : NetworkBehaviour
     private void EndGame()
     {
         var _viewController = FindObjectOfType<ViewController>();
-        _gameIsEnded = true;
+        GameIsEnded = true;
 
         string formattedTime = TimeSpan.FromSeconds(_spentTime).ToString(@"m\:ss");
         _viewController.SetUpEndPanel(formattedTime);
         Debug.Log(formattedTime);
         //заморозить передвижение
-        //показать время
+
+        var playersMovement2 = FindObjectsOfType<PlayerMovement>(true);
+
+        foreach (var playerMovement in playersMovement2)
+        {
+            playerMovement.canMove = false;
+        }
     }
 }

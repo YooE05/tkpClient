@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MultiplayerMenuController : MonoBehaviour
 {
-    private TMP_InputField _playerName;
+    [SerializeField] private TMP_InputField _playerName;
 
     [SerializeField] private GameObject _loadingView;
 
@@ -17,15 +17,16 @@ public class MultiplayerMenuController : MonoBehaviour
     {
         _loadingView.SetActive(true);
         NetworkManager.singleton.StartHost();
-//        PlayerPrefs.SetString("Nickname", _playerName.text);
-  //      PlayerPrefs.Save();
+
+        PlayerPrefs.SetString("Nickname", _playerName.text);
+        PlayerPrefs.Save();
     }
 
     public void StartClient()
     {
         _loadingView.SetActive(true);
         NetworkManager.singleton.StartClient();
-    //    PlayerPrefs.SetString("Nickname", _playerName.text);
-    //    PlayerPrefs.Save();
+        PlayerPrefs.SetString("Nickname", _playerName.text);
+        PlayerPrefs.Save();
     }
 }

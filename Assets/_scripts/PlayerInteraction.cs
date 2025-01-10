@@ -73,6 +73,7 @@ public class PlayerInteraction : NetworkBehaviour
             laserComponent.canDisableLaser = true;
             _lasers.Add(laserComponent);
 
+            if (!isLocalPlayer) return;
             if (laserComponent.CanBeTurnedOff())
                 _viewController.ChangeLaserDisableText(true);
         }
@@ -86,6 +87,7 @@ public class PlayerInteraction : NetworkBehaviour
             laserComponent.canDisableLaser = false;
             _lasers.Remove(laserComponent);
 
+            if (!isLocalPlayer) return;
             _viewController.ChangeLaserDisableText(false);
         }
     }

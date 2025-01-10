@@ -207,6 +207,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3264723216054394190, guid: a8f28a8bbe697b44cb73134e54e3c554, type: 3}
+      propertyPath: playerPrefab
+      value: 
+      objectReference: {fileID: 8205599625662912724, guid: 82f5b093819f7f647b00e68d6754afdf, type: 3}
     - target: {fileID: 3661586572213807006, guid: a8f28a8bbe697b44cb73134e54e3c554, type: 3}
       propertyPath: m_Name
       value: NetworkManager
@@ -1772,6 +1776,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b27bc842435c4f340ac6a8d8751b9083, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _playerName: {fileID: 296256890}
   _loadingView: {fileID: 1781036543}
 --- !u!1 &2144414188
 GameObject:

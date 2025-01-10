@@ -1695,7 +1695,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -11.899933, y: 0}
+  m_AnchoredPosition: {x: -11.899902, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!247 &507590048
@@ -5723,10 +5723,13 @@ MonoBehaviour:
   cannonPrefab: {fileID: 4804128430421390438, guid: 7194ba8db0ba0504192666b608c5bd18, type: 3}
   laserPrefab: {fileID: 4804128430421390438, guid: b54e7b6696e8600479455d29609fd457, type: 3}
   _phraseForPreloadGrid: {fileID: 794895802}
+  _phraseMinCount: 2
+  _phraseMaxCount: 4
   DeadCount: 0
   numPlayers: 0
   _correctArticles: 0
   _spentTime: 0
+  GameIsEnded: 0
 --- !u!114 &1620549116
 MonoBehaviour:
   m_ObjectHideFlags: 0
