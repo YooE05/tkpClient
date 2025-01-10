@@ -10,6 +10,7 @@ public class WorldInitializer : NetworkBehaviour
     [SerializeField] private List<SpritesSettings> _spriteSettings;
     [SerializeField] private List<LevelTrapSettings> _trapSettings;
     [SerializeField] private List<ArticleTask> _levelTasks;
+    private List<ArticleTask> _copyLevelTasks = new List<ArticleTask>();
 
     [SerializeField] private GameObject phrasePrefab;
     [SerializeField] private GameObject articlePrefab;
@@ -35,19 +36,19 @@ public class WorldInitializer : NetworkBehaviour
     private int _minGridX = 15;
     private int _minGridY = 5;
     private readonly int _letterInBlock = 5;
-    private NetworkManager _networkManager;
+
+    private ExitGameManager _exitGameManager;
 
     [SyncVar] public int DeadCount;
     [SyncVar] public int numPlayers; // Синхронизируемое количество игроков
-
 
     private void Awake()
     {
         //GameEvents.current.OnPlayerDied += CheckAllPlayerDeath;
         DeadCount = 0;
-        _networkManager = FindObjectOfType<NetworkManager>();
+        _exitGameManager = GetComponent<ExitGameManager>();
     }
-    
+
     public override void OnStartServer()
     {
         base.OnStartServer();
@@ -60,31 +61,36 @@ public class WorldInitializer : NetworkBehaviour
         numPlayers = NetworkServer.connections.Count; // Количество подключённых игроков
     }
 
-    public void CheckAllPlayerDeath()
-    {
-        DeadCount++;
-        /*var deadCount = 0;
-        var playersHp = FindObjectsOfType<PlayerHealth>(true);
-        for (int i = 0; i < playersHp.Length; i++)
-        {
-            if (playersHp[i].IsDead)
-            {
-                deadCount++;
-            }
-        }
-
-        if (DeadCount ==  GameObject.Find("NetworkManager").GetComponent<NetworkManager>().numPlayers)
-        {
-            ReturnToLobby();
-        }*/
-    }
-
+    [Server]
     private void ReturnToLobby()
     {
         Debug.Log("All dead");
+
+        _exitGameManager.ExitGameScene();
+        
+        /*var players = FindObjectsOfType<PlayerHealth>(true);
+
+        foreach (var playerHealth in players)
+        {
+            playerHealth.ResetHealth();
+        }
+
+        if (isServer)
+        {
+            ReGenerateRoom();
+        }
+        else
+        {
+            Invoke(nameof(ReGenerateRoom), 3f);
+        }*/
     }
 
     private void Start()
+    {
+        GenerateRoom();
+    }
+
+    private void ReGenerateRoom()
     {
         if (isServer)
         {
@@ -99,13 +105,41 @@ public class WorldInitializer : NetworkBehaviour
             SetUpPhrasesCells();
             ClearSpaceBetweenPhraseParts();
         }
+        
+        
+        var playersMovement2 = FindObjectsOfType<PlayerMovement>(true);
+
+        foreach (var playerMovement in playersMovement2)
+        {
+            playerMovement.Grid = Grid;
+        }
+    }
+
+    private void GenerateRoom()
+    {
+        if (isServer)
+        {
+            ServerGenerateRoom();
+        }
+        else
+        {
+            _room = FindObjectOfType<Room>();
+            _room.GridComponent.SetupSprites(_spriteSettings);
+            ClSetupPhrasesValues();
+
+            SetUpPhrasesCells();
+            ClearSpaceBetweenPhraseParts();
+        }
+        
+        foreach (var cannon in Grid.cannonsList)
+        {
+            cannon.StartShooting();
+        }
     }
 
     private void Update()
     {
         UpdatePlayerCount();
-        
-        Debug.Log(numPlayers);
         if (DeadCount == numPlayers)
         {
             ReturnToLobby();
@@ -151,6 +185,16 @@ public class WorldInitializer : NetworkBehaviour
     [Server]
     private void ServerGenerateRoom()
     {
+        _allArticles.Clear();
+        _copyLevelTasks.Clear();
+        _copyLevelTasks.AddRange(_levelTasks);
+
+        if (_room != null)
+        {
+            _room.GridComponent.ClearGrid();
+            Destroy(_room.gameObject);
+        }
+
         var roomGO = Instantiate(_roomPrefab, transform);
         _room = roomGO.GetComponent<Room>();
 
@@ -175,9 +219,14 @@ public class WorldInitializer : NetworkBehaviour
     [Server]
     private void SetupArticles()
     {
+        _articlesValueDictionary.Clear();
+
         int maxCountRoomTasks = 2;
         var countOfAllPhrases = 0;
         var articlesCount = 0;
+
+        _minGridX = 15;
+        _minGridY = 5;
 
         var randCountTasks = UnityEngine.Random.Range(2, 5);
 
@@ -188,14 +237,14 @@ public class WorldInitializer : NetworkBehaviour
             int articlePrefabOffset = (i + 1) * 2;
             _minGridY += 3;
 
-            for (int j = 0; j < _levelTasks[0].articlesCount; j++)
+            for (int j = 0; j < _copyLevelTasks[0].articlesCount; j++)
             {
                 countOfAllPhrases++;
                 articlesCount++;
 
-                if (j == 0 && _levelTasks[0].firstPhrase != "")
+                if (j == 0 && _copyLevelTasks[0].firstPhrase != "")
                 {
-                    lenthOfWordPart = 1 + _levelTasks[0].firstPhrase.Length / _letterInBlock;
+                    lenthOfWordPart = 1 + _copyLevelTasks[0].firstPhrase.Length / _letterInBlock;
                     phrasesPrefabOffset += lenthOfWordPart;
                 }
 
@@ -207,17 +256,17 @@ public class WorldInitializer : NetworkBehaviour
                     .GetComponent<Phrase>();
 
 
-                if (j == 0 && _levelTasks[0].firstPhrase != "")
+                if (j == 0 && _copyLevelTasks[0].firstPhrase != "")
                 {
-                    crntPhrase.SetUpFirstPart(lenthOfWordPart, _levelTasks[0].firstPhrase);
+                    crntPhrase.SetUpFirstPart(lenthOfWordPart, _copyLevelTasks[0].firstPhrase);
                     AddPhraseCoordinates(lenthOfWordPart, phraseY, crntPhrase, "first");
                 }
 
                 lenthOfWordPart = CountPhraseLenth(0, j, ref phrasesPrefabOffset);
-                crntPhrase.SetUpSecondPart(lenthOfWordPart, _levelTasks[0].phrases[j]);
+                crntPhrase.SetUpSecondPart(lenthOfWordPart, _copyLevelTasks[0].phrases[j]);
                 AddPhraseCoordinates(lenthOfWordPart, phraseY, crntPhrase, "second");
 
-                crntPhrase.correctArticle = _levelTasks[0].articles[j];
+                crntPhrase.correctArticle = _copyLevelTasks[0].articles[j];
 
                 Article crntArticle;
 
@@ -238,7 +287,7 @@ public class WorldInitializer : NetworkBehaviour
                 _minGridX = phrasesPrefabOffset + 5;
             }
 
-            _levelTasks.Remove(_levelTasks[0]);
+            _copyLevelTasks.Remove(_copyLevelTasks[0]);
         }
 
         Grid.gridSideX = _minGridX;
@@ -251,7 +300,7 @@ public class WorldInitializer : NetworkBehaviour
 
     private int CountPhraseLenth(int i, int j, ref int prefabOffset)
     {
-        int lenthOfWordPart = 1 + _levelTasks[i].phrases[j].Length / _letterInBlock;
+        int lenthOfWordPart = 1 + _copyLevelTasks[i].phrases[j].Length / _letterInBlock;
         prefabOffset += lenthOfWordPart;
         return lenthOfWordPart;
     }
@@ -279,6 +328,9 @@ public class WorldInitializer : NetworkBehaviour
     [Server]
     private void AddPhraseCoordinates(int lenthOfWordPart, int phraseY, Phrase crntPhrase, string part)
     {
+        _articlesValueDictionary.Clear();
+        _allPhrasesCoordinates.Clear();
+
         float midleOfPhrase;
         if (part == "first")
         {

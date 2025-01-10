@@ -837,13 +837,13 @@ public class GameControllerMultiplayer : NetworkBehaviour
         int x, y;
         if (nextRoomDirection.x == 0)
         {
-            x = playerMovement._grid.gridSideX / 2;
-            y = nextRoomDirection.y == 1 ? 0 : playerMovement._grid.gridSideY;
+            x = playerMovement.Grid.gridSideX / 2;
+            y = nextRoomDirection.y == 1 ? 0 : playerMovement.Grid.gridSideY;
         }
         else
         {
-            y = playerMovement._grid.gridSideY / 2;
-            x = nextRoomDirection.x == 1 ? 0 : playerMovement._grid.gridSideX;
+            y = playerMovement.Grid.gridSideY / 2;
+            x = nextRoomDirection.x == 1 ? 0 : playerMovement.Grid.gridSideX;
         }
 
         return new Vector2(x, y);

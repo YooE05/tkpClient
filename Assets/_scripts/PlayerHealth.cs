@@ -1,4 +1,3 @@
-using System;
 using Mirror;
 using UnityEngine;
 
@@ -9,10 +8,11 @@ public class PlayerHealth : NetworkBehaviour
 
     private ViewController _viewController;
     private WorldInitializer _worldInitializer;
-    private NetworkObjectToggle _networkObjectToggle;
-   // public bool IsDead => CurrentHealth <= 0;
 
-  //  [SyncVar] public bool _isEnabled;
+    private NetworkObjectToggle _networkObjectToggle;
+    // public bool IsDead => CurrentHealth <= 0;
+
+    //  [SyncVar] public bool _isEnabled;
 
 
     private void Awake()
@@ -20,14 +20,15 @@ public class PlayerHealth : NetworkBehaviour
         _viewController = FindObjectOfType<ViewController>();
         _worldInitializer = FindObjectOfType<WorldInitializer>();
         _networkObjectToggle = GetComponent<NetworkObjectToggle>();
-        
-       // _isEnabled = true;
+
+        // _isEnabled = true;
     }
 
     public void ResetHealth()
     {
         CurrentHealth = StartHealth;
         _viewController.SetHealth(CurrentHealth);
+        _networkObjectToggle.ToggleObject(true);
     }
 
     private void Start()
@@ -64,6 +65,7 @@ public class PlayerHealth : NetworkBehaviour
         if (CurrentHealth <= 0)
         {
             // gameObject.SetActive(false);
+            transform.position = new Vector3(1, 1, 0);
             _networkObjectToggle.ToggleObject(false);
             CmdCheckPlayersDeath();
             //GameEvents.current.Death();
