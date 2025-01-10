@@ -107,7 +107,7 @@ public class WorldInitializer : NetworkBehaviour
         {
             _room = FindObjectOfType<Room>();
             _room.GridComponent.SetupSprites(_spriteSettings);
-            ClSetupPhrasesValues();
+            ClSetupArticlesAndPhrasesValues();
 
             SetUpPhrasesCells();
             ClearSpaceBetweenPhraseParts();
@@ -132,12 +132,12 @@ public class WorldInitializer : NetworkBehaviour
         {
             _room = FindObjectOfType<Room>();
             _room.GridComponent.SetupSprites(_spriteSettings);
-            ClSetupPhrasesValues();
+            ClSetupArticlesAndPhrasesValues();
 
             SetUpPhrasesCells();
             ClearSpaceBetweenPhraseParts();
 
-            SetupClientPointsText();
+           // SetupClientPointsText();
         }
 
         SetupClientPointsText();
@@ -179,7 +179,7 @@ public class WorldInitializer : NetworkBehaviour
         }
     }
 
-    private void ClSetupPhrasesValues()
+    private void ClSetupArticlesAndPhrasesValues()
     {
         _allArticles.Clear();
         _allArticles.AddRange(FindObjectsOfType<Article>());
@@ -236,6 +236,7 @@ public class WorldInitializer : NetworkBehaviour
     private void SetupArticles()
     {
         _articlesValueDictionary.Clear();
+        _allPhrasesCoordinates.Clear();
 
         int maxCountRoomTasks = 2;
         var countOfAllPhrases = 0;
@@ -344,9 +345,6 @@ public class WorldInitializer : NetworkBehaviour
     [Server]
     private void AddPhraseCoordinates(int lenthOfWordPart, int phraseY, Phrase crntPhrase, string part)
     {
-        _articlesValueDictionary.Clear();
-        _allPhrasesCoordinates.Clear();
-
         float midleOfPhrase;
         if (part == "first")
         {
