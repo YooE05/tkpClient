@@ -67,8 +67,10 @@ public class LaserLine : NetworkBehaviour
 
                 if (hit.collider.tag == "Player")
                 {
-                    GameEvents.current.TakeDamage();
+                   // GameEvents.current.TakeDamage();
+                   hit.collider.gameObject.GetComponent<PlayerHealth>().TakeDamage();
                 }
+                
                 lastPosition = new Vector3(hit.point.x, hit.point.y, transform.position.z);
                 lineRenderer.SetPosition(1, lastPosition);
                 laserSparks.gameObject.transform.position = new Vector3(lastPosition.x, lastPosition.y, lastPosition.z); 

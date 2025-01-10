@@ -1,7 +1,8 @@
 using UnityEngine;
 using System;
+using Mirror;
 
-public class GameEvents : MonoBehaviour
+public class GameEvents : NetworkBehaviour
 {
     public static GameEvents current;
 

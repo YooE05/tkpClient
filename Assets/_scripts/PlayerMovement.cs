@@ -19,6 +19,9 @@ public class PlayerMovement : NetworkBehaviour
     public bool canMove = false;
 
     private WorldInitializer _world;
+    private Camera _mainCam;
+    private Vector3 _velocity = Vector3.zero;
+    private Vector3 _cameraOffset = new Vector3(0f, 0f, -10f);
 
     void OnDisable()
     {
@@ -26,8 +29,19 @@ public class PlayerMovement : NetworkBehaviour
         StopAllCoroutines();
     }
 
+    private void Update()
+    {
+        if (!isLocalPlayer) return;
+
+        var targetPos = transform.position + _cameraOffset;
+        _mainCam.transform.localPosition =
+            Vector3.SmoothDamp(_mainCam.transform.position, targetPos, ref _velocity, 1.5f);
+    }
+
     void Start()
     {
+        _mainCam = Camera.main;
+
         if (!isLocalPlayer)
         {
             return;
@@ -102,7 +116,6 @@ public class PlayerMovement : NetworkBehaviour
                     animator.SetFloat("Down", 0);
                     animator.SetFloat("Up", 0);
                 }
-
 
                 if (xOff == 0 && yOff == 0)
                 {
@@ -235,8 +248,9 @@ public class PlayerMovement : NetworkBehaviour
 
         if (canMove)
         {
-           // movedObject.transform.position = endPoint;
+            // movedObject.transform.position = endPoint;
             CmdSendPositionToServer(movedObject, endPoint);
+     
         }
         else
         {

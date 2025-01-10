@@ -1,10 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using System;
+using Mirror;
 
-public class ViewController : MonoBehaviour
+public class ViewController : NetworkBehaviour
 {
     GameController gameController;
     public TextMeshProUGUI healthText;
@@ -18,25 +17,31 @@ public class ViewController : MonoBehaviour
     public GameObject _loadingScreen;
     public GameObject _loadingEndScreen;
 
-
-    void Start()
+    private void Start()
     {
         //_loadingScreen.SetActive(true);
-        gameEndPanel.SetActive(false);        
+        gameEndPanel.SetActive(false);
         ShowGameView();
 
-        GameEvents.current.OnIncreasePoints += IncreasePoints;
-        GameEvents.current.OnDamagedPlayer += ReduceHealth;
+        //  GameEvents.current.OnIncreasePoints += IncreasePoints;
+        //  GameEvents.current.OnDamagedPlayer += ReduceHealth;
         gameController = FindObjectOfType<GameController>();
     }
-
-    
-
 
     //убрать пред релизом 
     public void RegenerateScreen()
     {
         gameController.GenerateLevelStruct();
+    }
+
+    public void SetHealth(int hpValue)
+    {
+        healthText.text = hpValue.ToString();
+    }
+
+    public void SetPoints(int pointsValue)
+    {
+        pointsText.text = pointsValue.ToString();
     }
 
     void ReduceHealth()
@@ -53,6 +58,7 @@ public class ViewController : MonoBehaviour
     {
         exitButton.SetActive(true);
     }
+
     public void ChangeLaserDisableText(bool state)
     {
         laserText.gameObject.SetActive(state);
@@ -62,10 +68,12 @@ public class ViewController : MonoBehaviour
     {
         gameView.SetActive(true);
     }
+
     public void HideGameView()
     {
         gameView.SetActive(false);
     }
+
     public void RestartGameView(int startHP)
     {
         ShowGameView();
@@ -80,6 +88,7 @@ public class ViewController : MonoBehaviour
     {
         _loadingScreen.SetActive(true);
     }
+
     public void HideLoadingView()
     {
         _loadingScreen.SetActive(false);
@@ -87,8 +96,9 @@ public class ViewController : MonoBehaviour
 
     internal void ShowEndLoadingView()
     {
-       _loadingEndScreen.SetActive(true);
+        _loadingEndScreen.SetActive(true);
     }
+
     public void HideEndLoadingView()
     {
         _loadingEndScreen.SetActive(false);
@@ -96,22 +106,22 @@ public class ViewController : MonoBehaviour
 
     public void ShowGameEndPanel(int startHp, int maxPoints)
     {
-
-        gameEndPanel.transform.Find("MessagePanel/Health").gameObject.GetComponent<TextMeshProUGUI>().text = healthText.text;
-        gameEndPanel.transform.Find("MessagePanel/Points").gameObject.GetComponent<TextMeshProUGUI>().text = pointsText.text;
+        gameEndPanel.transform.Find("MessagePanel/Health").gameObject.GetComponent<TextMeshProUGUI>().text =
+            healthText.text;
+        gameEndPanel.transform.Find("MessagePanel/Points").gameObject.GetComponent<TextMeshProUGUI>().text =
+            pointsText.text;
         HideGameView();
 
         gameEndPanel.SetActive(true);
-        gameEndPanel.transform.Find("MessagePanel/Health/StartCountOfHealth").gameObject.GetComponent<TextMeshProUGUI>().text = "/ " + startHp;
-        gameEndPanel.transform.Find("MessagePanel/Points/MaxCountOfPoints").gameObject.GetComponent<TextMeshProUGUI>().text = "/ " + maxPoints;
+        gameEndPanel.transform.Find("MessagePanel/Health/StartCountOfHealth").gameObject.GetComponent<TextMeshProUGUI>()
+            .text = "/ " + startHp;
+        gameEndPanel.transform.Find("MessagePanel/Points/MaxCountOfPoints").gameObject.GetComponent<TextMeshProUGUI>()
+            .text = "/ " + maxPoints;
     }
-
-
 
     private void OnDestroy()
     {
-        GameEvents.current.OnIncreasePoints -= IncreasePoints;
-        GameEvents.current.OnDamagedPlayer -= ReduceHealth;
+        //   GameEvents.current.OnIncreasePoints -= IncreasePoints;
+        //  GameEvents.current.OnDamagedPlayer -= ReduceHealth;
     }
-
 }

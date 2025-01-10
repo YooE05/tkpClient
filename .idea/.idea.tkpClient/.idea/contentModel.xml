@@ -72,6 +72,7 @@
             <e p="GameControllerMultiplayer.cs" t="Include" />
             <e p="GridClone.cs" t="Include" />
             <e p="NetworkHandler.cs" t="Include" />
+            <e p="NetworkObjectToggle.cs" t="Include" />
             <e p="WorldInitializer.cs" t="Include" />
           </e>
           <e p="Phrase.cs" t="Include" />

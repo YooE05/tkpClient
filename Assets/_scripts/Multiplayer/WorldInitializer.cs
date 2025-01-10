@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Mirror;
 using UnityEngine;
 
@@ -34,6 +35,54 @@ public class WorldInitializer : NetworkBehaviour
     private int _minGridX = 15;
     private int _minGridY = 5;
     private readonly int _letterInBlock = 5;
+    private NetworkManager _networkManager;
+
+    [SyncVar] public int DeadCount;
+    [SyncVar] public int numPlayers; // Синхронизируемое количество игроков
+
+
+    private void Awake()
+    {
+        //GameEvents.current.OnPlayerDied += CheckAllPlayerDeath;
+        DeadCount = 0;
+        _networkManager = FindObjectOfType<NetworkManager>();
+    }
+    
+    public override void OnStartServer()
+    {
+        base.OnStartServer();
+        UpdatePlayerCount();
+    }
+
+    [ServerCallback]
+    private void UpdatePlayerCount()
+    {
+        numPlayers = NetworkServer.connections.Count; // Количество подключённых игроков
+    }
+
+    public void CheckAllPlayerDeath()
+    {
+        DeadCount++;
+        /*var deadCount = 0;
+        var playersHp = FindObjectsOfType<PlayerHealth>(true);
+        for (int i = 0; i < playersHp.Length; i++)
+        {
+            if (playersHp[i].IsDead)
+            {
+                deadCount++;
+            }
+        }
+
+        if (DeadCount ==  GameObject.Find("NetworkManager").GetComponent<NetworkManager>().numPlayers)
+        {
+            ReturnToLobby();
+        }*/
+    }
+
+    private void ReturnToLobby()
+    {
+        Debug.Log("All dead");
+    }
 
     private void Start()
     {
@@ -49,6 +98,34 @@ public class WorldInitializer : NetworkBehaviour
 
             SetUpPhrasesCells();
             ClearSpaceBetweenPhraseParts();
+        }
+    }
+
+    private void Update()
+    {
+        UpdatePlayerCount();
+        
+        Debug.Log(numPlayers);
+        if (DeadCount == numPlayers)
+        {
+            ReturnToLobby();
+            DeadCount = 0;
+        }
+
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            foreach (var cannon in Grid.cannonsList)
+            {
+                cannon.StartShooting();
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            foreach (var cannon in Grid.cannonsList)
+            {
+                cannon.StopShooting();
+            }
         }
     }
 
@@ -68,25 +145,6 @@ public class WorldInitializer : NetworkBehaviour
         foreach (var phrase in _phrases)
         {
             phrase.SetupByOwn();
-        }
-    }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.C))
-        {
-            foreach (var cannon in Grid.cannonsList)
-            {
-                cannon.StartShooting();
-            }
-        }
-
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            foreach (var cannon in Grid.cannonsList)
-            {
-                cannon.StopShooting();
-            }
         }
     }
 
