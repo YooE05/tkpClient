@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using Mirror;
 using UnityEngine;
 
@@ -40,10 +39,18 @@ public class WorldInitializer : NetworkBehaviour
     private ExitGameManager _exitGameManager;
 
     [SyncVar] public int DeadCount;
-    [SyncVar] public int numPlayers; // Синхронизируемое количество игроков
+    [SyncVar] public int numPlayers;
+
+    [SyncVar] public int _correctArticles;
+    [SyncVar] public float _spentTime;
+    [SyncVar] private bool _gameIsEnded;
 
     private void Awake()
     {
+        _spentTime = 0;
+        _gameIsEnded = false;
+
+        _correctArticles = 0;
         //GameEvents.current.OnPlayerDied += CheckAllPlayerDeath;
         DeadCount = 0;
         _exitGameManager = GetComponent<ExitGameManager>();
@@ -67,7 +74,7 @@ public class WorldInitializer : NetworkBehaviour
         Debug.Log("All dead");
 
         _exitGameManager.ExitGameScene();
-        
+
         /*var players = FindObjectsOfType<PlayerHealth>(true);
 
         foreach (var playerHealth in players)
@@ -105,8 +112,8 @@ public class WorldInitializer : NetworkBehaviour
             SetUpPhrasesCells();
             ClearSpaceBetweenPhraseParts();
         }
-        
-        
+
+
         var playersMovement2 = FindObjectsOfType<PlayerMovement>(true);
 
         foreach (var playerMovement in playersMovement2)
@@ -129,8 +136,12 @@ public class WorldInitializer : NetworkBehaviour
 
             SetUpPhrasesCells();
             ClearSpaceBetweenPhraseParts();
+
+            SetupClientPointsText();
         }
-        
+
+        SetupClientPointsText();
+
         foreach (var cannon in Grid.cannonsList)
         {
             cannon.StartShooting();
@@ -139,6 +150,11 @@ public class WorldInitializer : NetworkBehaviour
 
     private void Update()
     {
+        if (!_gameIsEnded)
+        {
+            _spentTime += Time.deltaTime;
+        }
+
         UpdatePlayerCount();
         if (DeadCount == numPlayers)
         {
@@ -228,7 +244,7 @@ public class WorldInitializer : NetworkBehaviour
         _minGridX = 15;
         _minGridY = 5;
 
-        var randCountTasks = UnityEngine.Random.Range(2, 5);
+        var randCountTasks = UnityEngine.Random.Range(1, 1);
 
         for (int i = 0; i < randCountTasks; i++)
         {
@@ -520,5 +536,62 @@ public class WorldInitializer : NetworkBehaviour
 
         NetworkServer.Spawn(instance);
         return instance;
+    }
+
+    [Server]
+    public void CheckAllArticles()
+    {
+        var phrases = FindObjectsOfType<Phrase>();
+        var passedCount = 0;
+        foreach (var phrase in phrases)
+        {
+            if (phrase.isPassed)
+            {
+                passedCount++;
+            }
+        }
+
+        RpcSetPointsText(passedCount, phrases.Length);
+
+        _correctArticles = passedCount;
+
+        if (passedCount == phrases.Length)
+        {
+            EndGame();
+        }
+    }
+
+    private void SetupClientPointsText()
+    {
+        var phrases = FindObjectsOfType<Phrase>();
+        var passedCount = 0;
+        foreach (var phrase in phrases)
+        {
+            if (phrase.isPassed)
+            {
+                passedCount++;
+            }
+        }
+
+        FindObjectOfType<ViewController>().pointsText.text = $"{passedCount}/{phrases.Length}";
+    }
+
+    [ClientRpc]
+    private void RpcSetPointsText(int passed, int all)
+    {
+        FindObjectOfType<ViewController>().pointsText.text = $"{passed}/{all}";
+    }
+
+    [ClientRpc]
+    private void EndGame()
+    {
+        var _viewController = FindObjectOfType<ViewController>();
+        _gameIsEnded = true;
+
+        string formattedTime = TimeSpan.FromSeconds(_spentTime).ToString(@"m\:ss");
+        _viewController.SetUpEndPanel(formattedTime);
+        Debug.Log(formattedTime);
+        //заморозить передвижение
+        //показать время
     }
 }

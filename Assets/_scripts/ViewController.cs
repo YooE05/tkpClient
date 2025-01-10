@@ -17,6 +17,8 @@ public class ViewController : NetworkBehaviour
     public GameObject _loadingScreen;
     public GameObject _loadingEndScreen;
 
+    [SerializeField] private TextMeshProUGUI _timeSpendText;
+
     private void Start()
     {
         //_loadingScreen.SetActive(true);
@@ -123,5 +125,11 @@ public class ViewController : NetworkBehaviour
     {
         //   GameEvents.current.OnIncreasePoints -= IncreasePoints;
         //  GameEvents.current.OnDamagedPlayer -= ReduceHealth;
+    }
+
+    public void SetUpEndPanel(string spendTime)
+    {
+        _timeSpendText.text = $"Spend time: {spendTime}";
+        gameEndPanel.SetActive(true);
     }
 }

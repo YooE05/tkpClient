@@ -4,6 +4,7 @@ using TMPro;
 
 public class Phrase : NetworkBehaviour
 {
+    private WorldInitializer _worldInitializer;
     public string correctArticle;
 
     enum prasesOrientations
@@ -25,8 +26,10 @@ public class Phrase : NetworkBehaviour
     [SyncVar] public int firstPartSize = 1;
     [SyncVar] public int secondPartSize = 1;
 
-    [HideInInspector] public bool haveArticle = false;
-    [HideInInspector] public bool isPassed = false;
+    [SyncVar] [HideInInspector] public bool haveArticle = false;
+
+    [SyncVar] [HideInInspector] public bool isPassed = false;
+
     [HideInInspector] public bool isFirstCorrectAnswer = false;
 
     PlayerHealth playerHealth;
@@ -42,6 +45,8 @@ public class Phrase : NetworkBehaviour
         playerHealth = FindObjectOfType<PlayerHealth>();
         firstPart.SetActive(false);
         secondPart.SetActive(false);
+        
+        _worldInitializer = FindObjectOfType<WorldInitializer>();
         // GameEvents.current.OnExitTriggerEnter += CheckPhraseСorrectness;
     }
 
@@ -112,15 +117,19 @@ public class Phrase : NetworkBehaviour
         if (collision.gameObject.tag == "article")
         {
             haveArticle = true;
-            string enterArticle = collision.gameObject.GetComponent<Article>().selfArticle.ToString();
+            var exitArticle = collision.gameObject.GetComponent<Article>();
+            string enterArticle = exitArticle.selfArticle;
 
-            if (enterArticle == correctArticle.ToString())
+            if (enterArticle == correctArticle)
             {
                 isPassed = true;
+                exitArticle.TurnCorrect();
+                _worldInitializer.CheckAllArticles();
             }
             else
             {
                 isPassed = false;
+                exitArticle.TurnUsual();
             }
         }
     }
@@ -131,16 +140,12 @@ public class Phrase : NetworkBehaviour
         {
             haveArticle = false;
             isPassed = false;
-            /*  string exitArticle = collision.gameObject.GetComponent<Article>().selfArticle.ToString();
-  
-              if (exitArticle == correctArticle.ToString())
-              {
-                  
-              }*/
+            var exitArticle = collision.gameObject.GetComponent<Article>();
+            exitArticle.TurnUsual();
         }
     }
 
-    //вызывать из GameController
+//вызывать из GameController
     public void CheckPhraseCorrectness()
     {
         if (haveArticle)
