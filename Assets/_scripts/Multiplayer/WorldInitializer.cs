@@ -117,7 +117,6 @@ public class WorldInitializer : NetworkBehaviour
             ClearSpaceBetweenPhraseParts();
         }
 
-
         var playersMovement2 = FindObjectsOfType<PlayerMovement>(true);
 
         foreach (var playerMovement in playersMovement2)
@@ -137,7 +136,7 @@ public class WorldInitializer : NetworkBehaviour
             _room = FindObjectOfType<Room>();
             _room.GridComponent.SetupSprites(_spriteSettings);
             ClSetupArticlesAndPhrasesValues();
-
+            
             SetUpPhrasesCells();
             ClearSpaceBetweenPhraseParts();
 
@@ -558,7 +557,6 @@ public class WorldInitializer : NetworkBehaviour
 
         float zOffset = (rotationAngle != 0f) ? -2.5f : 0.51f;
         var instance = Instantiate(prefab, new Vector3(xOffset, yOffset, zOffset), quat, parentTransform);
-
         NetworkServer.Spawn(instance);
         return instance;
     }

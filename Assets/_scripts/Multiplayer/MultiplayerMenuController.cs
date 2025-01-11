@@ -11,6 +11,10 @@ public class MultiplayerMenuController : MonoBehaviour
     private void Awake()
     {
         _loadingView.SetActive(false);
+        if (PlayerPrefs.HasKey("Nickname"))
+        {
+            _playerName.text = PlayerPrefs.GetString("Nickname");
+        }
     }
 
     public void StartHost()

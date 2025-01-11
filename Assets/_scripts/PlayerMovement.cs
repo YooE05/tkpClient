@@ -66,7 +66,7 @@ public class PlayerMovement : NetworkBehaviour
 
         if (!isLocalPlayer)
         {
-            _playerDebug.text = _ownNickName;
+            _playerDebug.text = _ownNickName; 
             CmdSetupName(_ownNickName);
             return;
         }

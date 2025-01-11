@@ -20,14 +20,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="42c626ed-59ab-4b2e-af77-3a0769a1da96" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.tkpClient/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.tkpClient/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.tkpClient/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.tkpClient/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/TrapSettings0.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/TrapSettings0.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_prefabs/GameScene/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_prefabs/GameScene/Player.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_scenes/GameTest.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scenes/GameTest.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_scenes/MenMultiplayer.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scenes/MenMultiplayer.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_scripts/Multiplayer/MultiplayerMenuController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/Multiplayer/MultiplayerMenuController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_scripts/Multiplayer/WorldInitializer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/Multiplayer/WorldInitializer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_scripts/PlayerInteraction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/PlayerInteraction.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_scripts/PlayerMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/PlayerMovement.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -79,10 +76,10 @@
         <option value="$PROJECT_DIR$/Assets/_scripts/Multiplayer/NetworkColorChanger.cs" />
         <option value="$PROJECT_DIR$/Assets/_scripts/Phrase.cs" />
         <option value="$PROJECT_DIR$/Assets/_scripts/ViewController.cs" />
-        <option value="$PROJECT_DIR$/Assets/_scripts/Multiplayer/MultiplayerMenuController.cs" />
         <option value="$PROJECT_DIR$/Assets/_scripts/PlayerInteraction.cs" />
         <option value="$PROJECT_DIR$/Assets/_scripts/Multiplayer/WorldInitializer.cs" />
         <option value="$PROJECT_DIR$/Assets/_scripts/PlayerMovement.cs" />
+        <option value="$PROJECT_DIR$/Assets/_scripts/Multiplayer/MultiplayerMenuController.cs" />
       </list>
     </option>
   </component>
@@ -117,10 +114,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="31604">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="31604" />
+      <option name="pid" />
       <option name="selectedOptions">
         <set />
       </option>
@@ -144,6 +141,7 @@
       <workItem from="1736516657850" duration="7380000" />
       <workItem from="1736530279638" duration="2739000" />
       <workItem from="1736533227489" duration="11505000" />
+      <workItem from="1736586836642" duration="2503000" />
     </task>
     <servers />
   </component>
@@ -314,26 +312,26 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/_scripts/Multiplayer/WorldInitializer.cs</url>
-          <line>226</line>
+          <line>225</line>
           <properties documentPath="C:\Unity\Projects\tkpClient\Assets\_scripts\Multiplayer\WorldInitializer.cs" initialLine="220">
             <startOffsets>
-              <option value="5754" />
+              <option value="5765" />
             </startOffsets>
             <endOffsets>
-              <option value="5774" />
+              <option value="5785" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="38" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/_scripts/Multiplayer/WorldInitializer.cs</url>
-          <line>372</line>
+          <line>371</line>
           <properties documentPath="C:\Unity\Projects\tkpClient\Assets\_scripts\Multiplayer\WorldInitializer.cs" initialLine="350">
             <startOffsets>
-              <option value="10516" />
+              <option value="10527" />
             </startOffsets>
             <endOffsets>
-              <option value="10536" />
+              <option value="10547" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="39" />
